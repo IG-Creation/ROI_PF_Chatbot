@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Lendy 🐱 — Executive Loan Pricing Cockpit & AI Companion</title>
+  <title>Lendy 🐱 — Smart Loan Pricing & Approval Assistant</title>
   <link rel="manifest" href="./manifest.json">
   <meta name="theme-color" content="#030712">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,14 +11,13 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <meta name="description" content="Lendy is an executive 3D loan pricing and deviation evaluation cockpit for credit managers and officers.">
+  <meta name="description" content="Lendy is your friendly 3D loan pricing and approval deviation assistant.">
 
   <style>
     /* ==========================================================================
-       VIBRANT PHONE WALLPAPER THEMES & COLOR SYSTEM (FEATURING USER'S IMAGES)
+       VIBRANT PHONE WALLPAPER THEMES & COLOR SYSTEM
        ========================================================================== */
     :root, [data-theme="cyber-circuit"] {
-      /* Theme 1: Cyber Circuit Motherboard (Exact match of User's Image 4) */
       --bg-base: #030712;
       --circuit-line: #00f0ff;
       --circuit-glow: rgba(0, 240, 255, 0.45);
@@ -49,7 +48,6 @@
     }
 
     [data-theme="alpine-night"] {
-      /* Theme 2: Midnight Alpine Moonlight (Exact match of User's Image 5) */
       --bg-base: #0b071a;
       --circuit-line: #c084fc;
       --circuit-glow: rgba(192, 132, 252, 0.45);
@@ -79,7 +77,6 @@
     }
 
     [data-theme="cosmic-nebula"] {
-      /* Theme 3: Deep Cosmic Nebula & Galaxy */
       --bg-base: #060114;
       --circuit-line: #a855f7;
       --circuit-glow: rgba(168, 85, 247, 0.45);
@@ -109,7 +106,6 @@
     }
 
     [data-theme="neo-tokyo"] {
-      /* Theme 4: Neo Tokyo Cyberpunk Skyline */
       --bg-base: #050714;
       --circuit-line: #f43f5e;
       --circuit-glow: rgba(244, 63, 94, 0.45);
@@ -139,7 +135,6 @@
     }
 
     [data-theme="sunset-gold"] {
-      /* Theme 5: Sunset Gold Obsidian Matrix */
       --bg-base: #0c0603;
       --circuit-line: #f59e0b;
       --circuit-glow: rgba(245, 158, 11, 0.45);
@@ -198,7 +193,7 @@
     }
 
     /* ==========================================================================
-       WALLPAPER BACKDROPS (FEATURING USER'S IMAGES)
+       WALLPAPER BACKDROPS
        ========================================================================== */
     .wallpaper-art {
       position: fixed;
@@ -209,7 +204,6 @@
       background: var(--bg-base);
     }
 
-    /* Wallpaper Layer 1: Cyber Circuit Motherboard (Image 4) */
     .circuit-bg-svg {
       position: absolute;
       inset: 0;
@@ -221,7 +215,6 @@
     }
     [data-theme="cyber-circuit"] .circuit-bg-svg { display: block; }
 
-    /* Wallpaper Layer 2: Midnight Alpine Moonlight (Image 5) */
     .alpine-bg-svg {
       position: absolute;
       inset: 0;
@@ -250,7 +243,7 @@
     }
 
     /* ==========================================================================
-       EXECUTIVE COCKPIT HEADER & PROGRESS TIMELINE
+       FRIENDLY HEADER & PROGRESS HUD
        ========================================================================== */
     .app-header {
       background: var(--panel-bg);
@@ -314,7 +307,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 11px;
+      font-size: 11.5px;
       color: var(--text-muted);
       white-space: nowrap;
       overflow: hidden;
@@ -331,8 +324,8 @@
       color: var(--accent-primary);
       border: 1px solid var(--border-line);
       font-weight: 700;
-      font-size: 10.5px;
-      max-width: 140px;
+      font-size: 11px;
+      max-width: 150px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -370,7 +363,6 @@
       transform: translateY(-1px);
     }
 
-    /* Executive Stepper Pipeline HUD */
     .cockpit-stepper-bar {
       display: flex;
       align-items: center;
@@ -418,7 +410,7 @@
     }
 
     /* ==========================================================================
-       EXECUTIVE COCKPIT INTERACTION FEED (BEYOND BASIC CHAT)
+       CONVERSATION FEED
        ========================================================================== */
     .chat-container {
       flex: 1;
@@ -449,7 +441,6 @@
       gap: 8px;
     }
 
-    /* Executive Question & Milestone Cards */
     .cockpit-card {
       background: var(--card-bg);
       border: 1px solid var(--border-line);
@@ -526,7 +517,6 @@
       font-weight: 700;
     }
 
-    /* User Response Confirm Pill */
     .user-confirm-row {
       display: flex;
       justify-content: flex-end;
@@ -548,9 +538,6 @@
       gap: 8px;
     }
 
-    /* ==========================================================================
-       ENTERTAINING 3D ACTION TILES & CHIPS
-       ========================================================================== */
     .cockpit-options-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -559,9 +546,7 @@
     }
 
     @media (max-width: 600px) {
-      .cockpit-options-grid {
-        grid-template-columns: 1fr;
-      }
+      .cockpit-options-grid { grid-template-columns: 1fr; }
     }
 
     .action-tile-3d {
@@ -584,10 +569,6 @@
       border-color: var(--border-glow);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px var(--circuit-glow);
-    }
-
-    .action-tile-3d:active {
-      transform: translateY(0);
     }
 
     .action-tile-3d.primary-glow {
@@ -623,7 +604,6 @@
       margin-top: 2px;
     }
 
-    /* Quick Reply Pill Chips */
     .chips-area {
       display: flex;
       flex-wrap: wrap;
@@ -666,7 +646,7 @@
     }
 
     /* ==========================================================================
-       MOBILE RESPONSIVE VERDICT & COMPARISON COCKPIT
+       VERDICT CARD & MOBILE PARAMETER CARDS
        ========================================================================== */
     .status-card {
       background: var(--panel-bg);
@@ -713,7 +693,6 @@
       margin-bottom: 8px;
     }
 
-    /* Comparison Table (Desktop View) */
     .comparison-table-wrapper {
       width: 100%;
       overflow-x: auto;
@@ -744,7 +723,6 @@
       text-align: right;
     }
 
-    /* Comparison Parameter Cards (Mobile View to prevent truncation) */
     .mobile-param-cards {
       display: none;
       padding: 12px;
@@ -872,7 +850,7 @@
     }
 
     /* ==========================================================================
-       AUTHENTIC 3D ROBOT CAT COMPANION (8 DISTINCT EMOTIONS & POSTURES)
+       3D ROBOT CAT COMPANION
        ========================================================================== */
     .companion-dock {
       position: fixed;
@@ -899,7 +877,6 @@
       }
     }
 
-    /* Holographic Base Pedestal Ring */
     .holo-pedestal {
       position: absolute;
       bottom: 2px;
@@ -928,7 +905,6 @@
       transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    /* Cat Speech Bubble */
     .companion-speech {
       position: absolute;
       bottom: 142px;
@@ -964,7 +940,6 @@
       border-color: var(--border-glow) transparent transparent;
     }
 
-    /* Cat Animations */
     @keyframes cat-idle-breathe {
       0%, 100% { transform: translateY(0) scaleY(1); }
       50% { transform: translateY(-3px) scaleY(1.02); }
@@ -990,7 +965,6 @@
     }
     .anim-core { transform-origin: 60px 88px; animation: reactor-pulse 1.8s infinite ease-in-out; }
 
-    /* Face Washing Motion */
     @keyframes paw-wash-face {
       0% { transform: translate(0, 0) rotate(0deg); }
       20% { transform: translate(-10px, -24px) rotate(-35deg); }
@@ -1004,7 +978,6 @@
       transform-origin: 78px 84px;
     }
 
-    /* Head tilts blissfully during face-wash */
     @keyframes head-tilt-wash {
       0%, 100% { transform: rotate(0deg); }
       50% { transform: rotate(6deg) translateY(-2px); }
@@ -1014,7 +987,6 @@
       transform-origin: 60px 48px;
     }
 
-    /* Cyber Visor Scanning HUD across eyes */
     @keyframes visor-scan {
       0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 6px #00f0ff); }
       50% { opacity: 1; filter: drop-shadow(0 0 12px #38bdf8); }
@@ -1024,7 +996,6 @@
       animation: visor-scan 1s infinite alternate;
     }
 
-    /* Laughing / Giggling Bounce */
     @keyframes cat-laugh-bounce {
       0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
       20% { transform: translateY(-7px) rotate(-4deg) scale(1.08); }
@@ -1034,7 +1005,6 @@
     }
     .laughing-now { animation: cat-laugh-bounce 0.65s infinite ease-in-out !important; }
 
-    /* Worried Alert Tremble */
     @keyframes cat-tremble {
       0%, 100% { transform: translate(0, 0); }
       20% { transform: translate(-2px, 1px); }
@@ -1046,7 +1016,6 @@
       animation: cat-tremble 0.3s infinite ease-in-out !important;
     }
 
-    /* 4 Legs vs 2 Legs Postures */
     .posture-4legs .torso-body { transform: translateY(10px) scaleY(0.9); transform-origin: center bottom; transition: transform 0.4s ease; }
     .posture-4legs .hind-standing-legs { opacity: 0; transition: opacity 0.3s; }
     .posture-4legs .hind-folded-legs { opacity: 1; transition: opacity 0.3s; }
@@ -1163,12 +1132,8 @@
 </head>
 <body>
 
-  <!-- ==========================================================================
-       DYNAMIC WALLPAPERS (CIRCUIT BOARD & MIDNIGHT ALPINE NIGHT)
-       ========================================================================== */
-  -->
+  <!-- Dynamic Wallpapers (Circuit & Alpine Night) -->
   <div class="wallpaper-art">
-    <!-- Theme 1: Cyber Circuit Motherboard (Image 4) -->
     <svg class="circuit-bg-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid slice">
       <defs>
         <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
@@ -1214,10 +1179,9 @@
       </g>
     </svg>
 
-    <!-- Theme 2: Midnight Alpine Moonlight (Exact match of User's Image 5) -->
+    <!-- Theme 2: Midnight Alpine Moonlight (User's Image) -->
     <svg class="alpine-bg-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <!-- Sky Gradient -->
         <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#0b071a"/>
           <stop offset="45%" stop-color="#1e1035"/>
@@ -1225,7 +1189,6 @@
           <stop offset="100%" stop-color="#e8a598"/>
         </linearGradient>
 
-        <!-- Moon Glow -->
         <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stop-color="#ffffff"/>
           <stop offset="40%" stop-color="#fdf4ff"/>
@@ -1233,7 +1196,6 @@
           <stop offset="100%" stop-color="#e9d5ff" stop-opacity="0"/>
         </radialGradient>
 
-        <!-- Mountain Shading -->
         <linearGradient id="mtnLit" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#f8c2b5"/>
           <stop offset="100%" stop-color="#d98c85"/>
@@ -1244,10 +1206,8 @@
         </linearGradient>
       </defs>
 
-      <!-- Night Sky -->
       <rect width="800" height="1200" fill="url(#skyGrad)"/>
 
-      <!-- Shining Stars & Shooting Star -->
       <g fill="#ffffff">
         <circle cx="220" cy="110" r="2.5" filter="drop-shadow(0 0 6px #ffffff)"/>
         <circle cx="540" cy="150" r="2"/>
@@ -1255,44 +1215,30 @@
         <circle cx="180" cy="450" r="1.5"/>
         <circle cx="700" cy="480" r="2"/>
         <circle cx="360" cy="220" r="1.8"/>
-        <!-- Shooting Star -->
         <line x1="60" y1="300" x2="20" y2="340" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
       </g>
 
-      <!-- Glowing Full Moon -->
       <circle cx="400" cy="340" r="42" fill="url(#moonGlow)"/>
       <circle cx="400" cy="340" r="24" fill="#ffffff" filter="drop-shadow(0 0 16px #ffffff)"/>
 
-      <!-- Majestic Mountain Peak -->
-      <!-- Shadowed Left Ridge -->
       <polygon points="400,480 120,880 400,880" fill="url(#mtnShadow)"/>
-      <!-- Moonlit Right Peak & Snow Face -->
       <polygon points="400,480 720,880 400,880" fill="url(#mtnLit)"/>
-      <!-- Snow Crevices -->
       <polygon points="400,480 420,540 380,590 440,650 390,720 460,880 400,880" fill="url(#mtnShadow)"/>
       <polygon points="360,520 380,540 350,580" fill="url(#mtnLit)"/>
       <polygon points="450,560 480,600 440,640" fill="#fdf2f8"/>
 
-      <!-- Forest Treeline Ridge (Midground) -->
       <path d="M0,820 Q200,800 400,860 Q600,800 800,820 L800,1200 L0,1200 Z" fill="#1b0e2b" opacity="0.8"/>
-
-      <!-- Foreground Sloping Ridges with Majestic Stag / Deer Silhouette -->
       <path d="M0,900 L400,990 L800,880 L800,1200 L0,1200 Z" fill="#0c0516"/>
 
-      <!-- Stag Silhouette Standing on the Ridge -->
       <g transform="translate(372, 915) scale(0.65)" fill="#06020c">
-        <!-- Antlers -->
         <path d="M24,10 Q28,-4 36,-14 Q38,-16 42,-14 Q40,-6 32,4 Z"/>
         <path d="M26,8 Q34,-2 46,-6 Q44,2 34,10 Z"/>
         <path d="M16,10 Q12,-4 4,-14 Q2,-16 -2,-14 Q0,-6 8,4 Z"/>
         <path d="M14,8 Q6,-2 -6,-6 Q-4,2 6,10 Z"/>
-        <!-- Head & Ears -->
         <polygon points="20,10 24,18 16,18"/>
         <ellipse cx="26" cy="14" rx="4" ry="2"/>
         <ellipse cx="14" cy="14" rx="4" ry="2"/>
-        <!-- Neck & Torso -->
         <path d="M16,18 L14,36 L8,42 L8,70 L28,70 L34,42 L24,36 L24,18 Z"/>
-        <!-- Legs -->
         <line x1="10" y1="70" x2="10" y2="95" stroke="#06020c" stroke-width="3"/>
         <line x1="16" y1="70" x2="16" y2="95" stroke="#06020c" stroke-width="3"/>
         <line x1="26" y1="70" x2="26" y2="95" stroke="#06020c" stroke-width="3"/>
@@ -1300,14 +1246,11 @@
       </g>
     </svg>
 
-    <!-- Bokeh Light Particles -->
     <div class="bokeh-light b1"></div>
     <div class="bokeh-light b2"></div>
   </div>
 
-  <!-- ==========================================================================
-       EXECUTIVE COCKPIT HEADER WITH CASE BADGE & STEPPER HUD
-       ========================================================================== -->
+  <!-- Header -->
   <header class="app-header">
     <div class="header-main-bar">
       <div class="header-left">
@@ -1316,7 +1259,7 @@
           <h1>Lendy AI</h1>
           <div class="header-sub-row">
             <span id="caseLiveBadge" class="case-live-badge">📋 Case: Unset</span>
-            <span id="langSubText">EN</span>
+            <span id="langSubText">English</span>
           </div>
         </div>
       </div>
@@ -1327,11 +1270,11 @@
           <span id="currentLangLabel">EN</span>
         </button>
 
-        <button class="theme-selector-btn" id="themeBtn" onclick="cycleWallpaperTheme()" title="Switch Phone Wallpaper">
+        <button class="theme-selector-btn" id="themeBtn" onclick="cycleWallpaperTheme()" title="Switch Wallpaper">
           <span id="themeEmoji">⚡</span>
         </button>
 
-        <button class="reset-btn" onclick="restartSession()" title="Restart Session">
+        <button class="reset-btn" onclick="restartSession()" title="Restart">
           <span>🔄</span>
         </button>
       </div>
@@ -1340,34 +1283,28 @@
     <!-- Stepper Pipeline HUD -->
     <div class="cockpit-stepper-bar">
       <div class="stepper-steps-track">
-        <div class="stepper-pill active" id="stepPill1" title="1. Case Profile"></div>
-        <div class="stepper-pill" id="stepPill2" title="2. Sanction Terms"></div>
-        <div class="stepper-pill" id="stepPill3" title="3. Financials & DTI"></div>
-        <div class="stepper-pill" id="stepPill4" title="4. Proposed Rates"></div>
-        <div class="stepper-pill" id="stepPill5" title="5. Final Decision"></div>
+        <div class="stepper-pill active" id="stepPill1" title="1. Details"></div>
+        <div class="stepper-pill" id="stepPill2" title="2. Terms"></div>
+        <div class="stepper-pill" id="stepPill3" title="3. Financials"></div>
+        <div class="stepper-pill" id="stepPill4" title="4. Proposed"></div>
+        <div class="stepper-pill" id="stepPill5" title="5. Verdict"></div>
       </div>
-      <div class="stepper-label-text" id="stepperStageLabel">1. Case Profile</div>
+      <div class="stepper-label-text" id="stepperStageLabel">1. Customer Profile</div>
     </div>
   </header>
 
-  <!-- ==========================================================================
-       EXECUTIVE INTERACTION FEED CONTAINER
-       ========================================================================== */
-  -->
+  <!-- Conversation Feed -->
   <main class="chat-container" id="chatContainer" aria-live="polite"></main>
 
   <!-- Quick Reply Tappable Chips -->
   <div class="chips-area" id="chipsArea" role="group" aria-label="Quick response options"></div>
 
-  <!-- ==========================================================================
-       3D ROBOT CAT COMPANION WITH 8 EMOTIONAL STATES & POSTURES
-       ========================================================================== */
-  -->
+  <!-- 3D Robot Cat Companion Stage -->
   <div class="companion-dock" id="companionDock">
     <div class="holo-pedestal"></div>
-    <div class="companion-speech" id="companionBubble">Ready to price! 🐾</div>
+    <div class="companion-speech" id="companionBubble">Ready to help! 🐾</div>
 
-    <div class="robot-cat-interactive anim-breathe posture-2legs" id="robotCat" onclick="catInteractedManually()" title="I'm Lendy! I automatically react, calculate, and make faces!">
+    <div class="robot-cat-interactive anim-breathe posture-2legs" id="robotCat" onclick="catInteractedManually()" title="I'm Lendy! I react to your inputs and make cute faces!">
       <svg viewBox="0 0 120 150" style="width: 100%; height: 100%; overflow: visible;">
         <defs>
           <linearGradient id="whiteCeramic" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1453,7 +1390,7 @@
             <circle cx="30" cy="105" r="2.5" fill="#38bdf8"/>
           </g>
 
-          <!-- Right Arm & Paw (Grooming / Washing Face / Gesturing) -->
+          <!-- Right Arm & Paw -->
           <g class="arm-right-paw" id="rightPawGroup">
             <path id="rightArmPath" d="M86,76 Q100,92 90,104" fill="none" stroke="url(#whiteCeramic)" stroke-width="8" stroke-linecap="round"/>
             <circle id="rightPawCirc" cx="90" cy="104" r="5.5" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
@@ -1510,19 +1447,19 @@
             <circle cx="75" cy="42" r="1.4" fill="#ffffff"/>
           </g>
 
-          <!-- Star Eyes for Celebration (★ . ★) -->
+          <!-- Star Eyes for Celebration -->
           <g id="eyesStarLayer" style="display: none;" fill="#fbbf24">
             <text x="40" y="44" font-size="16" font-weight="bold">★</text>
             <text x="66" y="44" font-size="16" font-weight="bold">★</text>
           </g>
 
-          <!-- Cyber Visor HUD (Calculating Matrix) -->
+          <!-- Cyber Visor HUD (Calculating) -->
           <g id="cyberVisor" style="display: none;">
             <rect x="36" y="30" width="48" height="16" rx="4" fill="rgba(0, 240, 255, 0.45)" stroke="#00f0ff" stroke-width="1.5"/>
             <line x1="40" y1="38" x2="80" y2="38" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4, 4"/>
           </g>
 
-          <!-- Cute Triangular Robot Nose -->
+          <!-- Cute Triangular Nose -->
           <polygon points="57,47 63,47 60,51" fill="#f43f5e"/>
 
           <!-- Friendly Animated Mouth / Jaw -->
@@ -1573,142 +1510,142 @@
   </footer>
 
   <!-- ==========================================================================
-       LOGIC, I18N, AND INTERACTIVE ENGINE
+       LOGIC, I18N, AND SOFT INTERACTIVE ENGINE
        ========================================================================== */
   -->
   <script>
     /* ==========================================================================
-       MULTI-LANGUAGE LOCALIZATION DICTIONARY
+       MULTI-LANGUAGE LOCALIZATION DICTIONARY (SOFT, CASUAL & FRIENDLY TONE)
        ========================================================================== */
     const I18N = {
       en: {
         code: "en", label: "English",
-        subtitle: "Executive Loan Pricing & Deviation Assistant",
-        stageNames: ["1. Case Profile", "2. Sanction Terms", "3. Financials & DTI", "4. Proposed Rates", "5. Final Decision"],
-        welcome: "👋 Hello Officer! I'm <strong>Lendy</strong>, your pricing & credit policy copilot.<br><br>Let's evaluate current sanctioned terms against benchmark matrix policy, compute precise EMI & DTI deviations, and determine approver authority.<br><br><strong>What is the customer name or case reference?</strong>",
-        askProduct: "Which <strong>Loan Product</strong> is under review for",
-        askIncomeProg: "Under which <strong>Income Program</strong> is this loan assessed?",
-        askProperty: "What is the <strong>Property Type</strong> mortgaged?",
-        askBureau: "What is the borrower's <strong>Bureau Category</strong>?",
-        askSancAmount: "What is the <strong>Current Sanctioned Loan Amount</strong>?",
-        askSancTenure: "What is the <strong>Current Sanctioned Tenure</strong>?",
-        askSancRoi: "What is the <strong>Current Sanctioned ROI (% p.a.)</strong>?",
-        askSancPf: "What is the <strong>Current Sanctioned Processing Fee (PF %)</strong>?",
-        askIncomeFreq: "How would you like to enter the borrower's gross earnings?",
+        subtitle: "Loan Pricing & Approval Assistant",
+        stageNames: ["1. Customer Profile", "2. Loan Terms", "3. Income & DTI", "4. Proposed Rates", "5. Approval Verdict"],
+        welcome: "Hey there! 🐱 I'm <strong>Lendy</strong>, your friendly loan pricing assistant.<br><br>I'll help you check base benchmark rates, calculate EMIs, and see what approval is needed if there are any rate concessions.<br><br>Let's get started — <strong>who is this loan for?</strong> (Enter customer name or proposal reference)",
+        askProduct: "Which loan product are we checking for",
+        askIncomeProg: "What income program is the borrower applying under?",
+        askProperty: "What property type is being mortgaged?",
+        askBureau: "What is their credit bureau category?",
+        askSancAmount: "What loan amount are we looking at?",
+        askSancTenure: "And what loan tenure (in months or years)?",
+        askSancRoi: "What is the currently sanctioned interest rate (ROI % per year)?",
+        askSancPf: "And what is the sanctioned processing fee (PF %)?",
+        askIncomeFreq: "How would you like to enter their earnings — Monthly or Yearly?",
         askIncomeAmount: "Enter gross earnings amount for",
-        askExistingEmis: "What are the borrower's <strong>total existing monthly EMIs / obligations</strong>? (0 if none)",
-        sancStatusTitle: "📊 Current Sanctioned Status & Policy Benchmarks",
-        sancEmiLabel: "Current Sanctioned EMI",
+        askExistingEmis: "Do they have any existing monthly loan EMIs? (Enter 0 if none):",
+        sancStatusTitle: "📊 Benchmark Base Rates & Current Status",
+        sancEmiLabel: "Sanctioned EMI",
         currentDtiLabel: "Current DTI Ratio",
-        baseRoiLabel: "Matrix Base ROI",
-        basePfLabel: "Matrix Base PF",
-        askReqRoi: "What is the borrower's <strong>Requested ROI (% p.a.)</strong>?",
-        askReqPf: "What is the borrower's <strong>Requested Processing Fee (PF %)</strong>?",
-        floorWarningRoi: "⚠️ Policy Floor Alert: Any Requested ROI < 15.0% mandates CEO approval.",
-        floorWarningPf: "⚠️ Policy Floor Alert: Any Requested PF < 1.5% mandates CEO approval.",
-        evalTitle: "🎯 Comprehensive Deviation & Approval Assessment",
+        baseRoiLabel: "Benchmark Base ROI",
+        basePfLabel: "Benchmark Base PF",
+        askReqRoi: "What requested interest rate (ROI % p.a.) is being asked for?",
+        askReqPf: "What requested processing fee (PF %) is being asked for?",
+        floorWarningRoi: "💡 Reminder: Per policy floor, any Requested ROI below 15.0% mandates CEO approval.",
+        floorWarningPf: "💡 Reminder: Per policy floor, any Requested PF below 1.5% mandates CEO approval.",
+        evalTitle: "🎯 Pricing & Approval Verdict",
         btnTryRates: "Try different Requested ROI/PF",
         btnNewCase: "Evaluate new customer",
-        floorAlert: "🏛️ MANDATORY POLICY FLOOR BREACH TRIGGERED (CEO APPROVAL)",
+        floorAlert: "🏛️ POLICY FLOOR RULE TRIGGERED (CEO APPROVAL REQUIRED)",
         dtiAlertTitle: "⚠️ Prudent DTI Alert (>50%)",
-        tableHeader: ["Parameter", "Matrix Benchmark", "Current Sanctioned", "Proposed Requested", "Deviation / Status"],
+        tableHeader: ["Parameter", "Benchmark Base", "Sanctioned Rate", "Proposed Rate", "Concession / Approver"],
         monthly: "Monthly", annual: "Annual"
       },
       hi: {
         code: "hi", label: "हिंदी",
-        subtitle: "ऋण मूल्य निर्धारण एवं विचलन मूल्यांकन सहायक",
-        stageNames: ["1. केस विवरण", "2. स्वीकृत शर्तें", "3. आय एवं डीटीआई", "4. प्रस्तावित दरें", "5. अंतिम निर्णय"],
-        welcome: "👋 नमस्ते ऑफिसर! मैं <strong>लेंडी (Lendy)</strong> हूँ, आपका ऋण मूल्य निर्धारण एवं नीति अनुमोदन सहायक।<br><br>आइए स्वीकृत बनाम अनुरोधित ऋण शर्तों का मूल्यांकन करें, 56-पंक्ति मैट्रिक्स जांचें और ईएमआई तथा डीटीआई की सटीक गणना करें।<br><br><strong>ग्राहक का नाम या केस संदर्भ (Reference) क्या है?</strong>",
-        askProduct: "के लिए कौन सा <strong>ऋण उत्पाद (Loan Product)</strong> चुनना चाहते हैं:",
-        askIncomeProg: "यह ऋण किस <strong>आय कार्यक्रम (Income Program)</strong> के तहत मूल्यांकित है?",
-        askProperty: "बंधक रखी गई <strong>संपत्ति का प्रकार (Property Type)</strong> क्या है?",
-        askBureau: "उधारकर्ता की <strong>ब्यूरो श्रेणी (Bureau Category)</strong> क्या है?",
-        askSancAmount: "वर्तमान <strong>स्वीकृत ऋण राशि (Sanctioned Loan Amount)</strong> कितनी है?",
-        askSancTenure: "वर्तमान <strong>स्वीकृत अवधि (Sanctioned Tenure)</strong> कितनी है?",
-        askSancRoi: "वर्तमान <strong>स्वीकृत ब्याज दर (Sanctioned ROI % p.a.)</strong> क्या है?",
-        askSancPf: "वर्तमान <strong>स्वीकृत प्रोसेसिंग शुल्क (Sanctioned PF %)</strong> क्या है?",
-        askIncomeFreq: "उधारकर्ता की कुल आय कैसे दर्ज करना चाहते हैं?",
+        subtitle: "लोन प्राइसिंग एवं अप्रूवल सहायक",
+        stageNames: ["1. ग्राहक विवरण", "2. लोन शर्तें", "3. आय एवं डीटीआई", "4. प्रस्तावित दरें", "5. अप्रूवल निर्णय"],
+        welcome: "नमस्ते! 🐱 मैं <strong>लेंडी (Lendy)</strong> हूँ, आपका लोन प्राइसिंग साथी।<br><br>मैं आपकी बेस ब्याज दरें जांचने, ईएमआई की गणना करने और आवश्यक अप्रूवल जानने में मदद करूँगा।<br><br>शुरू करने के लिए, **ग्राहक का नाम या केस रेफरेंस क्या है?**",
+        askProduct: "के लिए कौन सा लोन चुनना चाहते हैं:",
+        askIncomeProg: "यह लोन किस आय कार्यक्रम (Income Program) के तहत है?",
+        askProperty: "बंधक रखी गई संपत्ति का प्रकार क्या है?",
+        askBureau: "उधारकर्ता की ब्यूरो श्रेणी क्या है?",
+        askSancAmount: "स्वीकृत ऋण राशि (Loan Amount) कितनी है?",
+        askSancTenure: "ऋण अवधि (Tenure) कितनी है?",
+        askSancRoi: "स्वीकृत ब्याज दर (ROI % p.a.) क्या है?",
+        askSancPf: "स्वीकृत प्रोसेसिंग शुल्क (PF %) क्या है?",
+        askIncomeFreq: "आय कैसे दर्ज करना चाहते हैं?",
         askIncomeAmount: "सकल आय दर्ज करें:",
-        askExistingEmis: "उधारकर्ता की <strong>कुल मौजूदा मासिक ईएमआई / देयताएं</strong> कितनी हैं? (यदि कोई नहीं तो 0)",
-        sancStatusTitle: "📊 वर्तमान स्वीकृत स्थिति एवं नीति बेंचमार्क",
+        askExistingEmis: "कुल मौजूदा मासिक ईएमआई कितनी हैं? (यदि कोई नहीं तो 0):",
+        sancStatusTitle: "📊 बेंचमार्क बेस दरें एवं वर्तमान स्थिति",
         sancEmiLabel: "स्वीकृत ईएमआई",
-        currentDtiLabel: "मौजूदा डीटीआई अनुपात",
-        baseRoiLabel: "मैट्रिक्स बेस आरओआई",
-        basePfLabel: "मैट्रिक्स बेस पीएफ",
-        askReqRoi: "उधारकर्ता द्वारा <strong>अनुरोधित ब्याज दर (Requested ROI % p.a.)</strong> क्या है?",
-        askReqPf: "उधारकर्ता द्वारा <strong>अनुरोधित प्रोसेसिंग शुल्क (Requested PF %)</strong> क्या है?",
-        floorWarningRoi: "⚠️ ध्यान दें: नीतिगत न्यूनतम सीमा के अनुसार, 15% से कम ROI के लिए CEO अनुमोदन अनिवार्य है।",
-        floorWarningPf: "⚠️ ध्यान दें: नीतिगत न्यूनतम सीमा के अनुसार, 1.5% से कम PF के लिए CEO अनुमोदन अनिवार्य है।",
-        evalTitle: "🎯 संपूर्ण विचलन एवं अनुमोदन मूल्यांकन रिपोर्ट",
+        currentDtiLabel: "मौजूदा डीटीआई",
+        baseRoiLabel: "बेंचमार्क बेस ROI",
+        basePfLabel: "बेंचमार्क बेस PF",
+        askReqRoi: "अनुरोधित ब्याज दर (Requested ROI % p.a.) क्या है?",
+        askReqPf: "अनुरोधित प्रोसेसिंग शुल्क (Requested PF %) क्या है?",
+        floorWarningRoi: "💡 ध्यान दें: 15% से कम ROI के लिए CEO अनुमोदन अनिवार्य है।",
+        floorWarningPf: "💡 ध्यान दें: 1.5% से कम PF के लिए CEO अनुमोदन अनिवार्य है।",
+        evalTitle: "🎯 संपूर्ण विचलन एवं अनुमोदन रिपोर्ट",
         btnTryRates: "अन्य ROI/PF दरें जांचें",
         btnNewCase: "नया केस दर्ज करें",
-        floorAlert: "🏛️ नीतिगत न्यूनतम सीमा उल्लंघन (CEO अनुमोदन अनिवार्य)",
+        floorAlert: "🏛️ न्यूनतम सीमा नियम (CEO अनुमोदन अनिवार्य)",
         dtiAlertTitle: "⚠️ उच्च डीटीआई चेतावनी (>50%)",
-        tableHeader: ["पैरामीटर", "मैट्रिक्स बेंचमार्क", "वर्तमान स्वीकृत", "प्रस्तावित अनुरोध", "विचलन / प्राधिकारी"],
+        tableHeader: ["पैरामीटर", "बेंचमार्क बेस", "स्वीकृत दर", "प्रस्तावित दर", "विचलन / प्राधिकारी"],
         monthly: "मासिक", annual: "वार्षिक"
       },
       gu: {
         code: "gu", label: "ગુજરાતી",
-        subtitle: "લોન પ્રાઇસિંગ અને મંજૂરી સહાયક AI",
-        stageNames: ["1. કેસ પ્રોફાઇલ", "2. મંજૂર શરતો", "3. આવક અને DTI", "4. માંગણી કરેલ દરો", "5. અંતિમ નિર્ણય"],
-        welcome: "👋 નમસ્તે ઓફિસર! હું <strong>લેન્ડી (Lendy)</strong> છું, તમારો લોન પ્રાઇસિંગ અને પોલિસી એપ્રૂવલ સહાયક.<br><br>ચાલો મંજૂર અને માંગણી કરેલ લોન શરતોનું મૂલ્યાંકન કરીએ અને સચોટ EMI અને DTI ની ગણતરી કરીએ.<br><br><strong>ગ્રાહકનું નામ અથવા કેસ રેફરન્સ શું છે?</strong>",
-        askProduct: "માટે કયું <strong>લોન પ્રોડક્ટ</strong> પસંદ કરશો?",
-        askIncomeProg: "આ લોન કયા <strong>ઇન્કમ પ્રોગ્રામ</strong> હેઠળ છે?",
-        askProperty: "મિલકતનો પ્રકાર <strong>(Property Type)</strong> શું છે?",
-        askBureau: "ઉધાર લેનારની <strong>બ્યુરો કેટેગરી</strong> શું છે?",
-        askSancAmount: "હાલમાં <strong>મંજૂર કરેલ લોનની રકમ (Sanctioned Amount)</strong> કેટલી છે?",
-        askSancTenure: "હાલની <strong>મંજૂર મુદત (Sanctioned Tenure)</strong> કેટલી છે?",
-        askSancRoi: "હાલનો <strong>મંજૂર વ્યાજ દર (Sanctioned ROI % p.a.)</strong> કેટલો છે?",
-        askSancPf: "હાલની <strong>મંજૂર પ્રોસેસિંગ ફી (Sanctioned PF %)</strong> કેટલી છે?",
+        subtitle: "લોન પ્રાઇસિંગ અને મંજૂરી સહાયક",
+        stageNames: ["1. ગ્રાહક વિગત", "2. લોન શરતો", "3. આવક અને DTI", "4. માંગણી કરેલ દરો", "5. અંતિમ મંજૂરી"],
+        welcome: "નમસ્તે! 🐱 હું <strong>લેન્ડી (Lendy)</strong> છું, તમારો લોન પ્રાઇસિંગ મિત્ર.<br><br>ચાલો બેઝ રેટ તપાસીએ, EMI ગણીએ અને કોઈ ડિસ્કાઉન્ટ માટે કઈ મંજૂરી જોઈશે તે જાણીએ.<br><br>શરૂ કરવા માટે, **ગ્રાહકનું નામ અથવા રેફરન્સ શું છે?**",
+        askProduct: "માટે કયું લોન પ્રોડક્ટ પસંદ કરશો?",
+        askIncomeProg: "આ લોન કયા ઇન્કમ પ્રોગ્રામ હેઠળ છે?",
+        askProperty: "મિલકતનો પ્રકાર શું છે?",
+        askBureau: "ઉધાર લેનારની બ્યુરો કેટેગરી શું છે?",
+        askSancAmount: "મંજૂર કરેલ લોનની રકમ કેટલી છે?",
+        askSancTenure: "મંજૂર મુદત કેટલી છે?",
+        askSancRoi: "મંજૂર વ્યાજ દર (ROI % p.a.) કેટલો છે?",
+        askSancPf: "મંજૂર પ્રોસેસિંગ ફી (PF %) કેટલી છે?",
         askIncomeFreq: "કુલ આવક કેવી રીતે દાખલ કરવા માંગો છો?",
         askIncomeAmount: "આવક દાખલ કરો:",
-        askExistingEmis: "ઉધાર લેનારની <strong>હાલની કુલ માસિક EMI</strong> કેટલી છે? (ન હોય તો 0)",
-        sancStatusTitle: "📊 વર્તમાન મંજૂર સ્થિતિ અને પોલિસી બેન્ચમાર્ક",
-        sancEmiLabel: "મંજૂર માસિક EMI",
-        currentDtiLabel: "હાલનો DTI રેશિયો",
-        baseRoiLabel: "મેટ્રિક્સ બેઝ ROI",
-        basePfLabel: "મેટ્રિક્સ બેઝ PF",
-        askReqRoi: "ગ્રાહક દ્વારા <strong>માંગણી કરેલ વ્યાજ દર (Requested ROI % p.a.)</strong> શું છે?",
-        askReqPf: "ગ્રાહક દ્વારા <strong>માંગણી કરેલ પ્રોસેસિંગ ફી (Requested PF %)</strong> શું છે?",
-        floorWarningRoi: "⚠️ નોંધ: પોલિસી મુજબ, 15% કરતા ઓછી ROI માટે CEO મંજૂરી ફરજિયાત છે.",
-        floorWarningPf: "⚠️ નોંધ: પોલિસી મુજબ, 1.5% કરતા ઓછી PF માટે CEO મંજૂરી ફરજિયાત છે.",
-        evalTitle: "🎯 સંપૂર્ણ વિચલન અને મંજૂરી અહેવાલ",
+        askExistingEmis: "હાલની કુલ માસિક EMI કેટલી છે? (ન હોય તો 0):",
+        sancStatusTitle: "📊 બેન્ચમાર્ક બેઝ દરો અને વર્તમાન સ્થિતિ",
+        sancEmiLabel: "મંજૂર EMI",
+        currentDtiLabel: "હાલનો DTI",
+        baseRoiLabel: "બેઝ ROI",
+        basePfLabel: "બેઝ PF",
+        askReqRoi: "માંગણી કરેલ વ્યાજ દર (Requested ROI % p.a.) શું છે?",
+        askReqPf: "માંગણી કરેલ પ્રોસેસિંગ ફી (Requested PF %) શું છે?",
+        floorWarningRoi: "💡 નોંધ: 15% કરતા ઓછી ROI માટે CEO મંજૂરી ફરજિયાત છે.",
+        floorWarningPf: "💡 નોંધ: 1.5% કરતા ઓછી PF માટે CEO મંજૂરી ફરજિયાત છે.",
+        evalTitle: "🎯 સંપૂર્ણ મંજૂરી અહેવાલ",
         btnTryRates: "અન્ય ROI/PF દરો ચકાસો",
         btnNewCase: "નવો કેસ દાખલ કરો",
-        floorAlert: "🏛️ પોલિસી ફ્લોર ઉલ્લંઘન (CEO મંજૂરી ફરજિયાત)",
+        floorAlert: "🏛️ પોલિસી ફ્લોર નિયમ (CEO મંજૂરી ફરજિયાત)",
         dtiAlertTitle: "⚠️ ઊંચો DTI રેશિયો (>50%)",
-        tableHeader: ["પરિમાણ", "મેટ્રિક્સ બેન્ચમાર્ક", "હાલ મંજૂર", "પ્રસ્તાવિત માંગણી", "વિચલન / મંજૂરી"],
+        tableHeader: ["પરિમાણ", "બેન્ચમાર્ક બેઝ", "હાલ મંજૂર", "પ્રસ્તાવિત દર", "વિચલન / મંજૂરી"],
         monthly: "માસિક", annual: "વાર્ષિક"
       },
       ml: {
         code: "ml", label: "മലയാളം",
         subtitle: "ലോൺ പ്രൈസിംഗ് & അപ്രൂവൽ അസിസ്റ്റന്റ്",
-        stageNames: ["1. കേസ് പ്രൊഫൈൽ", "2. അനുവദിച്ച വ്യവസ്ഥകൾ", "3. വരുമാനവും DTI യും", "4. ആവശ്യപ്പെട്ട നിരക്കുകൾ", "5. അന്തിമ തീരുമാനം"],
-        welcome: "👋 നമസ്കാരം ഓഫീസർ! ഞാൻ <strong>ലെൻഡി (Lendy)</strong>. നിങ്ങളുടെ ലോൺ പ്രൈസിംഗ് അസിസ്റ്റന്റ്.<br><br>നമുക്ക് അനുവദിച്ചതും ആവശ്യപ്പെട്ടതുമായ ലോൺ നിബന്ധനകൾ താരതമ്യം ചെയ്ത് ശരിയായ ഇ.എം.ഐ, ഡി.ടി.ഐ എന്നിവ കണക്കാക്കാം.<br><br><strong>ഉപഭോക്താവിന്റെ പേര് അല്ലെങ്കിൽ കേസ് റഫറൻസ് നൽകുക:</strong>",
-        askProduct: "തിരഞ്ഞെടുക്കേണ്ട <strong>ലോൺ പ്രൊഡക്റ്റ്</strong> ഏതാണ്:",
-        askIncomeProg: "ഏത് <strong>ഇൻകം പ്രോഗ്രാം</strong> പ്രകാരമാണ് വിലയിരുത്തുന്നത്?",
-        askProperty: "പണയപ്പെടുത്തുന്ന <strong>വസ്തുവിന്റെ തരം (Property Type)</strong> ഏതാണ്?",
-        askBureau: "കടം വാങ്ങുന്നയാളുടെ <strong>ബ്യൂറോ കാറ്റഗറി</strong> എന്താണ്?",
-        askSancAmount: "നിലവിൽ <strong>അനുവദിച്ച ലോൺ തുക (Sanctioned Amount)</strong> എത്രയാണ്?",
-        askSancTenure: "നിലവിൽ <strong>അനുവദിച്ച കാലാവധി (Sanctioned Tenure)</strong> എത്രയാണ്?",
-        askSancRoi: "നിലവിൽ <strong>അനുവദിച്ച പലിശ നിരക്ക് (Sanctioned ROI % p.a.)</strong> എത്രയാണ്?",
-        askSancPf: "നിലവിൽ <strong>അനുവദിച്ച പ്രോസസ്സിംഗ് ഫീസ് (Sanctioned PF %)</strong> എത്രയാണ്?",
+        stageNames: ["1. ഉപഭോക്തൃ വിവരങ്ങൾ", "2. ലോൺ നിബന്ധനകൾ", "3. വരുമാനം & DTI", "4. നിർദ്ദേശിച്ച നിരക്കുകൾ", "5. അന്തിമ തീരുമാനം"],
+        welcome: "ഹലോ! 🐱 ഞാൻ <strong>ലെൻഡി (Lendy)</strong>, നിങ്ങളുടെ ലോൺ പ്രൈസിംഗ് അസിസ്റ്റന്റ്.<br><br>ലോൺ നിരക്കുകൾ പരിശോധിക്കാനും കൃത്യമായ ഇ.എം.ഐ, ഡി.ടി.ഐ എന്നിവ കണക്കാക്കാനും സഹായിക്കാം.<br><br>തുടങ്ങാൻ, **ഉപഭോക്താവിന്റെ പേര് അല്ലെങ്കിൽ റഫറൻസ് നൽകുക:**",
+        askProduct: "തിരഞ്ഞെടുക്കേണ്ട ലോൺ പ്രൊഡക്റ്റ് ഏതാണ്:",
+        askIncomeProg: "ഏത് ഇൻകം പ്രോഗ്രാം പ്രകാരമാണ് വിലയിരുത്തുന്നത്?",
+        askProperty: "പണയപ്പെടുത്തുന്ന വസ്തുവിന്റെ തരം ഏതാണ്?",
+        askBureau: "കടം വാങ്ങുന്നയാളുടെ ബ്യൂറോ കാറ്റഗറി എന്താണ്?",
+        askSancAmount: "അനുവദിച്ച ലോൺ തുക എത്രയാണ്?",
+        askSancTenure: "അനുവദിച്ച കാലാവധി എത്രയാണ്?",
+        askSancRoi: "അനുവദിച്ച പലിശ നിരക്ക് (ROI % p.a.) എത്രയാണ്?",
+        askSancPf: "അനുവദിച്ച പ്രോസസ്സിംഗ് ഫീസ് (PF %) എത്രയാണ്?",
         askIncomeFreq: "വരുമാനം എങ്ങനെ രേഖപ്പെടുത്തണം?",
         askIncomeAmount: "മൊത്തം വരുമാനം നൽകുക:",
-        askExistingEmis: "നിലവിലുള്ള <strong>പ്രതിമാസ ബാധ്യതകൾ / EMI</strong> എത്രയാണ്? (ഇല്ലെങ്കിൽ 0)",
-        sancStatusTitle: "📊 നിലവിൽ അനുവദിച്ച നിബന്ധനകളും പോളിസി ബെഞ്ച്മാർക്കും",
+        askExistingEmis: "നിലവിലുള്ള പ്രതിമാസ EMI എത്രയാണ്? (ഇല്ലെങ്കിൽ 0):",
+        sancStatusTitle: "📊 പോളിസി ബെഞ്ച്മാർക്കും നിലവിലെ സ്ഥിതിയും",
         sancEmiLabel: "അനുവദിച്ച EMI",
-        currentDtiLabel: "നിലവിലെ DTI അനുപാതം",
-        baseRoiLabel: "പോളിസി ബേസ് ROI",
-        basePfLabel: "പോളിസി ബേസ് PF",
-        askReqRoi: "ആവശ്യപ്പെട്ട <strong>പലിശ നിരക്ക് (Requested ROI % p.a.)</strong> എത്രയാണ്?",
-        askReqPf: "ആവശ്യപ്പെട്ട <strong>പ്രോസസ്സിംഗ് ഫീസ് (Requested PF %)</strong> എത്രയാണ്?",
-        floorWarningRoi: "⚠️ ശ്രദ്ധിക്കുക: പോളിസി പ്രകാരം 15% താഴെയുള്ള ROI-ക്ക് CEO അംഗീകാരം നിർബന്ധമാണ്.",
-        floorWarningPf: "⚠️ ശ്രദ്ധിക്കുക: പോളിസി പ്രകാരം 1.5% താഴെയുള്ള PF-ന് CEO അംഗീകാരം നിർബന്ധമാണ്.",
-        evalTitle: "🎯 പൂർണ്ണ ഡീവിയേഷൻ & അപ്രൂവൽ റിപ്പോർട്ട്",
+        currentDtiLabel: "നിലവിലെ DTI",
+        baseRoiLabel: "ബേസ് ROI",
+        basePfLabel: "ബേസ് PF",
+        askReqRoi: "ആവശ്യപ്പെട്ട പലിശ നിരക്ക് (Requested ROI % p.a.) എത്രയാണ്?",
+        askReqPf: "ആവശ്യപ്പെട്ട പ്രോസസ്സിംഗ് ഫീസ് (Requested PF %) എത്രയാണ്?",
+        floorWarningRoi: "💡 ശ്രദ്ധിക്കുക: 15% താഴെയുള്ള ROI-ക്ക് CEO അംഗീകാരം നിർബന്ധമാണ്.",
+        floorWarningPf: "💡 ശ്രദ്ധിക്കുക: 1.5% താഴെയുള്ള PF-ന് CEO അംഗീകാരം നിർബന്ധമാണ്.",
+        evalTitle: "🎯 പൂർണ്ണ അപ്രൂവൽ റിപ്പോർട്ട്",
         btnTryRates: "മറ്റ് നിരക്കുകൾ പരിശോധിക്കുക",
         btnNewCase: "പുതിയ കേസ് രേഖപ്പെടുത്തുക",
-        floorAlert: "🏛️ പോളിസി ഫ്ലോർ ലംഘനം (CEO അംഗീകാരം നിർബന്ധം)",
+        floorAlert: "🏛️ പോളിസി ഫ്ലോർ നിയമം (CEO അംഗീകാരം നിർബന്ധം)",
         dtiAlertTitle: "⚠️ ഉയർന്ന DTI മുന്നറിയിപ്പ് (>50%)",
         tableHeader: ["പരാമീറ്റർ", "പോളിസി ബെഞ്ച്മാർക്ക്", "നിലവിൽ അനുവദിച്ചത്", "നിർദ്ദേശിച്ചത്", "ഡീവിയേഷൻ / അതോറിറ്റി"],
         monthly: "പ്രതിമാസം", annual: "വാർഷികം"
@@ -1737,7 +1674,7 @@
     }
 
     /* ==========================================================================
-       WALLPAPER THEME ENGINE (FEATURING USER'S IMAGES)
+       WALLPAPER THEME ENGINE
        ========================================================================== */
     const WALLPAPER_THEMES = [
       { id: "cyber-circuit", name: "Cyber Circuit", emoji: "⚡" },
@@ -1757,9 +1694,6 @@
       companionSpeech(`Wallpaper: ${theme.name}! 🎨`, 2000);
     }
 
-    /* ==========================================================================
-       STEPPER TIMELINE HUD UPDATER
-       ========================================================================== */
     function updateStepperUI() {
       const stageMap = {
         CASE_NAME: 1, PRODUCT: 1, INCOME_PROGRAM: 1, PROPERTY_TYPE: 1, BUREAU: 1,
@@ -1787,12 +1721,12 @@
 
       const caseBadge = document.getElementById("caseLiveBadge");
       if (caseBadge) {
-        caseBadge.textContent = session.caseName ? `📋 Ref: ${session.caseName}` : "📋 Case: Unset";
+        caseBadge.textContent = session.caseName ? `📋 ${session.caseName}` : "📋 Case: Unset";
       }
     }
 
     /* ==========================================================================
-       BUSINESS RULES & 56-ROW POLICY MATRIX CONFIG
+       BUSINESS RULES & BENCHMARK MATRIX CONFIG
        ========================================================================== */
     const CONFIG = {
       APP_NAME: "Lendy Loan Pricing & Approval Assistant",
@@ -1875,7 +1809,7 @@
     };
 
     /* ==========================================================================
-       PURE FINANCIAL & APPROVAL LOGIC FUNCTIONS
+       EXACT FINANCIAL, EMI, DTI & APPROVAL CONCESSION LOGIC
        ========================================================================== */
     function lookupBaseRates(product, ticket, incomeProg, propType, bureau) {
       const match = CONFIG.MATRIX.find(m =>
@@ -1911,53 +1845,99 @@
       };
     }
 
+    /*
+     * APPROVAL RULES:
+     * - roiDrop = Base ROI - Requested ROI
+     * - pfDrop  = Base PF  - Requested PF
+     *
+     * Approver tiers for ROI:
+     *   - roiDrop <= 0 -> NONE (meets/exceeds base rate)
+     *   - roiDrop <= 2.0 -> CBO
+     *   - roiDrop > 2.0 and <= 4.0 -> COO
+     *   - roiDrop > 4.0 -> CEO
+     *
+     * Approver tiers for PF:
+     *   - pfDrop <= 0 -> NONE (meets/exceeds base fee)
+     *   - pfDrop <= 1.0 -> CBO
+     *   - pfDrop > 1.0 and <= 1.5 -> COO
+     *   - pfDrop > 1.5 -> CEO
+     *
+     * Hard Floor Rules:
+     *   - If requested ROI < 15.0% -> CEO by default
+     *   - If requested PF < 1.5%   -> CEO by default
+     *
+     * Final Authority:
+     *   - Higher authority governs (CEO > COO > CBO > NONE)
+     */
     function evaluateApproval(baseRoi, reqRoi, basePf, reqPf) {
       const tol = CONFIG.ROUNDING_TOLERANCE;
-      const roiDev = baseRoi - reqRoi;
-      const pfDev = basePf - reqPf;
+      const roiDrop = parseFloat((baseRoi - reqRoi).toFixed(4));
+      const pfDrop  = parseFloat((basePf - reqPf).toFixed(4));
 
+      const isRoiFloor = reqRoi < (CONFIG.ROI_FLOOR_PERCENT - tol);
+      const isPfFloor  = reqPf  < (CONFIG.PF_FLOOR_PERCENT - tol);
+
+      // ROI tier
       let roiApprover = CONFIG.APPROVERS.NONE;
-      if (reqRoi < CONFIG.ROI_FLOOR_PERCENT - tol) {
+      if (isRoiFloor) {
         roiApprover = CONFIG.APPROVERS.CEO;
-      } else if (roiDev > tol) {
-        if (roiDev <= 2.0 + tol) roiApprover = CONFIG.APPROVERS.CBO;
-        else if (roiDev <= 4.0 + tol) roiApprover = CONFIG.APPROVERS.COO;
-        else roiApprover = CONFIG.APPROVERS.CEO;
+      } else if (roiDrop > tol) {
+        if (roiDrop <= 2.0 + tol) {
+          roiApprover = CONFIG.APPROVERS.CBO;
+        } else if (roiDrop <= 4.0 + tol) {
+          roiApprover = CONFIG.APPROVERS.COO;
+        } else {
+          roiApprover = CONFIG.APPROVERS.CEO;
+        }
       }
 
+      // PF tier
       let pfApprover = CONFIG.APPROVERS.NONE;
-      if (reqPf < CONFIG.PF_FLOOR_PERCENT - tol) {
+      if (isPfFloor) {
         pfApprover = CONFIG.APPROVERS.CEO;
-      } else if (pfDev > tol) {
-        if (pfDev <= 1.0 + tol) pfApprover = CONFIG.APPROVERS.CBO;
-        else if (pfDev <= 1.5 + tol) pfApprover = CONFIG.APPROVERS.COO;
-        else pfApprover = CONFIG.APPROVERS.CEO;
+      } else if (pfDrop > tol) {
+        if (pfDrop <= 1.0 + tol) {
+          pfApprover = CONFIG.APPROVERS.CBO;
+        } else if (pfDrop <= 1.5 + tol) {
+          pfApprover = CONFIG.APPROVERS.COO;
+        } else {
+          pfApprover = CONFIG.APPROVERS.CEO;
+        }
       }
 
+      // Final highest authority
       const finalLevel = Math.max(roiApprover.level, pfApprover.level);
       let finalApprover = CONFIG.APPROVERS.NONE;
       if (finalLevel === 3) finalApprover = CONFIG.APPROVERS.CEO;
       else if (finalLevel === 2) finalApprover = CONFIG.APPROVERS.COO;
       else if (finalLevel === 1) finalApprover = CONFIG.APPROVERS.CBO;
 
-      const isRoiFloor = reqRoi < CONFIG.ROI_FLOOR_PERCENT - tol;
-      const isPfFloor = reqPf < CONFIG.PF_FLOOR_PERCENT - tol;
-
+      // Soft human explanation
       let explanation = "";
       if (isRoiFloor || isPfFloor) {
-        explanation = `Mandatory CEO Approval required: Requested rate breached policy floors (ROI Floor: ${CONFIG.ROI_FLOOR_PERCENT}%, PF Floor: ${CONFIG.PF_FLOOR_PERCENT}%).`;
+        if (isRoiFloor && isPfFloor) {
+          explanation = `Requested ROI (${reqRoi.toFixed(2)}% < 15.0%) and Requested PF (${reqPf.toFixed(2)}% < 1.5%) are both below the minimum floor limits, so <strong>CEO Approval is required by default</strong>.`;
+        } else if (isRoiFloor) {
+          explanation = `Requested ROI (${reqRoi.toFixed(2)}%) is below the policy floor of 15.0%, so <strong>CEO Approval is required by default</strong>.`;
+        } else {
+          explanation = `Requested Processing Fee (${reqPf.toFixed(2)}%) is below the policy floor of 1.5%, so <strong>CEO Approval is required by default</strong>.`;
+        }
       } else if (finalApprover.level === 0) {
-        explanation = "Proposed terms meet or exceed standard benchmark matrix. No pricing deviation approval required.";
+        explanation = `Great news! The requested rates (${reqRoi.toFixed(2)}% ROI, ${reqPf.toFixed(2)}% PF) meet or exceed the benchmark base rates. <strong>No concession approval needed.</strong>`;
       } else {
         const parts = [];
-        if (roiApprover.level > 0) parts.push(`ROI concession of ${roiDev.toFixed(2)}% pts (${roiApprover.name.replace(' Approval','')})`);
-        if (pfApprover.level > 0) parts.push(`PF concession of ${pfDev.toFixed(2)}% pts (${pfApprover.name.replace(' Approval','')})`);
-        explanation = `${parts.join(" and ")} requires ${finalApprover.name}.`;
+        if (roiApprover.level > 0) {
+          parts.push(`ROI drops by ${roiDrop.toFixed(2)}% from base (${roiApprover.name.replace(' Approval','')})`);
+        }
+        if (pfApprover.level > 0) {
+          parts.push(`PF drops by ${pfDrop.toFixed(2)}% from base (${pfApprover.name.replace(' Approval','')})`);
+        }
+        explanation = `${parts.join(" and ")} — higher authority governing is <strong>${finalApprover.name}</strong>.`;
       }
 
       return {
-        roiDeviation: parseFloat(roiDev.toFixed(4)),
-        pfDeviation: parseFloat(pfDev.toFixed(4)),
+        roiDeviation: roiDrop,
+        pfDeviation: pfDrop,
         roiApprover,
         pfApprover,
         finalApprover,
@@ -2042,7 +2022,6 @@
       if (!robotCat) return;
       currentCatState = stateName;
 
-      // Reset dynamic action classes
       robotCat.classList.remove("washing-face", "laughing-now", "calculating-now", "worried-alert", "posture-4legs", "posture-2legs");
       if (cyberVisor) cyberVisor.style.display = "none";
       if (eyesNormalLayer) eyesNormalLayer.style.display = "block";
@@ -2063,14 +2042,14 @@
           eyeLeft.setAttribute("ry", "7"); eyeRight.setAttribute("ry", "7");
           mouthLine.setAttribute("d", "M54,53 L66,53");
           mouthLine.setAttribute("fill", "none");
-          companionSpeech("Scanning matrix parameters... ⚡", 2200);
+          companionSpeech("Calculating rates... ⚡", 2200);
           break;
 
         case "wash-face":
           robotCat.classList.add("washing-face", "posture-2legs");
           eyeLeft.setAttribute("ry", "3"); eyeRight.setAttribute("ry", "3");
           mouthLine.setAttribute("d", "M54,52 Q60,57 66,52");
-          companionSpeech("Purrr... grooming whiskers! 🐾", 2400);
+          companionSpeech("Purrr... grooming! 🐾", 2400);
           break;
 
         case "four-legs":
@@ -2092,7 +2071,7 @@
           eyeLeft.setAttribute("ry", "11"); eyeRight.setAttribute("ry", "11");
           mouthLine.setAttribute("d", "M53,55 Q60,49 67,55");
           mouthLine.setAttribute("fill", "none");
-          companionSpeech("Floor breach alert! 🏛️", 2600);
+          companionSpeech("CEO approval needed! 🏛️", 2600);
           break;
 
         case "celebrating":
@@ -2101,7 +2080,7 @@
           if (eyesStarLayer) eyesStarLayer.style.display = "block";
           mouthLine.setAttribute("d", "M51,50 Q60,65 69,50 Z");
           mouthLine.setAttribute("fill", "#00f0ff");
-          companionSpeech("Approved without deviation! 🎉", 3000);
+          companionSpeech("Approved! No concessions needed 🎉", 3000);
           break;
 
         case "standing-proud":
@@ -2114,23 +2093,22 @@
       }
     }
 
-    // Diverse, balanced autonomous life-cycle (Runs every 7-8s in idle)
+    // Balanced autonomous cycle (Cycles every 8 seconds)
     function startAutonomousCatLifeCycle() {
       if (autoCycleTimer) clearInterval(autoCycleTimer);
-      const IDLE_VARIETY = ["standing-proud", "curious", "four-legs", "wash-face", "standing-proud"];
+      const IDLE_VARIETY = ["standing-proud", "curious", "four-legs", "standing-proud", "wash-face"];
       let cycleIdx = 0;
       autoCycleTimer = setInterval(() => {
-        // Only run idle animations if user is not actively answering or typing
         const isTyping = document.querySelector(".typing-row");
         if (!isTyping && currentCatState !== "worried-alert" && currentCatState !== "celebrating") {
           cycleIdx = (cycleIdx + 1) % IDLE_VARIETY.length;
           const nextState = IDLE_VARIETY[cycleIdx];
           setCatVisualState(nextState);
           if (nextState === "wash-face") {
-            setTimeout(() => setCatVisualState("standing-proud"), 3500);
+            setTimeout(() => setCatVisualState("standing-proud"), 3200);
           }
         }
-      }, 7500);
+      }, 8000);
     }
 
     function catInteractedManually() {
@@ -2165,7 +2143,7 @@
     });
 
     /* ==========================================================================
-       CONVERSATIONAL COCKPIT ENGINE (CARD-FRAMED WORKFLOW)
+       CONVERSATIONAL WORKFLOW (SOFT, CASUAL & CARD-FRAMED)
        ========================================================================== */
     const chatContainer = document.getElementById("chatContainer");
     const chipsArea = document.getElementById("chipsArea");
@@ -2262,9 +2240,9 @@
             <div class="cockpit-card-header">
               <div class="cockpit-cat-tag">
                 <div class="cockpit-3d-badge">${icon3d || '🐱'}</div>
-                <span>${categoryBadge || 'LENDY ADVISORY'}</span>
+                <span>${categoryBadge || 'LENDY'}</span>
               </div>
-              <div class="cockpit-step-counter">${stepText || 'AI Copilot'}</div>
+              <div class="cockpit-step-counter">${stepText || 'Loan Assistant'}</div>
             </div>
             <div class="cockpit-card-body">
               ${htmlContent}
@@ -2319,21 +2297,21 @@
         reqRoi: 0, reqPf: 0, step: STEPS.CASE_NAME
       };
       chatContainer.innerHTML = "";
-      inputHint.textContent = "Enter proposal / customer name";
+      inputHint.textContent = "Enter customer name or reference";
       userInput.placeholder = "e.g. Ramesh Patel, Proposal #402...";
       updateStepperUI();
 
       appendBotCard({
-        categoryBadge: "CASE INITIATION",
-        icon3d: "📋",
-        stepText: "STAGE 1 • PROFILE",
+        categoryBadge: "WELCOME",
+        icon3d: "👋",
+        stepText: "STEP 1 OF 5",
         htmlContent: t("welcome"),
         chips: [
-          { label: "M/s Apex Enterprises", value: "Apex Enterprises", primary: true },
+          { label: "Apex Enterprises", value: "Apex Enterprises", primary: true },
           { label: "Ramesh Patel", value: "Ramesh Patel" },
-          { label: "FastTrack Logistics", value: "FastTrack Logistics" }
+          { label: "Kavita Sharma", value: "Kavita Sharma" }
         ],
-        catMood: "curious",
+        catMood: "standing-proud",
         delayMs: 250
       });
     }
@@ -2359,19 +2337,19 @@
           session.step = STEPS.PRODUCT;
           updateStepperUI();
           inputHint.textContent = "Select loan product";
-          userInput.placeholder = "Choose or type product name...";
+          userInput.placeholder = "Choose product...";
 
           appendBotCard({
-            categoryBadge: "PRODUCT SELECTION",
+            categoryBadge: "LOAN PRODUCT",
             icon3d: "🏢",
-            stepText: "STAGE 1 • PROFILE",
+            stepText: "STEP 1 OF 5",
             htmlContent: `${t("askProduct")} <strong>${escapeHtml(session.caseName)}</strong>:`,
             actionTiles: [
-              { icon: "🏢", title: "Regular Secured Business Loan", desc: "Standard business collateral loan", value: "R", primary: true },
-              { icon: "🏭", title: "Secured Working Capital", desc: "Term loan for operations & inventory", value: "W" },
-              { icon: "🚗", title: "Hypothecation Loans", desc: "Asset / vehicle secured hypothecation", value: "H" }
+              { icon: "🏢", title: "Regular Secured Business Loan", desc: "Standard business property collateral loan", value: "R", primary: true },
+              { icon: "🏭", title: "Secured Working Capital", desc: "Term loan for daily business operations", value: "W" },
+              { icon: "🚗", title: "Hypothecation Loans", desc: "Asset / vehicle hypothecation loan", value: "H" }
             ],
-            catMood: "standing-proud"
+            catMood: "curious"
           });
           break;
 
@@ -2384,16 +2362,16 @@
 
           if (!prodCode) {
             appendBotCard({
-              categoryBadge: "SELECTION NEEDED",
-              icon3d: "⚠️",
-              stepText: "ERROR",
-              htmlContent: "Please choose one of the approved loan products below:",
+              categoryBadge: "PLEASE SELECT",
+              icon3d: "💡",
+              stepText: "HELP",
+              htmlContent: "Please choose one of the available loan products:",
               chips: [
                 { label: "Regular Secured Business Loan", value: "R" },
                 { label: "Secured Working Capital", value: "W" },
                 { label: "Hypothecation Loans", value: "H" }
               ],
-              catMood: "worried-alert"
+              catMood: "curious"
             });
             return;
           }
@@ -2401,20 +2379,20 @@
           session.step = STEPS.INCOME_PROGRAM;
           updateStepperUI();
           inputHint.textContent = "Select income program";
-          userInput.placeholder = "Choose or type income program...";
+          userInput.placeholder = "Choose income program...";
 
           appendBotCard({
-            categoryBadge: "INCOME METHODOLOGY",
+            categoryBadge: "INCOME PROGRAM",
             icon3d: "📑",
-            stepText: "STAGE 1 • PROFILE",
+            stepText: "STEP 1 OF 5",
             htmlContent: `${t("askIncomeProg")}`,
             actionTiles: [
-              { icon: "📑", title: "Documented", desc: "Audited financial ledgers & ITRs", value: "D", primary: true },
-              { icon: "🔍", title: "Assessed", desc: "Field assessment of turnover & cashflow", value: "A" },
-              { icon: "⚡", title: "Hybrid Program", desc: "Combination of banking & declared cashflow", value: "Hy" },
-              { icon: "📋", title: "Semi Documented", desc: "Partial bank statements & surrogate records", value: "S" }
+              { icon: "📑", title: "Documented", desc: "Audited financial statements & filed ITRs", value: "D", primary: true },
+              { icon: "🔍", title: "Assessed", desc: "Cashflow & business turnover assessment", value: "A" },
+              { icon: "⚡", title: "Hybrid Program", desc: "Banking statements combined with turnover", value: "Hy" },
+              { icon: "📋", title: "Semi Documented", desc: "Bank accounts with surrogate records", value: "S" }
             ],
-            catMood: "standing-proud"
+            catMood: "curious"
           });
           break;
 
@@ -2428,15 +2406,15 @@
 
           if (!incProg) {
             appendBotCard({
-              categoryBadge: "PROGRAM NEEDED",
-              icon3d: "⚠️",
-              stepText: "ERROR",
-              htmlContent: "Please select a valid Income Program option:",
+              categoryBadge: "SELECT PROGRAM",
+              icon3d: "💡",
+              stepText: "HELP",
+              htmlContent: "Please pick an Income Program option:",
               chips: [
                 { label: "Documented", value: "D" }, { label: "Assessed", value: "A" },
                 { label: "Hybrid", value: "Hy" }, { label: "Semi Documented", value: "S" }
               ],
-              catMood: "worried-alert"
+              catMood: "curious"
             });
             return;
           }
@@ -2446,17 +2424,17 @@
             session.propertyType = "NA";
             session.step = STEPS.BUREAU;
             updateStepperUI();
-            inputHint.textContent = "Select bureau category";
-            userInput.placeholder = "Choose bureau score category...";
+            inputHint.textContent = "Select credit score";
+            userInput.placeholder = "Choose credit score category...";
 
             appendBotCard({
-              categoryBadge: "BUREAU ASSESSMENT",
-              icon3d: "📊",
-              stepText: "STAGE 1 • PROFILE",
-              htmlContent: `Property collateral is <em>Not Applicable (NA)</em> for Hypothecation Loans. 🚗<br><br>${t("askBureau")}`,
+              categoryBadge: "CREDIT SCORE",
+              icon3d: "⭐",
+              stepText: "STEP 1 OF 5",
+              htmlContent: `Hypothecation loans do not require property collateral. 🚗<br><br>${t("askBureau")}`,
               actionTiles: [
-                { icon: "⭐", title: ">=700 or NTC", desc: "High prime or New To Credit profile", value: "G", primary: true },
-                { icon: "⚠️", title: "<700 Bureau Score", desc: "Lower bureau category / legacy delinquencies", value: "L" }
+                { icon: "⭐", title: ">=700 or NTC", desc: "Score of 700+ or New To Credit", value: "G", primary: true },
+                { icon: "⚠️", title: "<700 Bureau Score", desc: "Credit score below 700", value: "L" }
               ],
               catMood: "standing-proud"
             });
@@ -2467,15 +2445,15 @@
             userInput.placeholder = "SORP or Other...";
 
             appendBotCard({
-              categoryBadge: "COLLATERAL VALUATION",
+              categoryBadge: "PROPERTY TYPE",
               icon3d: "🏠",
-              stepText: "STAGE 1 • PROFILE",
+              stepText: "STEP 1 OF 5",
               htmlContent: `${t("askProperty")}`,
               actionTiles: [
-                { icon: "🏠", title: "SORP (Self Occupied Residential)", desc: "Residential property occupied by borrower", value: "SORP", primary: true },
-                { icon: "🏬", title: "Other Properties", desc: "Commercial, industrial, or let-out property", value: "Other" }
+                { icon: "🏠", title: "SORP (Self Occupied Residential)", desc: "Residential home occupied by borrower", value: "SORP", primary: true },
+                { icon: "🏬", title: "Other Properties", desc: "Commercial, industrial, or rented property", value: "Other" }
               ],
-              catMood: "standing-proud"
+              catMood: "curious"
             });
           }
           break;
@@ -2488,29 +2466,29 @@
 
           if (!propType) {
             appendBotCard({
-              categoryBadge: "COLLATERAL NEEDED",
-              icon3d: "⚠️",
-              stepText: "ERROR",
-              htmlContent: "Please select either SORP or Other:",
+              categoryBadge: "SELECT PROPERTY",
+              icon3d: "💡",
+              stepText: "HELP",
+              htmlContent: "Please choose whether the property is SORP or Other:",
               chips: [{ label: "SORP", value: "SORP" }, { label: "Other", value: "Other" }],
-              catMood: "worried-alert"
+              catMood: "curious"
             });
             return;
           }
           session.propertyType = propType;
           session.step = STEPS.BUREAU;
           updateStepperUI();
-          inputHint.textContent = "Select bureau category";
-          userInput.placeholder = "Choose bureau score category...";
+          inputHint.textContent = "Select credit score";
+          userInput.placeholder = "Choose credit score category...";
 
           appendBotCard({
-            categoryBadge: "BUREAU ASSESSMENT",
-            icon3d: "📊",
-            stepText: "STAGE 1 • PROFILE",
+            categoryBadge: "CREDIT SCORE",
+            icon3d: "⭐",
+            stepText: "STEP 1 OF 5",
             htmlContent: `${t("askBureau")}`,
             actionTiles: [
-              { icon: "⭐", title: ">=700 or NTC", desc: "Prime credit or New To Credit borrower", value: "G", primary: true },
-              { icon: "⚠️", title: "<700 Bureau Score", desc: "Sub-prime or historic bureau blemishes", value: "L" }
+              { icon: "⭐", title: ">=700 or NTC", desc: "Score of 700+ or New To Credit", value: "G", primary: true },
+              { icon: "⚠️", title: "<700 Bureau Score", desc: "Credit score below 700", value: "L" }
             ],
             catMood: "standing-proud"
           });
@@ -2524,26 +2502,26 @@
 
           if (!burCode) {
             appendBotCard({
-              categoryBadge: "BUREAU NEEDED",
-              icon3d: "⚠️",
-              stepText: "ERROR",
-              htmlContent: "Please select a valid Bureau score category:",
+              categoryBadge: "SELECT BUREAU",
+              icon3d: "💡",
+              stepText: "HELP",
+              htmlContent: "Please choose a credit score bracket:",
               chips: [{ label: ">=700 or NTC", value: "G" }, { label: "<700", value: "L" }],
-              catMood: "worried-alert"
+              catMood: "curious"
             });
             return;
           }
           session.bureau = burCode;
           session.step = STEPS.SANC_AMOUNT;
           updateStepperUI();
-          inputHint.textContent = "Enter sanctioned loan amount (e.g. 10 Lakhs, 15,00,000)";
+          inputHint.textContent = "Enter loan amount (e.g. 10 Lakhs, 15,00,000)";
           userInput.placeholder = "e.g. 5 lakh, 10,00,000, 1.2 cr...";
 
           appendBotCard({
-            categoryBadge: "LOAN SANCTION TERMS",
+            categoryBadge: "LOAN AMOUNT",
             icon3d: "💰",
-            stepText: "STAGE 2 • SANCTIONS",
-            htmlContent: `Borrower profile verified! 📁<br><br>${t("askSancAmount")}`,
+            stepText: "STEP 2 OF 5",
+            htmlContent: `Customer profile is set! 📁<br><br>${t("askSancAmount")}`,
             chips: [
               { label: "₹4,50,000 (≤ 5L)", value: "450000" },
               { label: "₹10,00,000 (> 5L)", value: "1000000", primary: true },
@@ -2558,11 +2536,11 @@
           const parsedSancAmt = parseNumber(clean);
           if (!parsedSancAmt || parsedSancAmt <= 0) {
             appendBotCard({
-              categoryBadge: "INVALID AMOUNT",
-              icon3d: "⚠️",
-              stepText: "ERROR",
-              htmlContent: "Please enter a valid positive loan amount (e.g. <em>10,00,000</em> or <em>15 lakh</em>):",
-              catMood: "worried-alert"
+              categoryBadge: "ENTER AMOUNT",
+              icon3d: "💡",
+              stepText: "HELP",
+              htmlContent: "Please enter a valid positive loan amount (for example: <em>10,00,000</em> or <em>15 lakh</em>):",
+              catMood: "curious"
             });
             return;
           }
@@ -2570,14 +2548,14 @@
           session.ticketSize = session.product === "R" ? (session.sancAmount <= 500000 ? "U" : "A") : "L";
           session.step = STEPS.SANC_TENURE;
           updateStepperUI();
-          inputHint.textContent = "Enter sanctioned tenure (e.g. 60 months, 5 years)";
+          inputHint.textContent = "Enter tenure (e.g. 60 months, 5 years)";
           userInput.placeholder = "e.g. 36 months, 5 years...";
 
           appendBotCard({
-            categoryBadge: "SANCTIONED TENURE",
+            categoryBadge: "LOAN TENURE",
             icon3d: "⏳",
-            stepText: "STAGE 2 • SANCTIONS",
-            htmlContent: `Sanctioned Amount: <strong>${formatINR(session.sancAmount)}</strong> (${session.ticketSize === "U" ? "Upto 5 Lacs" : (session.ticketSize === "A" ? "Above 5 Lacs" : "All Ticket Size")}).<br><br>${t("askSancTenure")}`,
+            stepText: "STEP 2 OF 5",
+            htmlContent: `Loan Amount: <strong>${formatINR(session.sancAmount)}</strong> (${session.ticketSize === "U" ? "Upto 5 Lacs" : (session.ticketSize === "A" ? "Above 5 Lacs" : "Standard Ticket")}).<br><br>${t("askSancTenure")}`,
             chips: [
               { label: "36 Months (3 Yrs)", value: "36" },
               { label: "60 Months (5 Yrs)", value: "60", primary: true },
@@ -2591,25 +2569,25 @@
           const parsedTen = parseTenureMonths(clean);
           if (!parsedTen || parsedTen < 3 || parsedTen > 360) {
             appendBotCard({
-              categoryBadge: "TENURE LIMIT",
-              icon3d: "⚠️",
-              stepText: "ERROR",
-              htmlContent: "Please enter a realistic tenure between 3 and 360 months (e.g. <em>60 months</em> or <em>5 years</em>):",
-              catMood: "worried-alert"
+              categoryBadge: "CHECK TENURE",
+              icon3d: "💡",
+              stepText: "HELP",
+              htmlContent: "Please enter a tenure between 3 and 360 months (e.g. <em>60 months</em> or <em>5 years</em>):",
+              catMood: "curious"
             });
             return;
           }
           session.sancTenure = parsedTen;
           session.step = STEPS.SANC_ROI;
           updateStepperUI();
-          inputHint.textContent = "Enter sanctioned ROI % p.a. (e.g. 18.0%, 19.5)";
+          inputHint.textContent = "Enter sanctioned ROI % (e.g. 18.0%, 19.5)";
           userInput.placeholder = "e.g. 18.0%, 19.5%...";
 
           appendBotCard({
             categoryBadge: "SANCTIONED RATE",
             icon3d: "📈",
-            stepText: "STAGE 2 • SANCTIONS",
-            htmlContent: `Sanctioned Tenure: <strong>${session.sancTenure} months</strong>.<br><br>${t("askSancRoi")}`,
+            stepText: "STEP 2 OF 5",
+            htmlContent: `Loan Tenure: <strong>${session.sancTenure} months</strong>.<br><br>${t("askSancRoi")}`,
             chips: [
               { label: "18.0%", value: "18.0", primary: true },
               { label: "19.5%", value: "19.5" },
@@ -2624,24 +2602,24 @@
           const numSancRoi = parseFloat(clean.replace(/%/g, ""));
           if (isNaN(numSancRoi) || numSancRoi <= 0 || numSancRoi > 60) {
             appendBotCard({
-              categoryBadge: "INVALID ROI",
-              icon3d: "⚠️",
-              stepText: "ERROR",
-              htmlContent: "Please enter a valid sanctioned ROI percentage (0 - 60%):",
-              catMood: "worried-alert"
+              categoryBadge: "CHECK RATE",
+              icon3d: "💡",
+              stepText: "HELP",
+              htmlContent: "Please enter a valid interest rate between 0 and 60%:",
+              catMood: "curious"
             });
             return;
           }
           session.sancRoi = numSancRoi;
           session.step = STEPS.SANC_PF;
           updateStepperUI();
-          inputHint.textContent = "Enter sanctioned processing fee % (e.g. 2.0%, 3.0)";
+          inputHint.textContent = "Enter sanctioned fee % (e.g. 2.0%, 3.0)";
           userInput.placeholder = "e.g. 2.0%, 3.0%...";
 
           appendBotCard({
-            categoryBadge: "PROCESSING FEE",
+            categoryBadge: "SANCTIONED FEE",
             icon3d: "🏷️",
-            stepText: "STAGE 2 • SANCTIONS",
+            stepText: "STEP 2 OF 5",
             htmlContent: `Sanctioned ROI: <strong>${session.sancRoi.toFixed(2)}% p.a.</strong><br><br>${t("askSancPf")}`,
             chips: [
               { label: "2.0%", value: "2.0" },
@@ -2656,30 +2634,30 @@
           const numSancPf = parseFloat(clean.replace(/%/g, ""));
           if (isNaN(numSancPf) || numSancPf < 0 || numSancPf > 15) {
             appendBotCard({
-              categoryBadge: "INVALID PF",
-              icon3d: "⚠️",
-              stepText: "ERROR",
-              htmlContent: "Please enter a valid sanctioned Processing Fee (0 - 15%):",
-              catMood: "worried-alert"
+              categoryBadge: "CHECK FEE",
+              icon3d: "💡",
+              stepText: "HELP",
+              htmlContent: "Please enter a valid processing fee between 0 and 15%:",
+              catMood: "curious"
             });
             return;
           }
           session.sancPf = numSancPf;
           session.step = STEPS.INCOME_FREQ;
           updateStepperUI();
-          inputHint.textContent = "Select Monthly or Annual income";
+          inputHint.textContent = "Choose Monthly or Annual";
           userInput.placeholder = "Choose Monthly or Annual...";
 
           appendBotCard({
-            categoryBadge: "EARNINGS FREQUENCY",
+            categoryBadge: "EARNINGS PERIOD",
             icon3d: "💼",
-            stepText: "STAGE 3 • FINANCIALS",
-            htmlContent: `Sanctioned PF: <strong>${session.sancPf.toFixed(2)}%</strong>.<br><br>${t("askIncomeFreq")}`,
+            stepText: "STEP 3 OF 5",
+            htmlContent: `Sanctioned Processing Fee: <strong>${session.sancPf.toFixed(2)}%</strong>.<br><br>${t("askIncomeFreq")}`,
             actionTiles: [
-              { icon: "📅", title: "Monthly Gross Earnings", desc: "Enter typical monthly earnings or salary", value: "Monthly", primary: true },
-              { icon: "📊", title: "Annual Total Turnover", desc: "Enter yearly turnover or total taxable income", value: "Annual" }
+              { icon: "📅", title: "Monthly Earnings", desc: "Enter net monthly income or take-home", value: "Monthly", primary: true },
+              { icon: "📊", title: "Yearly Earnings", desc: "Enter annual turnover or total tax return income", value: "Annual" }
             ],
-            catMood: "standing-proud"
+            catMood: "curious"
           });
           break;
 
@@ -2688,24 +2666,22 @@
           session.incomeFreq = freq;
           session.step = STEPS.INCOME_AMOUNT;
           updateStepperUI();
-          inputHint.textContent = `Enter ${freq.toLowerCase()} income amount`;
+          inputHint.textContent = `Enter ${freq.toLowerCase()} earnings`;
           userInput.placeholder = freq === "Annual" ? "e.g. 12 lakh, 12,00,000..." : "e.g. 80,000, 1 lakh...";
 
           appendBotCard({
-            categoryBadge: "GROSS REVENUE",
+            categoryBadge: "GROSS EARNINGS",
             icon3d: "💵",
-            stepText: "STAGE 3 • FINANCIALS",
+            stepText: "STEP 3 OF 5",
             htmlContent: `${t("askIncomeAmount")} <strong>${freq} Income</strong>:`,
             chips: freq === "Annual" ? [
               { label: "₹6 Lakhs", value: "600000" },
               { label: "₹12 Lakhs", value: "1200000", primary: true },
-              { label: "₹24 Lakhs", value: "2400000" },
-              { label: "₹50 Lakhs", value: "5000000" }
+              { label: "₹24 Lakhs", value: "2400000" }
             ] : [
               { label: "₹50,000", value: "50000" },
               { label: "₹80,000", value: "80000", primary: true },
-              { label: "₹1,50,000", value: "150000" },
-              { label: "₹3,00,000", value: "300000" }
+              { label: "₹1,50,000", value: "150000" }
             ],
             catMood: "calculating"
           });
@@ -2715,27 +2691,27 @@
           const parsedInc = parseNumber(clean);
           if (!parsedInc || parsedInc <= 0) {
             appendBotCard({
-              categoryBadge: "INVALID INCOME",
-              icon3d: "⚠️",
-              stepText: "ERROR",
-              htmlContent: "Please enter a valid positive income figure (e.g. <em>80,000</em> or <em>12 lakh</em>):",
-              catMood: "worried-alert"
+              categoryBadge: "ENTER INCOME",
+              icon3d: "💡",
+              stepText: "HELP",
+              htmlContent: "Please enter a positive income amount (e.g. <em>80,000</em> or <em>12 lakh</em>):",
+              catMood: "curious"
             });
             return;
           }
           session.monthlyIncome = session.incomeFreq === "Annual" ? parsedInc / 12.0 : parsedInc;
           session.step = STEPS.EXISTING_EMIS;
           updateStepperUI();
-          inputHint.textContent = "Enter total existing monthly obligations (0 if none)";
+          inputHint.textContent = "Enter existing loan EMIs (0 if none)";
           userInput.placeholder = "e.g. 20,000 or 0...";
 
           appendBotCard({
-            categoryBadge: "EXISTING OBLIGATIONS",
+            categoryBadge: "EXISTING EMIS",
             icon3d: "⚖️",
-            stepText: "STAGE 3 • FINANCIALS",
-            htmlContent: `Assessed Income: <strong>${formatINR(session.monthlyIncome)}/month</strong>.<br><br>${t("askExistingEmis")}`,
+            stepText: "STEP 3 OF 5",
+            htmlContent: `Monthly Income: <strong>${formatINR(session.monthlyIncome)}/month</strong>.<br><br>${t("askExistingEmis")}`,
             chips: [
-              { label: "₹0 (Zero EMIs)", value: "0", primary: true },
+              { label: "₹0 (No existing EMIs)", value: "0", primary: true },
               { label: "₹10,000", value: "10000" },
               { label: "₹20,000", value: "20000" },
               { label: "₹35,000", value: "35000" }
@@ -2748,12 +2724,12 @@
           const parsedEmis = parseNumber(clean);
           if (parsedEmis === null || parsedEmis < 0) {
             appendBotCard({
-              categoryBadge: "INVALID OBLIGATION",
-              icon3d: "⚠️",
-              stepText: "ERROR",
+              categoryBadge: "CHECK OBLIGATIONS",
+              icon3d: "💡",
+              stepText: "HELP",
               htmlContent: "Please enter 0 or a positive obligation amount:",
               chips: [{ label: "0", value: "0" }],
-              catMood: "worried-alert"
+              catMood: "curious"
             });
             return;
           }
@@ -2764,7 +2740,7 @@
           const currentDtiObj = calculateDTI(session.existingEmis, session.sancEmi, session.monthlyIncome);
           session.currentDti = currentDtiObj.updatedDti;
 
-          // Lookup Policy Matrix Benchmark
+          // Lookup Benchmark Base Rates
           const baseRates = lookupBaseRates(session.product, session.ticketSize, session.incomeProgram, session.propertyType, session.bureau);
           if (baseRates) {
             session.baseRoi = baseRates.baseRoi;
@@ -2776,10 +2752,10 @@
 
           session.step = STEPS.REQ_ROI;
           updateStepperUI();
-          inputHint.textContent = "Enter requested ROI % p.a. (e.g. 16.5%)";
-          userInput.placeholder = `Policy base is ${session.baseRoi}%, enter requested ROI...`;
+          inputHint.textContent = "Enter requested ROI % (e.g. 16.5%)";
+          userInput.placeholder = `Benchmark base is ${session.baseRoi}%, enter requested ROI...`;
 
-          // Midway Milestone Cockpit Card
+          // Benchmark Base Card
           const milestoneCardHtml = `
             <div class="summary-grid" style="margin-top: 10px; border-radius: 14px; border: 1px solid var(--border-line);">
               <div class="stat-cell">
@@ -2795,7 +2771,7 @@
               <div class="stat-cell">
                 <div class="stat-title">${t("baseRoiLabel")}</div>
                 <div class="stat-num" style="color:var(--accent-secondary);">${session.baseRoi.toFixed(2)}%</div>
-                <div class="stat-sub">56-Row Policy Matrix</div>
+                <div class="stat-sub">Policy Benchmark</div>
               </div>
               <div class="stat-cell">
                 <div class="stat-title">${t("basePfLabel")}</div>
@@ -2805,14 +2781,14 @@
             </div>`;
 
           appendBotCard({
-            categoryBadge: "BENCHMARK MILESTONE",
+            categoryBadge: "BENCHMARK BASE RATES",
             icon3d: "🎯",
-            stepText: "STAGE 4 • PROPOSED TERMS",
-            htmlContent: `Current status computed! Review benchmark matrix before proposing deviations:<br>${milestoneCardHtml}<br><span style="color:var(--color-amber);font-weight:600;">${t("floorWarningRoi")}</span><br><br>${t("askReqRoi")}`,
+            stepText: "STEP 4 OF 5",
+            htmlContent: `Here are the benchmark base rates from our policy:<br>${milestoneCardHtml}<br><span style="color:var(--color-amber);font-weight:600;">${t("floorWarningRoi")}</span><br><br>${t("askReqRoi")}`,
             chips: [
-              { label: `${session.baseRoi}% (Policy Base)`, value: String(session.baseRoi), primary: true },
-              { label: `${(session.baseRoi - 1.5).toFixed(1)}% (CBO band)`, value: String(session.baseRoi - 1.5) },
-              { label: `${(session.baseRoi - 3.0).toFixed(1)}% (COO band)`, value: String(session.baseRoi - 3.0) },
+              { label: `${session.baseRoi}% (Base Rate)`, value: String(session.baseRoi), primary: true },
+              { label: `${(session.baseRoi - 1.5).toFixed(1)}% (CBO drop ≤2%)`, value: String(session.baseRoi - 1.5) },
+              { label: `${(session.baseRoi - 3.0).toFixed(1)}% (COO drop ≤4%)`, value: String(session.baseRoi - 3.0) },
               { label: `14.5% (<15% CEO Floor)`, value: "14.5" }
             ],
             catMood: "curious"
@@ -2823,12 +2799,12 @@
           const numReqRoi = parseFloat(clean.replace(/%/g, ""));
           if (isNaN(numReqRoi) || numReqRoi <= 0 || numReqRoi > 60) {
             appendBotCard({
-              categoryBadge: "INVALID PROPOSED ROI",
-              icon3d: "⚠️",
-              stepText: "ERROR",
+              categoryBadge: "CHECK ROI",
+              icon3d: "💡",
+              stepText: "HELP",
               htmlContent: "Please enter a valid requested ROI (0 - 60%):",
               chips: [{ label: `${session.baseRoi}%`, value: String(session.baseRoi) }],
-              catMood: "worried-alert"
+              catMood: "curious"
             });
             return;
           }
@@ -2836,17 +2812,17 @@
           session.step = STEPS.REQ_PF;
           updateStepperUI();
           inputHint.textContent = "Enter requested PF % (e.g. 1.8%, 1.2)";
-          userInput.placeholder = `Policy base is ${session.basePf}%, enter requested PF...`;
+          userInput.placeholder = `Benchmark base is ${session.basePf}%, enter requested PF...`;
 
           appendBotCard({
-            categoryBadge: "PROPOSED PROCESSING FEE",
+            categoryBadge: "REQUESTED PF",
             icon3d: "🏷️",
-            stepText: "STAGE 4 • PROPOSED TERMS",
+            stepText: "STEP 4 OF 5",
             htmlContent: `Requested ROI: <strong>${session.reqRoi.toFixed(2)}% p.a.</strong><br><span style="color:var(--color-amber);font-weight:600;">${t("floorWarningPf")}</span><br><br>${t("askReqPf")}`,
             chips: [
               { label: `${session.basePf}% (Full Base PF)`, value: String(session.basePf), primary: true },
-              { label: `1.8% (CBO band)`, value: "1.8" },
-              { label: `1.5% (COO band)`, value: "1.5" },
+              { label: `1.8% (CBO drop ≤1%)`, value: "1.8" },
+              { label: `1.5% (COO drop ≤1.5%)`, value: "1.5" },
               { label: `1.2% (<1.5% CEO Floor)`, value: "1.2" }
             ],
             catMood: "curious"
@@ -2857,20 +2833,20 @@
           const numReqPf = parseFloat(clean.replace(/%/g, ""));
           if (isNaN(numReqPf) || numReqPf < 0 || numReqPf > 15) {
             appendBotCard({
-              categoryBadge: "INVALID PROPOSED PF",
-              icon3d: "⚠️",
-              stepText: "ERROR",
+              categoryBadge: "CHECK PF",
+              icon3d: "💡",
+              stepText: "HELP",
               htmlContent: "Please enter a valid Processing Fee percentage (0 - 15%):",
               chips: [{ label: `${session.basePf}%`, value: String(session.basePf) }],
-              catMood: "worried-alert"
+              catMood: "curious"
             });
             return;
           }
           session.reqPf = numReqPf;
           session.step = STEPS.COMPLETED;
           updateStepperUI();
-          inputHint.textContent = "Review results or evaluate another rate";
-          userInput.placeholder = "Click 'Try different ROI/PF' or 'New case'";
+          inputHint.textContent = "Review results or test another rate";
+          userInput.placeholder = "Click 'Try different ROI/PF' or 'New customer'";
           renderFinalExecutiveReport();
           break;
 
@@ -2881,10 +2857,10 @@
             restartSession();
           } else {
             appendBotCard({
-              categoryBadge: "ASSESSMENT READY",
-              icon3d: "⚡",
-              stepText: "FINISHED",
-              htmlContent: "Would you like to evaluate alternative concession rates or register a new customer proposal?",
+              categoryBadge: "OPTIONS",
+              icon3d: "✨",
+              stepText: "STEP 5 OF 5",
+              htmlContent: "Would you like to test another rate concession or evaluate a new customer?",
               chips: [
                 { label: t("btnTryRates"), icon: "✏️", primary: true, value: "re_evaluate_rates" },
                 { label: t("btnNewCase"), icon: "👤", value: "new_case" }
@@ -2897,7 +2873,7 @@
     }
 
     /* ==========================================================================
-       FINAL COMPARATIVE EXECUTIVE EVALUATION COCKPIT (DUAL RESPONSIVE DISPLAY)
+       FINAL COMPARATIVE VERDICT COCKPIT
        ========================================================================== */
     function renderFinalExecutiveReport() {
       const approval = evaluateApproval(session.baseRoi, session.reqRoi, session.basePf, session.reqPf);
@@ -2920,25 +2896,25 @@
       if (session.reqRoi < CONFIG.ROI_FLOOR_PERCENT) {
         roiTag = `<span class="tag-badge ceo">Floor Breach (<15%) ➔ CEO</span>`;
       } else if (approval.roiDeviation <= 0) {
-        roiTag = `<span class="tag-badge favorable">No Deviation</span>`;
+        roiTag = `<span class="tag-badge favorable">No Concession</span>`;
       } else {
-        roiTag = `<span class="tag-badge ${approval.roiApprover.tag}">-${approval.roiDeviation.toFixed(2)}% pts ➔ ${approval.roiApprover.name.replace(' Approval','')}</span>`;
+        roiTag = `<span class="tag-badge ${approval.roiApprover.tag}">-${approval.roiDeviation.toFixed(2)}% drop ➔ ${approval.roiApprover.name.replace(' Approval','')}</span>`;
       }
 
       let pfTag = "";
       if (session.reqPf < CONFIG.PF_FLOOR_PERCENT) {
         pfTag = `<span class="tag-badge ceo">Floor Breach (<1.5%) ➔ CEO</span>`;
       } else if (approval.pfDeviation <= 0) {
-        pfTag = `<span class="tag-badge favorable">No Deviation</span>`;
+        pfTag = `<span class="tag-badge favorable">No Concession</span>`;
       } else {
-        pfTag = `<span class="tag-badge ${approval.pfApprover.tag}">-${approval.pfDeviation.toFixed(2)}% pts ➔ ${approval.pfApprover.name.replace(' Approval','')}</span>`;
+        pfTag = `<span class="tag-badge ${approval.pfApprover.tag}">-${approval.pfDeviation.toFixed(2)}% drop ➔ ${approval.pfApprover.name.replace(' Approval','')}</span>`;
       }
 
       let bannerTitle = "";
       if (approval.isFloorBreached) {
-        bannerTitle = `🏛️ CEO Approval Required (Mandatory Floor Violation)`;
+        bannerTitle = `🏛️ CEO Approval Required (Policy Floor Rule)`;
       } else if (approval.finalApprover.level === 0) {
-        bannerTitle = `✅ No Approval Needed (Standard Benchmark Terms)`;
+        bannerTitle = `✅ No Approval Needed (Standard Benchmark Rates)`;
       } else {
         bannerTitle = `📑 ${approval.finalApprover.name} Required`;
       }
@@ -2963,7 +2939,7 @@
             ${approval.explanation}
           </div>
 
-          <!-- Desktop View: High Contrast Full Table -->
+          <!-- Desktop View: Table -->
           <div class="comparison-table-wrapper">
             <table class="comparison-table">
               <thead>
@@ -3001,7 +2977,7 @@
             </table>
           </div>
 
-          <!-- Mobile View: Parameter Cards (Zero cut-off on phones) -->
+          <!-- Mobile View: Parameter Cards -->
           <div class="mobile-param-cards">
             <!-- ROI Card -->
             <div class="param-card-mobile">
@@ -3011,7 +2987,7 @@
               </div>
               <div class="param-values-row">
                 <div class="param-val-box">
-                  <div class="param-val-lbl">Benchmark</div>
+                  <div class="param-val-lbl">Benchmark Base</div>
                   <div class="param-val-num">${session.baseRoi.toFixed(2)}%</div>
                 </div>
                 <div class="param-val-box">
@@ -3033,7 +3009,7 @@
               </div>
               <div class="param-values-row">
                 <div class="param-val-box">
-                  <div class="param-val-lbl">Benchmark</div>
+                  <div class="param-val-lbl">Benchmark Base</div>
                   <div class="param-val-num">${session.basePf.toFixed(2)}%</div>
                 </div>
                 <div class="param-val-box">
@@ -3075,7 +3051,7 @@
             <div class="stat-cell">
               <div class="stat-title">Monthly EMI Difference</div>
               <div class="stat-num" style="color:var(--color-green);">${formatINR(Math.max(0, emiSavings))}</div>
-              <div class="stat-sub">${emiSavings > 0 ? 'Monthly borrower savings' : 'Same as sanctioned'}</div>
+              <div class="stat-sub">${emiSavings > 0 ? 'Monthly customer savings' : 'Same as sanctioned'}</div>
             </div>
             <div class="stat-cell">
               <div class="stat-title">PF Upfront Difference</div>
@@ -3092,9 +3068,9 @@
         </div>`;
 
       appendBotCard({
-        categoryBadge: "EXECUTIVE VERDICT",
+        categoryBadge: "PRICING VERDICT",
         icon3d: "🏆",
-        stepText: "STAGE 5 • FINAL DECISION",
+        stepText: "STEP 5 OF 5",
         htmlContent: `${t("evalTitle")} — <strong>${escapeHtml(session.caseName)}</strong>:<br>${reportHtml}`,
         chips: [
           { label: t("btnTryRates"), icon: "✏️", primary: true, value: "re_evaluate_rates" },
@@ -3108,20 +3084,20 @@
     function reAskProposedRates() {
       session.step = STEPS.REQ_ROI;
       updateStepperUI();
-      inputHint.textContent = `Enter requested ROI % p.a. (Base: ${session.baseRoi}%, Sanc: ${session.sancRoi}%)`;
-      userInput.placeholder = `Benchmark is ${session.baseRoi}%, enter requested ROI...`;
+      inputHint.textContent = `Enter requested ROI % (Base: ${session.baseRoi}%, Sanc: ${session.sancRoi}%)`;
+      userInput.placeholder = `Benchmark base is ${session.baseRoi}%, enter requested ROI...`;
 
       appendBotCard({
-        categoryBadge: "RATE RE-EVALUATION",
+        categoryBadge: "RATE CONCESSION",
         icon3d: "✏️",
-        stepText: "STAGE 4 • PROPOSED TERMS",
-        htmlContent: `Evaluating alternative proposed rates for <strong>${escapeHtml(session.caseName)}</strong>.<br>` +
-          `Sanctioned Loan: ${formatINR(session.sancAmount)} (${session.sancTenure}m @ ${session.sancRoi}%), Base: ${session.baseRoi}% / ${session.basePf}%.<br><br>` +
+        stepText: "STEP 4 OF 5",
+        htmlContent: `Let's test another requested rate for <strong>${escapeHtml(session.caseName)}</strong>.<br>` +
+          `Loan: ${formatINR(session.sancAmount)} (${session.sancTenure}m @ ${session.sancRoi}%), Base: ${session.baseRoi}% / ${session.basePf}%.<br><br>` +
           `${t("askReqRoi")}`,
         chips: [
           { label: `${session.baseRoi}% (Base Rate)`, value: String(session.baseRoi), primary: true },
-          { label: `${(session.baseRoi - 1.5).toFixed(1)}% (CBO)`, value: String(session.baseRoi - 1.5) },
-          { label: `${(session.baseRoi - 3.0).toFixed(1)}% (COO)`, value: String(session.baseRoi - 3.0) },
+          { label: `${(session.baseRoi - 1.5).toFixed(1)}% (CBO drop ≤2%)`, value: String(session.baseRoi - 1.5) },
+          { label: `${(session.baseRoi - 3.0).toFixed(1)}% (COO drop ≤4%)`, value: String(session.baseRoi - 3.0) },
           { label: `14.5% (<15% CEO Floor)`, value: "14.5" }
         ],
         catMood: "curious"
@@ -3145,8 +3121,8 @@
       window.visualViewport.addEventListener("resize", () => { scrollChatToBottom(); });
     }
 
-    // Force purge stale caches and keep service worker fresh
-    const LENDY_RELEASE_BUILD = "v20261103_6";
+    // Version release tag for service worker & cache purging
+    const LENDY_RELEASE_BUILD = "v20261103_7";
     if (typeof window !== "undefined" && window.caches) {
       try {
         const cachedVer = localStorage.getItem("lendy_active_build");
