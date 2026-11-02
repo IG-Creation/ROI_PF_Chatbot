@@ -1,39 +1,46 @@
-// Lendy PWA Service Worker (Compatible with GitHub Pages and Localhost)
-const CACHE_NAME = 'lendy-pwa-v2';
-const ASSETS_TO_CACHE = [
-  './',
-  './index.html',
-  './manifest.json'
-];
+// Lendy PWA Service Worker (Always Network-First to guarantee immediate updates)
+const CACHE_NAME = 'lendy-pwa-v4-network-first';
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE)).then(() => self.skipWaiting())
-  );
+  // Immediately activate new service worker without waiting
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
+  // Delete ALL old caches immediately upon activation
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
       );
     }).then(() => self.clients.claim())
   );
 });
 
+// Network-first strategy: Always fetch live content from network, fallback to cache only if offline
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      return cached || fetch(event.request).then((response) => {
-        return caches.open(CACHE_NAME).then((cache) => {
-          if (response.status === 200) {
-            cache.put(event.request, response.clone());
-          }
-          return response;
+    fetch(event.request, { cache: 'no-cache' })
+      .then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const resClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, resClone);
+          });
+        }
+        return networkResponse;
+      })
+      .catch(() => {
+        // Fallback to cache only when user is offline or network fails
+        return caches.match(event.request).then((cached) => {
+          return cached || caches.match('./index.html');
         });
-      }).catch(() => caches.match('./index.html'));
-    })
+      })
   );
 });

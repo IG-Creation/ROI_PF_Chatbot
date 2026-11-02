@@ -8,6 +8,9 @@
   <meta name="theme-color" content="#6366f1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="description" content="Lendy is an executive 3D loan pricing and deviation evaluation chatbot for credit managers and officers.">
 
   <style>
@@ -2258,9 +2261,42 @@
     if (window.visualViewport) {
       window.visualViewport.addEventListener("resize", () => { scrollChatToBottom(); });
     }
+
+    // Force purge stale caches and keep service worker fresh
+    const LENDY_RELEASE_BUILD = "v20261103_4";
+    if (typeof window !== "undefined" && window.caches) {
+      try {
+        const cachedVer = localStorage.getItem("lendy_active_build");
+        if (cachedVer !== LENDY_RELEASE_BUILD) {
+          localStorage.setItem("lendy_active_build", LENDY_RELEASE_BUILD);
+          caches.keys().then((keys) => {
+            keys.forEach((key) => {
+              if (key !== "lendy-pwa-v4-network-first") caches.delete(key);
+            });
+          });
+        }
+      } catch (e) {}
+    }
+
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js").catch(() => {});
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          for (const reg of registrations) {
+            reg.update();
+          }
+        });
+        navigator.serviceWorker.register("./sw.js?v=" + LENDY_RELEASE_BUILD).then((reg) => {
+          reg.addEventListener("updatefound", () => {
+            const worker = reg.installing;
+            if (worker) {
+              worker.addEventListener("statechange", () => {
+                if (worker.state === "installed" && navigator.serviceWorker.controller) {
+                  window.location.reload();
+                }
+              });
+            }
+          });
+        }).catch(() => {});
       });
     }
     window.addEventListener("DOMContentLoaded", () => { startConversation(); });
