@@ -1,93 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="neon">
+<html lang="en" data-theme="cyber-city">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Lendy 🐱 — 3D Loan Pricing & Approval AI</title>
+  <title>Lendy 🐱 — 3D Smart Loan Pricing & Deviation Assistant</title>
   <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#8b5cf6">
+  <meta name="theme-color" content="#6366f1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="description" content="Lendy is an interactive, mobile-first loan pricing, policy matrix engine, and approval chatbot with an animated 3D pet companion.">
+  <meta name="description" content="Lendy is an executive 3D loan pricing and deviation evaluation chatbot for credit managers and officers.">
 
   <style>
     /* ==========================================================================
-       VIBRANT MULTI-COLOR THEMES & CSS VARIABLES
+       SMARTPHONE WALLPAPER THEMES & COLOR SYSTEM
        ========================================================================== */
-    :root, [data-theme="neon"] {
-      --bg-canvas: #090d16;
-      --bg-panel: rgba(17, 24, 39, 0.85);
-      --bg-card: rgba(30, 41, 59, 0.75);
-      --bg-card-hover: rgba(51, 65, 85, 0.85);
-      --border-subtle: rgba(255, 255, 255, 0.1);
-      --border-glow: rgba(56, 189, 248, 0.4);
+    :root, [data-theme="cyber-city"] {
+      --wallpaper-bg: radial-gradient(circle at 50% 10%, #1e113a 0%, #0d091a 45%, #05040a 100%);
+      --wallpaper-overlay: 
+        radial-gradient(circle at 85% 20%, rgba(236, 72, 153, 0.25) 0%, transparent 40%),
+        radial-gradient(circle at 15% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%),
+        linear-gradient(to bottom, rgba(5, 4, 10, 0.4) 0%, rgba(5, 4, 10, 0.85) 100%);
+      --panel-bg: rgba(18, 14, 30, 0.82);
+      --card-bg: rgba(30, 22, 50, 0.72);
+      --card-hover: rgba(48, 36, 78, 0.85);
+      --border-line: rgba(255, 255, 255, 0.12);
+      --border-glow: #38bdf8;
       --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-subtle: #64748b;
-      --accent-1: #38bdf8;   /* Electric Cyan */
-      --accent-2: #818cf8;   /* Indigo Laser */
-      --accent-3: #c084fc;   /* Neon Violet */
-      --accent-pink: #f472b6;/* Cyber Pink */
-      --color-green: #34d399;/* Emerald */
-      --color-green-bg: rgba(52, 211, 153, 0.18);
-      --color-blue: #60a5fa; /* Vibrant Blue */
-      --color-blue-bg: rgba(96, 165, 250, 0.18);
-      --color-amber: #fbbf24;/* Solar Amber */
-      --color-amber-bg: rgba(251, 191, 36, 0.18);
-      --color-red: #f87171;  /* Radiant Coral Red */
-      --color-red-bg: rgba(248, 113, 113, 0.18);
-      --bubble-user-grad: linear-gradient(135deg, #4f46e5, #9333ea);
-      --btn-grad: linear-gradient(135deg, #06b6d4, #8b5cf6);
-      --mascot-color: #38bdf8;
-      --orb-1: rgba(139, 92, 246, 0.35);
-      --orb-2: rgba(6, 182, 212, 0.3);
-      --orb-3: rgba(236, 72, 153, 0.25);
-    }
-
-    [data-theme="sunset"] {
-      --bg-canvas: #0f0b18;
-      --bg-panel: rgba(26, 16, 37, 0.85);
-      --bg-card: rgba(45, 25, 62, 0.75);
-      --bg-card-hover: rgba(67, 38, 92, 0.85);
-      --border-subtle: rgba(255, 255, 255, 0.12);
-      --border-glow: rgba(249, 115, 22, 0.45);
-      --text-main: #fff7ed;
-      --text-muted: #fed7aa;
-      --text-subtle: #9a6850;
-      --accent-1: #fb923c;   /* Fiery Orange */
-      --accent-2: #f43f5e;   /* Rose Coral */
-      --accent-3: #fbbf24;   /* Golden Amber */
-      --accent-pink: #ec4899;
-      --color-green: #10b981;
-      --color-green-bg: rgba(16, 185, 129, 0.2);
-      --color-blue: #38bdf8;
-      --color-blue-bg: rgba(56, 189, 248, 0.2);
-      --color-amber: #f59e0b;
-      --color-amber-bg: rgba(245, 158, 11, 0.2);
-      --color-red: #ef4444;
-      --color-red-bg: rgba(239, 68, 68, 0.2);
-      --bubble-user-grad: linear-gradient(135deg, #ea580c, #db2777);
-      --btn-grad: linear-gradient(135deg, #f59e0b, #e11d48);
-      --mascot-color: #fb923c;
-      --orb-1: rgba(249, 115, 22, 0.35);
-      --orb-2: rgba(219, 39, 119, 0.3);
-      --orb-3: rgba(245, 158, 11, 0.25);
-    }
-
-    [data-theme="emerald"] {
-      --bg-canvas: #061412;
-      --bg-panel: rgba(10, 31, 28, 0.85);
-      --bg-card: rgba(18, 53, 47, 0.75);
-      --bg-card-hover: rgba(27, 77, 68, 0.85);
-      --border-subtle: rgba(255, 255, 255, 0.1);
-      --border-glow: rgba(52, 211, 153, 0.4);
-      --text-main: #f0fdf4;
-      --text-muted: #a7f3d0;
-      --text-subtle: #4d7c6f;
-      --accent-1: #34d399;   /* Mint Green */
-      --accent-2: #2dd4bf;   /* Teal */
-      --accent-3: #38bdf8;   /* Cyan */
-      --accent-pink: #f472b6;
+      --text-muted: #cbd5e1;
+      --text-subtle: #94a3b8;
+      --accent-primary: #38bdf8;
+      --accent-secondary: #c084fc;
+      --accent-hot: #f43f5e;
+      --accent-emerald: #10b981;
       --color-green: #34d399;
       --color-green-bg: rgba(52, 211, 153, 0.2);
       --color-blue: #60a5fa;
@@ -95,13 +39,100 @@
       --color-amber: #fbbf24;
       --color-amber-bg: rgba(251, 191, 36, 0.2);
       --color-red: #f87171;
-      --color-red-bg: rgba(248, 113, 113, 0.2);
-      --bubble-user-grad: linear-gradient(135deg, #059669, #0284c7);
+      --color-red-bg: rgba(248, 113, 113, 0.22);
+      --btn-grad: linear-gradient(135deg, #06b6d4, #8b5cf6);
+      --bubble-user-grad: linear-gradient(135deg, #6366f1, #a855f7);
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, sans-serif;
+    }
+
+    [data-theme="cosmic-nebula"] {
+      --wallpaper-bg: radial-gradient(circle at 50% 20%, #2e1065 0%, #0f0728 50%, #030014 100%);
+      --wallpaper-overlay: 
+        radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.3) 0%, transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.28) 0%, transparent 50%),
+        linear-gradient(to bottom, rgba(3, 0, 20, 0.35) 0%, rgba(3, 0, 20, 0.85) 100%);
+      --panel-bg: rgba(20, 10, 42, 0.85);
+      --card-bg: rgba(38, 20, 75, 0.72);
+      --card-hover: rgba(58, 30, 110, 0.85);
+      --border-line: rgba(255, 255, 255, 0.14);
+      --border-glow: #c084fc;
+      --text-main: #fdf4ff;
+      --text-muted: #e9d5ff;
+      --text-subtle: #a855f7;
+      --accent-primary: #c084fc;
+      --accent-secondary: #60a5fa;
+      --accent-hot: #f472b6;
+      --accent-emerald: #34d399;
+      --color-green: #34d399;
+      --color-green-bg: rgba(52, 211, 153, 0.2);
+      --color-blue: #60a5fa;
+      --color-blue-bg: rgba(96, 165, 250, 0.2);
+      --color-amber: #fbbf24;
+      --color-amber-bg: rgba(251, 191, 36, 0.2);
+      --color-red: #f87171;
+      --color-red-bg: rgba(248, 113, 113, 0.22);
+      --btn-grad: linear-gradient(135deg, #a855f7, #ec4899);
+      --bubble-user-grad: linear-gradient(135deg, #7c3aed, #db2777);
+    }
+
+    [data-theme="sunset-gold"] {
+      --wallpaper-bg: radial-gradient(circle at 50% 0%, #431407 0%, #1c0a06 45%, #0a0302 100%);
+      --wallpaper-overlay: 
+        radial-gradient(circle at 80% 25%, rgba(245, 158, 11, 0.3) 0%, transparent 45%),
+        radial-gradient(circle at 20% 70%, rgba(225, 29, 72, 0.25) 0%, transparent 50%),
+        linear-gradient(to bottom, rgba(10, 3, 2, 0.35) 0%, rgba(10, 3, 2, 0.85) 100%);
+      --panel-bg: rgba(32, 12, 8, 0.85);
+      --card-bg: rgba(56, 22, 14, 0.72);
+      --card-hover: rgba(84, 34, 22, 0.85);
+      --border-line: rgba(255, 255, 255, 0.14);
+      --border-glow: #f59e0b;
+      --text-main: #fffbeb;
+      --text-muted: #fde68a;
+      --text-subtle: #b45309;
+      --accent-primary: #f59e0b;
+      --accent-secondary: #f43f5e;
+      --accent-hot: #f97316;
+      --accent-emerald: #10b981;
+      --color-green: #34d399;
+      --color-green-bg: rgba(52, 211, 153, 0.2);
+      --color-blue: #38bdf8;
+      --color-blue-bg: rgba(56, 189, 248, 0.2);
+      --color-amber: #fbbf24;
+      --color-amber-bg: rgba(251, 191, 36, 0.2);
+      --color-red: #f87171;
+      --color-red-bg: rgba(248, 113, 113, 0.22);
+      --btn-grad: linear-gradient(135deg, #f59e0b, #e11d48);
+      --bubble-user-grad: linear-gradient(135deg, #ea580c, #be123c);
+    }
+
+    [data-theme="emerald-aurora"] {
+      --wallpaper-bg: radial-gradient(circle at 50% 10%, #064e3b 0%, #022c22 45%, #01140e 100%);
+      --wallpaper-overlay: 
+        radial-gradient(circle at 20% 30%, rgba(52, 211, 153, 0.28) 0%, transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.25) 0%, transparent 45%),
+        linear-gradient(to bottom, rgba(1, 20, 14, 0.35) 0%, rgba(1, 20, 14, 0.85) 100%);
+      --panel-bg: rgba(8, 38, 30, 0.85);
+      --card-bg: rgba(14, 58, 46, 0.72);
+      --card-hover: rgba(22, 88, 70, 0.85);
+      --border-line: rgba(255, 255, 255, 0.13);
+      --border-glow: #10b981;
+      --text-main: #f0fdf4;
+      --text-muted: #bbf7d0;
+      --text-subtle: #059669;
+      --accent-primary: #10b981;
+      --accent-secondary: #06b6d4;
+      --accent-hot: #f43f5e;
+      --accent-emerald: #34d399;
+      --color-green: #34d399;
+      --color-green-bg: rgba(52, 211, 153, 0.2);
+      --color-blue: #38bdf8;
+      --color-blue-bg: rgba(56, 189, 248, 0.2);
+      --color-amber: #fbbf24;
+      --color-amber-bg: rgba(251, 191, 36, 0.2);
+      --color-red: #f87171;
+      --color-red-bg: rgba(248, 113, 113, 0.22);
       --btn-grad: linear-gradient(135deg, #10b981, #06b6d4);
-      --mascot-color: #34d399;
-      --orb-1: rgba(16, 185, 129, 0.35);
-      --orb-2: rgba(6, 182, 212, 0.3);
-      --orb-3: rgba(20, 184, 166, 0.25);
+      --bubble-user-grad: linear-gradient(135deg, #059669, #0284c7);
     }
 
     * {
@@ -116,9 +147,9 @@
       height: 100%;
       height: 100dvh;
       overflow: hidden;
-      background-color: var(--bg-canvas);
+      background: var(--wallpaper-bg);
       color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: var(--font-stack);
       font-size: 15px;
       line-height: 1.5;
       position: relative;
@@ -133,89 +164,73 @@
       padding-right: env(safe-area-inset-right);
     }
 
-    /* Ambient animated multi-color backdrop orbs */
-    .ambient-bg {
+    /* Smartphone Wallpaper Overlay */
+    .wallpaper-art {
       position: fixed;
       inset: 0;
+      background: var(--wallpaper-overlay);
       pointer-events: none;
       z-index: 0;
-      overflow: hidden;
     }
 
-    .ambient-orb {
+    /* Ambient Floating Bokeh Lights */
+    .bokeh-light {
       position: absolute;
       border-radius: 50%;
-      filter: blur(85px);
+      filter: blur(60px);
+      pointer-events: none;
       opacity: 0.6;
-      animation: float-orb 14s infinite alternate ease-in-out;
+      animation: float-bokeh 18s infinite alternate ease-in-out;
     }
 
-    .orb-1 { width: 340px; height: 340px; background: var(--orb-1); top: -80px; left: -60px; animation-duration: 12s; }
-    .orb-2 { width: 380px; height: 380px; background: var(--orb-2); bottom: 10%; right: -80px; animation-duration: 16s; }
-    .orb-3 { width: 300px; height: 300px; background: var(--orb-3); top: 40%; left: 30%; animation-duration: 14s; }
+    .b1 { width: 320px; height: 320px; background: var(--accent-primary); top: -40px; left: -30px; }
+    .b2 { width: 380px; height: 380px; background: var(--accent-secondary); bottom: 15%; right: -50px; animation-duration: 22s; }
 
-    @keyframes float-orb {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(40px, 35px) scale(1.15); }
+    @keyframes float-bokeh {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(40px) scale(1.15); }
     }
 
     /* ==========================================================================
-       HEADER & NAVIGATION
+       HEADER & NAVIGATION BAR
        ========================================================================== */
     .app-header {
-      height: 68px;
-      background: var(--bg-panel);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-subtle);
+      height: 72px;
+      background: var(--panel-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-line);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 16px;
       flex-shrink: 0;
       z-index: 30;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
     }
 
     .header-left {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .brand-title {
+    .header-titles h1 {
       font-size: 17px;
       font-weight: 800;
       letter-spacing: -0.01em;
-      background: linear-gradient(135deg, var(--accent-1), var(--accent-pink));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       display: flex;
       align-items: center;
       gap: 6px;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .brand-subtitle {
+    .header-titles p {
       font-size: 11.5px;
       color: var(--text-muted);
       font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      background-color: var(--color-green);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--color-green);
-      animation: pulse-dot 2s infinite;
-    }
-
-    @keyframes pulse-dot {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.6; }
     }
 
     .header-actions {
@@ -224,36 +239,32 @@
       gap: 8px;
     }
 
-    .icon-action-btn {
-      min-height: 40px;
-      min-width: 40px;
+    /* Language Switcher Dropdown Button */
+    .lang-selector-btn, .theme-selector-btn, .reset-btn {
+      min-height: 38px;
       padding: 0 12px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: var(--card-bg);
+      border: 1px solid var(--border-line);
       border-radius: 9999px;
       color: var(--text-main);
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     }
 
-    .icon-action-btn:hover {
-      background: var(--bg-card-hover);
+    .lang-selector-btn:hover, .theme-selector-btn:hover, .reset-btn:hover {
+      background: var(--card-hover);
       border-color: var(--border-glow);
       transform: translateY(-1px);
     }
 
-    .icon-action-btn:active {
-      transform: scale(0.96);
-    }
-
     /* ==========================================================================
-       CHAT STREAM
+       CHAT CONTAINER STREAM
        ========================================================================== */
     .chat-container {
       flex: 1;
@@ -276,10 +287,10 @@
       margin: 0 auto;
       opacity: 0;
       transform: translateY(10px);
-      animation: message-in 0.28s ease-out forwards;
+      animation: msg-enter 0.28s ease-out forwards;
     }
 
-    @keyframes message-in {
+    @keyframes msg-enter {
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -287,15 +298,15 @@
       justify-content: flex-end;
     }
 
-    .bot-avatar-badge {
-      width: 38px;
-      height: 38px;
+    .avatar-badge {
+      width: 40px;
+      height: 40px;
       border-radius: 12px;
       background: var(--btn-grad);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-size: 20px;
       flex-shrink: 0;
       box-shadow: 0 4px 14px rgba(6, 182, 212, 0.35);
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -308,24 +319,24 @@
       font-size: 14.5px;
       position: relative;
       word-break: break-word;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
     .message-row.bot .message-bubble {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: var(--card-bg);
+      border: 1px solid var(--border-line);
       color: var(--text-main);
       border-top-left-radius: 4px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     .message-row.user .message-bubble {
       background: var(--bubble-user-grad);
       color: #ffffff;
       border-top-right-radius: 4px;
-      box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       font-weight: 500;
     }
 
@@ -333,21 +344,21 @@
     .typing-dots {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       padding: 4px 2px;
     }
 
-    .dot-pulse {
+    .pulse-dot {
       width: 8px;
       height: 8px;
-      background: var(--accent-1);
+      background: var(--accent-primary);
       border-radius: 50%;
-      box-shadow: 0 0 6px var(--accent-1);
+      box-shadow: 0 0 6px var(--accent-primary);
       animation: dot-glow 1.4s infinite ease-in-out both;
     }
 
-    .dot-pulse:nth-child(1) { animation-delay: -0.32s; }
-    .dot-pulse:nth-child(2) { animation-delay: -0.16s; }
+    .pulse-dot:nth-child(1) { animation-delay: -0.32s; }
+    .pulse-dot:nth-child(2) { animation-delay: -0.16s; }
 
     @keyframes dot-glow {
       0%, 80%, 100% { transform: scale(0.4); opacity: 0.3; }
@@ -355,78 +366,78 @@
     }
 
     /* ==========================================================================
-       ENHANCED VERDICT RESULT CARD
+       CARDS, STATUS & TABLES
        ========================================================================== */
-    .result-card {
-      background: var(--bg-panel);
-      border: 1px solid var(--border-subtle);
+    .status-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border-line);
       border-radius: 16px;
       overflow: hidden;
       margin-top: 12px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
     }
 
-    .verdict-banner {
+    .status-card-header {
       padding: 14px 18px;
       display: flex;
       align-items: center;
       gap: 12px;
       font-weight: 800;
       font-size: 15.5px;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-line);
     }
 
-    .verdict-banner.green {
+    .status-card-header.green {
       background: var(--color-green-bg);
       color: var(--color-green);
       border-bottom-color: rgba(52, 211, 153, 0.4);
       box-shadow: inset 0 0 20px rgba(52, 211, 153, 0.1);
     }
 
-    .verdict-banner.blue {
+    .status-card-header.blue {
       background: var(--color-blue-bg);
       color: var(--color-blue);
       border-bottom-color: rgba(96, 165, 250, 0.4);
       box-shadow: inset 0 0 20px rgba(96, 165, 250, 0.1);
     }
 
-    .verdict-banner.amber {
+    .status-card-header.amber {
       background: var(--color-amber-bg);
       color: var(--color-amber);
       border-bottom-color: rgba(251, 191, 36, 0.4);
       box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.1);
     }
 
-    .verdict-banner.red {
+    .status-card-header.red {
       background: var(--color-red-bg);
       color: var(--color-red);
       border-bottom-color: rgba(248, 113, 113, 0.4);
       box-shadow: inset 0 0 25px rgba(248, 113, 113, 0.2);
     }
 
-    .verdict-explanation {
+    .status-card-body {
       padding: 14px 18px;
       background: rgba(255, 255, 255, 0.02);
       font-size: 13.5px;
       color: var(--text-muted);
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-line);
       line-height: 1.6;
     }
 
-    .verdict-explanation strong {
+    .status-card-body strong {
       color: var(--text-main);
     }
 
-    .floor-alert-badge {
+    .floor-badge {
       display: inline-block;
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 9999px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       background: var(--color-red-bg);
       color: var(--color-red);
       border: 1px solid rgba(248, 113, 113, 0.4);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .comparison-table-wrapper {
@@ -442,9 +453,9 @@
 
     .comparison-table th, 
     .comparison-table td {
-      padding: 11px 16px;
+      padding: 12px 16px;
       text-align: left;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-line);
     }
 
     .comparison-table th {
@@ -461,7 +472,7 @@
       text-align: right;
     }
 
-    .pill-badge {
+    .tag-badge {
       display: inline-flex;
       align-items: center;
       gap: 4px;
@@ -471,12 +482,12 @@
       font-weight: 700;
     }
 
-    .pill-badge.favorable { background: var(--color-green-bg); color: var(--color-green); border: 1px solid rgba(52, 211, 153, 0.3); }
-    .pill-badge.cbo { background: var(--color-blue-bg); color: var(--color-blue); border: 1px solid rgba(96, 165, 250, 0.3); }
-    .pill-badge.coo { background: var(--color-amber-bg); color: var(--color-amber); border: 1px solid rgba(251, 191, 36, 0.3); }
-    .pill-badge.ceo { background: var(--color-red-bg); color: var(--color-red); border: 1px solid rgba(248, 113, 113, 0.3); }
+    .tag-badge.favorable { background: var(--color-green-bg); color: var(--color-green); border: 1px solid rgba(52, 211, 153, 0.3); }
+    .tag-badge.cbo { background: var(--color-blue-bg); color: var(--color-blue); border: 1px solid rgba(96, 165, 250, 0.3); }
+    .tag-badge.coo { background: var(--color-amber-bg); color: var(--color-amber); border: 1px solid rgba(251, 191, 36, 0.3); }
+    .tag-badge.ceo { background: var(--color-red-bg); color: var(--color-red); border: 1px solid rgba(248, 113, 113, 0.3); }
 
-    .metrics-grid {
+    .summary-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 10px;
@@ -485,43 +496,36 @@
     }
 
     @media (min-width: 600px) {
-      .metrics-grid { grid-template-columns: repeat(4, 1fr); }
+      .summary-grid { grid-template-columns: repeat(4, 1fr); }
     }
 
-    .metric-cell {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+    .stat-cell {
+      background: var(--card-bg);
+      border: 1px solid var(--border-line);
       border-radius: 12px;
       padding: 10px 14px;
-      transition: transform 0.2s;
     }
 
-    .metric-cell:hover {
-      transform: translateY(-2px);
-    }
-
-    .metric-title {
+    .stat-title {
       font-size: 11px;
       color: var(--text-muted);
       text-transform: uppercase;
       font-weight: 700;
-      letter-spacing: 0.04em;
     }
 
-    .metric-number {
+    .stat-num {
       font-size: 16px;
       font-weight: 800;
       margin: 3px 0;
       color: var(--text-main);
     }
 
-    .metric-caption {
+    .stat-sub {
       font-size: 11px;
       color: var(--text-subtle);
     }
 
-    /* DTI Warning Banner */
-    .dti-alert-box {
+    .alert-banner {
       margin: 12px 14px;
       padding: 12px 16px;
       border-radius: 12px;
@@ -536,7 +540,7 @@
     }
 
     /* ==========================================================================
-       TAPPABLE CHIPS AREA
+       TAPPABLE QUICK-REPLY CHIPS
        ========================================================================== */
     .chips-area {
       padding: 8px 16px 12px 16px;
@@ -550,13 +554,13 @@
       z-index: 20;
     }
 
-    .chip-btn {
+    .action-chip {
       min-height: 44px;
       padding: 10px 16px;
-      background: var(--bg-card);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--border-subtle);
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-line);
       border-radius: 9999px;
       color: var(--text-main);
       font-size: 14px;
@@ -569,32 +573,32 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .chip-btn:hover {
-      background: var(--bg-card-hover);
+    .action-chip:hover {
+      background: var(--card-hover);
       border-color: var(--border-glow);
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(6, 182, 212, 0.25);
+      box-shadow: 0 6px 18px rgba(6, 182, 212, 0.3);
     }
 
-    .chip-btn:active {
+    .action-chip:active {
       transform: scale(0.96);
     }
 
-    .chip-btn.glow-primary {
+    .action-chip.primary-glow {
       background: var(--btn-grad);
       color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.3);
-      box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 4px 18px rgba(139, 92, 246, 0.4);
     }
 
     /* ==========================================================================
-       3D / 4D INTERACTIVE PET COMPANION NEAR SEND BUTTON
+       TALKING TOM STYLE 3D STANDING REAL CAT COMPANION NEAR SEND BUTTON
        ========================================================================== */
     .input-bar-container {
-      background: var(--bg-panel);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-top: 1px solid var(--border-subtle);
+      background: var(--panel-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-line);
       padding: 10px 16px;
       flex-shrink: 0;
       z-index: 30;
@@ -606,100 +610,129 @@
       margin: 0 auto;
       display: flex;
       align-items: flex-end;
-      gap: 10px;
+      gap: 12px;
       position: relative;
     }
 
-    /* 3D Interactive Mascot Container Anchored Near Send Button */
-    .pet-3d-anchor {
+    /* Standing 3D Real Cat Container */
+    .cat-tom-stage {
       position: relative;
+      width: 72px;
+      height: 94px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      perspective: 700px;
+      justify-content: flex-end;
       cursor: pointer;
+      perspective: 800px;
+      flex-shrink: 0;
+      margin-bottom: 2px;
     }
 
-    .pet-3d-box {
-      width: 58px;
-      height: 58px;
+    .cat-tom-body-3d {
+      width: 68px;
+      height: 90px;
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease-out;
+      transform-origin: center bottom;
       position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.15s ease-out;
-      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
     }
 
-    /* 3D Cat Mascot Vector */
-    .pet-svg {
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
+    /* Breathing & Standing Idling Animation */
+    @keyframes tom-breathe {
+      0%, 100% { transform: translateY(0) scaleY(1); }
+      50% { transform: translateY(-2px) scaleY(1.02); }
+    }
+    .tom-standing {
+      animation: tom-breathe 2.4s infinite ease-in-out;
     }
 
-    /* 3D Wagging Tail */
-    @keyframes tail-wag-3d {
-      0%, 100% { transform: rotate(0deg) skewX(0deg); }
-      50% { transform: rotate(18deg) skewX(8deg); }
+    /* Laughing / Giggling 3D Animation like Talking Tom */
+    @keyframes tom-laugh {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      20% { transform: translateY(-5px) rotate(-3deg) scale(1.06); }
+      40% { transform: translateY(0) rotate(3deg) scale(1.02); }
+      60% { transform: translateY(-6px) rotate(-2deg) scale(1.08); }
+      80% { transform: translateY(-2px) rotate(2deg) scale(1.04); }
     }
-    .pet-tail {
-      transform-origin: 22px 52px;
-      animation: tail-wag-3d 1.6s infinite ease-in-out;
-    }
-
-    /* 3D Ears Twitch */
-    @keyframes ear-twitch {
-      0%, 90%, 100% { transform: rotate(0deg); }
-      93% { transform: rotate(-4deg); }
-      96% { transform: rotate(3deg); }
-    }
-    .pet-ears {
-      transform-origin: 30px 20px;
-      animation: ear-twitch 5s infinite;
+    .tom-laughing {
+      animation: tom-laugh 0.7s infinite ease-in-out !important;
     }
 
-    /* 3D Bounce Animation */
-    @keyframes pet-float-3d {
-      0%, 100% { transform: translateY(0px) rotateX(4deg); }
-      50% { transform: translateY(-3px) rotateX(-2deg); }
+    /* Tail Swaying Animation */
+    @keyframes tom-tail-sway {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(24deg) skewX(10deg); }
     }
-    .pet-floating {
-      animation: pet-float-3d 3.2s infinite ease-in-out;
+    .tom-tail {
+      transform-origin: 22px 70px;
+      animation: tom-tail-sway 1.8s infinite ease-in-out;
     }
 
-    /* Speech Bubble from Pet */
-    .pet-speech-bubble {
+    /* Ear Twitching Animation */
+    @keyframes tom-ear-wiggle {
+      0%, 88%, 100% { transform: rotate(0deg); }
+      92% { transform: rotate(-5deg); }
+      96% { transform: rotate(4deg); }
+    }
+    .tom-ears {
+      transform-origin: 34px 18px;
+      animation: tom-ear-wiggle 4.5s infinite;
+    }
+
+    /* Talking mouth jaw animation */
+    @keyframes tom-jaw-talk {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(1.9); }
+    }
+    .tom-talking .tom-jaw {
+      animation: tom-jaw-talk 0.22s infinite alternate ease-in-out;
+      transform-origin: center;
+    }
+
+    /* 3D Cat Speech Bubble */
+    .cat-speech-bubble {
       position: absolute;
-      bottom: 64px;
-      right: 0;
-      background: var(--bg-card);
+      bottom: 96px;
+      right: -10px;
+      background: var(--card-bg);
       border: 1px solid var(--border-glow);
-      padding: 5px 10px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--accent-1);
+      padding: 6px 12px;
+      border-radius: 14px;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--accent-primary);
       white-space: nowrap;
       pointer-events: none;
       opacity: 0;
-      transform: translateY(6px) scale(0.9);
-      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      transform: translateY(8px) scale(0.85);
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
       z-index: 50;
     }
 
-    .pet-speech-bubble.active {
+    .cat-speech-bubble.active {
       opacity: 1;
       transform: translateY(0) scale(1);
     }
 
-    .pet-speech-bubble::after {
+    .cat-speech-bubble::after {
       content: "";
       position: absolute;
       bottom: -6px;
-      right: 22px;
+      right: 32px;
       border-width: 6px 6px 0;
       border-style: solid;
       border-color: var(--border-glow) transparent transparent;
+    }
+
+    /* Floor Shadow Under 3D Standing Cat */
+    .cat-floor-shadow {
+      width: 48px;
+      height: 9px;
+      background: radial-gradient(ellipse, rgba(0, 0, 0, 0.6) 0%, transparent 70%);
+      border-radius: 50%;
+      margin-top: -3px;
     }
 
     .input-field-wrapper {
@@ -710,8 +743,8 @@
     .chat-input {
       width: 100%;
       min-height: 48px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: var(--card-bg);
+      border: 1px solid var(--border-line);
       border-radius: 9999px;
       padding: 12px 20px;
       color: var(--text-main);
@@ -723,15 +756,15 @@
     }
 
     .chat-input:focus {
-      border-color: var(--accent-1);
-      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.25);
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
     }
 
     .chat-input::placeholder {
       color: var(--text-subtle);
     }
 
-    .send-btn-action {
+    .send-action-btn {
       min-width: 48px;
       min-height: 48px;
       width: 48px;
@@ -749,22 +782,22 @@
       box-shadow: 0 4px 18px rgba(6, 182, 212, 0.4);
     }
 
-    .send-btn-action:hover {
+    .send-action-btn:hover {
       transform: scale(1.08);
       box-shadow: 0 6px 24px rgba(139, 92, 246, 0.5);
     }
 
-    .send-btn-action:active {
+    .send-action-btn:active {
       transform: scale(0.94);
     }
 
-    .send-btn-action:disabled {
+    .send-action-btn:disabled {
       opacity: 0.4;
       cursor: not-allowed;
       transform: none;
     }
 
-    .send-btn-action svg {
+    .send-action-btn svg {
       width: 20px;
       height: 20px;
       fill: none;
@@ -775,7 +808,7 @@
       margin-left: 2px;
     }
 
-    .input-hint-text {
+    .input-hint-line {
       font-size: 11.5px;
       color: var(--text-subtle);
       margin-top: 5px;
@@ -785,38 +818,39 @@
 </head>
 <body>
 
-  <!-- Ambient glowing gradient background orbs -->
-  <div class="ambient-bg" aria-hidden="true">
-    <div class="ambient-orb orb-1"></div>
-    <div class="ambient-orb orb-2"></div>
-    <div class="ambient-orb orb-3"></div>
+  <!-- Phone Wallpaper Background & Light Orbs -->
+  <div class="wallpaper-art">
+    <div class="bokeh-light b1"></div>
+    <div class="bokeh-light b2"></div>
   </div>
 
   <!-- Header -->
   <header class="app-header">
     <div class="header-left">
-      <div class="brand-info">
-        <div class="brand-title">
-          <span>🐱 Lendy AI</span>
-          <span class="status-dot" title="Online and Ready"></span>
-        </div>
-        <div class="brand-subtitle">
-          <span>Enterprise Loan Pricing & Approval Matrix</span>
-        </div>
+      <div class="header-titles">
+        <h1>
+          <span>🐱 Lendy</span>
+          <span style="font-size: 12px; font-weight: normal; color: var(--color-green);">● Active</span>
+        </h1>
+        <p id="appSubtitle">Executive Loan Pricing & Deviation AI</p>
       </div>
     </div>
 
     <div class="header-actions">
-      <!-- Live Theme Selector -->
-      <button class="icon-action-btn" id="themeBtn" onclick="cycleTheme()" aria-label="Switch Theme" title="Switch Theme Palette">
-        <span id="themeIcon">🎨</span>
-        <span style="font-size:12px; font-weight:600;">Theme</span>
+      <!-- Multi-Language Selector -->
+      <button class="lang-selector-btn" id="langBtn" onclick="cycleLanguage()" title="Switch Language">
+        <span>🌐</span>
+        <span id="currentLangLabel">English</span>
       </button>
 
-      <!-- Restart Conversation -->
-      <button class="icon-action-btn" onclick="restartConversation()" aria-label="Restart Conversation" title="Restart Conversation">
+      <!-- Wallpaper Theme Selector -->
+      <button class="theme-selector-btn" id="themeBtn" onclick="cycleWallpaperTheme()" title="Switch Phone Wallpaper Theme">
+        <span id="themeEmoji">🏙️</span>
+      </button>
+
+      <!-- Restart Session -->
+      <button class="reset-btn" onclick="restartSession()" title="Restart Session">
         <span>🔄</span>
-        <span style="font-size:12px; font-weight:600;">Restart</span>
       </button>
     </div>
   </header>
@@ -825,13 +859,13 @@
   <main class="chat-container" id="chatContainer" aria-live="polite"></main>
 
   <!-- Quick Reply Tappable Chips -->
-  <div class="chips-area" id="chipsArea" role="group" aria-label="Quick reply options"></div>
+  <div class="chips-area" id="chipsArea" role="group" aria-label="Quick response options"></div>
 
-  <!-- Sticky Input Bar with 3D/4D Interactive Pet Anchor -->
+  <!-- Sticky Input Bar with Standing 3D Talking Tom Cat -->
   <footer class="input-bar-container">
     <div class="input-row-wrapper">
-      
-      <!-- Input Text Field -->
+
+      <!-- Text Input Box -->
       <div class="input-field-wrapper">
         <form id="inputForm" onsubmit="event.preventDefault(); submitInput();">
           <input 
@@ -846,73 +880,133 @@
         </form>
       </div>
 
-      <!-- Interactive 3D Pet Companion near Send Button -->
-      <div class="pet-3d-anchor" id="petAnchor" onclick="petClicked()" title="I'm Lendy! Tap me for fun!">
-        <div class="pet-speech-bubble" id="petBubble">Meow! Let's price! ✨</div>
-        <div class="pet-3d-box pet-floating" id="petBox">
-          <svg class="pet-svg" viewBox="0 0 70 70">
+      <!-- Real Standing 3D Talking Tom Style Cat Mascot -->
+      <div class="cat-tom-stage" id="catStage" onclick="catTomClicked()" title="I'm Lendy! Tap me for funny reactions!">
+        <div class="cat-speech-bubble" id="catBubble">Hehehe! Ready to price! 😸</div>
+        
+        <div class="cat-tom-body-3d tom-standing" id="catBody">
+          <svg viewBox="0 0 100 135" style="width: 100%; height: 100%; overflow: visible;">
             <defs>
-              <linearGradient id="petGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#38bdf8"/>
-                <stop offset="50%" stop-color="#818cf8"/>
-                <stop offset="100%" stop-color="#c084fc"/>
+              <!-- Realistic Shaded Cat Fur Gradients -->
+              <linearGradient id="catFurMain" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#94a3b8"/>
+                <stop offset="35%" stop-color="#64748b"/>
+                <stop offset="70%" stop-color="#475569"/>
+                <stop offset="100%" stop-color="#334155"/>
               </linearGradient>
-              <linearGradient id="pawGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#e0e7ff"/>
-                <stop offset="100%" stop-color="#94a3b8"/>
+
+              <linearGradient id="catChestFur" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="100%" stop-color="#cbd5e1"/>
               </linearGradient>
+
+              <linearGradient id="catEarPink" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fda4af"/>
+                <stop offset="100%" stop-color="#f43f5e"/>
+              </linearGradient>
+
+              <radialGradient id="catEyeGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#67e8f9"/>
+                <stop offset="70%" stop-color="#0284c7"/>
+                <stop offset="100%" stop-color="#0369a1"/>
+              </radialGradient>
             </defs>
 
-            <!-- Wagging 3D Tail -->
-            <path class="pet-tail" d="M22,50 Q12,56 10,44 Q9,36 18,34" fill="none" stroke="url(#petGrad)" stroke-width="4.5" stroke-linecap="round"/>
+            <!-- Swaying 3D Tail -->
+            <path class="tom-tail" d="M22,95 Q4,105 2,82 Q0,65 16,60" fill="none" stroke="url(#catFurMain)" stroke-width="7" stroke-linecap="round"/>
 
-            <!-- Pet Body / Sitting -->
-            <ellipse cx="35" cy="46" rx="16" ry="14" fill="#0f172a" stroke="#818cf8" stroke-width="2"/>
+            <!-- Standing Hind Legs / Feet (Standing on Two Legs like Talking Tom) -->
+            <ellipse cx="34" cy="120" rx="9" ry="6" fill="#475569" stroke="#334155" stroke-width="1.5"/>
+            <ellipse cx="66" cy="120" rx="9" ry="6" fill="#475569" stroke="#334155" stroke-width="1.5"/>
+            <!-- White paw pads / claws -->
+            <circle cx="30" cy="122" r="2.2" fill="#f8fafc"/>
+            <circle cx="35" cy="123" r="2.2" fill="#f8fafc"/>
+            <circle cx="40" cy="122" r="2.2" fill="#f8fafc"/>
+            <circle cx="62" cy="122" r="2.2" fill="#f8fafc"/>
+            <circle cx="67" cy="123" r="2.2" fill="#f8fafc"/>
+            <circle cx="72" cy="122" r="2.2" fill="#f8fafc"/>
 
-            <!-- 3D Ears with Twitch -->
-            <g class="pet-ears">
-              <polygon points="23,24 13,8 30,17" fill="url(#petGrad)"/>
-              <polygon points="22,22 17,12 28,18" fill="#f472b6"/>
-              <polygon points="47,24 57,8 40,17" fill="url(#petGrad)"/>
-              <polygon points="48,22 53,12 42,18" fill="#f472b6"/>
+            <!-- Upright Body / Torso -->
+            <ellipse cx="50" cy="85" rx="24" ry="30" fill="url(#catFurMain)" stroke="#334155" stroke-width="2"/>
+
+            <!-- Fluffy White Chest Fur & Belly -->
+            <path d="M40,65 Q50,60 60,65 Q66,85 58,102 Q50,108 42,102 Q34,85 40,65 Z" fill="url(#catChestFur)"/>
+
+            <!-- Collar with Golden Bell -->
+            <rect x="36" y="58" width="28" height="5" rx="2.5" fill="#f59e0b" stroke="#b45309" stroke-width="1"/>
+            <circle cx="50" cy="62" r="4.5" fill="#fbbf24" stroke="#d97706" stroke-width="1.2"/>
+            <circle cx="50" cy="63" r="1.5" fill="#78350f"/>
+
+            <!-- Two Front Arms / Paws -->
+            <path id="leftArm" d="M28,68 Q18,80 26,92" fill="none" stroke="url(#catFurMain)" stroke-width="7" stroke-linecap="round"/>
+            <ellipse id="leftPaw" cx="26" cy="92" rx="4.5" ry="4" fill="#f8fafc"/>
+
+            <path id="rightArm" d="M72,68 Q82,80 74,92" fill="none" stroke="url(#catFurMain)" stroke-width="7" stroke-linecap="round"/>
+            <ellipse id="rightPaw" cx="74" cy="92" rx="4.5" ry="4" fill="#f8fafc"/>
+
+            <!-- Cat Head Group with 3D Parallax Tilt -->
+            <g id="tomHeadGroup">
+              <!-- Furry Cat Ears with Twitches -->
+              <g class="tom-ears">
+                <polygon points="26,30 10,6 40,16" fill="url(#catFurMain)" stroke="#334155" stroke-width="1.5"/>
+                <polygon points="26,26 16,12 36,18" fill="url(#catEarPink)"/>
+                <polygon points="74,30 90,6 60,16" fill="url(#catFurMain)" stroke="#334155" stroke-width="1.5"/>
+                <polygon points="74,26 84,12 64,18" fill="url(#catEarPink)"/>
+              </g>
+
+              <!-- Rounded Realistic Head -->
+              <ellipse cx="50" cy="36" rx="26" ry="23" fill="url(#catFurMain)" stroke="#334155" stroke-width="2"/>
+
+              <!-- Realistic Cat Cheeks & Whiskers -->
+              <ellipse cx="40" cy="45" rx="10" ry="7" fill="url(#catChestFur)"/>
+              <ellipse cx="60" cy="45" rx="10" ry="7" fill="url(#catChestFur)"/>
+
+              <!-- Realistic Whiskers -->
+              <line x1="20" y1="42" x2="33" y2="44" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+              <line x1="18" y1="47" x2="32" y2="46" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+              <line x1="80" y1="42" x2="67" y2="44" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+              <line x1="82" y1="47" x2="68" y2="46" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+
+              <!-- Realistic 3D Glowing Cat Eyes -->
+              <ellipse id="tomEyeL" cx="39" cy="32" rx="6" ry="7.5" fill="url(#catEyeGlow)" stroke="#0f172a" stroke-width="1.5"/>
+              <ellipse id="tomEyeR" cx="61" cy="32" rx="6" ry="7.5" fill="url(#catEyeGlow)" stroke="#0f172a" stroke-width="1.5"/>
+
+              <!-- Slitted / Expressive Pupils with Parallax Tracking -->
+              <ellipse id="tomPupilL" cx="39" cy="32" rx="2.2" ry="5.5" fill="#020617"/>
+              <ellipse id="tomPupilR" cx="61" cy="32" rx="2.2" ry="5.5" fill="#020617"/>
+
+              <!-- Eye Specular Highlights -->
+              <circle cx="37.5" cy="29" r="1.8" fill="#ffffff"/>
+              <circle cx="59.5" cy="29" r="1.8" fill="#ffffff"/>
+
+              <!-- Cute Pink Cat Nose -->
+              <polygon points="47,40 53,40 50,44" fill="#f43f5e"/>
+
+              <!-- Talking Tom Animated Mouth / Jaw -->
+              <g class="tom-jaw" id="tomJaw">
+                <path id="tomMouth" d="M44,45 Q50,50 56,45" fill="none" stroke="#be123c" stroke-width="2.2" stroke-linecap="round"/>
+              </g>
+
+              <!-- Blushing Cheeks -->
+              <ellipse cx="28" cy="42" rx="4" ry="2.5" fill="#f43f5e" opacity="0.4"/>
+              <ellipse cx="72" cy="42" rx="4" ry="2.5" fill="#f43f5e" opacity="0.4"/>
             </g>
-
-            <!-- Pet Head (Spherical 3D shading) -->
-            <circle cx="35" cy="27" r="16" fill="url(#petGrad)" stroke="#c084fc" stroke-width="1.5"/>
-
-            <!-- Visor Screen -->
-            <rect x="22" y="20" width="26" height="15" rx="7" fill="#020617" stroke="#1e293b" stroke-width="1"/>
-
-            <!-- Dynamic 3D Eyes -->
-            <ellipse id="petEyeL" cx="29" cy="27" rx="3.5" ry="4.5" fill="#38bdf8"/>
-            <ellipse id="petEyeR" cx="41" cy="27" rx="3.5" ry="4.5" fill="#38bdf8"/>
-            <circle id="petPupilL" cx="30" cy="25.5" r="1.3" fill="#ffffff"/>
-            <circle id="petPupilR" cx="42" cy="25.5" r="1.3" fill="#ffffff"/>
-
-            <!-- Cute Cat Mouth -->
-            <path id="petMouth" d="M32,32 Q35,35 38,32" fill="none" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round"/>
-
-            <!-- Cute Blushing Cheeks -->
-            <circle cx="25" cy="31" r="2.2" fill="#f472b6" opacity="0.8"/>
-            <circle cx="45" cy="31" r="2.2" fill="#f472b6" opacity="0.8"/>
-
-            <!-- Paws -->
-            <ellipse cx="28" cy="56" rx="4.5" ry="3" fill="url(#pawGrad)"/>
-            <ellipse cx="42" cy="56" rx="4.5" ry="3" fill="url(#pawGrad)"/>
           </svg>
         </div>
+
+        <div class="cat-floor-shadow"></div>
       </div>
 
       <!-- Send Action Button -->
       <button 
         type="button" 
         id="sendBtn" 
-        class="send-btn-action" 
+        class="send-action-btn" 
         onclick="submitInput()" 
-        aria-label="Send message" 
+        aria-label="Send response" 
         title="Send"
-        onmouseenter="petWantsToSend(true)"
-        onmouseleave="petWantsToSend(false)"
+        onmouseenter="catWatchesSend(true)"
+        onmouseleave="catWatchesSend(false)"
       >
         <svg viewBox="0 0 24 24">
           <line x1="22" y1="2" x2="11" y2="13"/>
@@ -920,20 +1014,187 @@
         </svg>
       </button>
     </div>
-    <div class="input-hint-text" id="inputHint">Tap a chip or enter your response</div>
+    <div class="input-hint-line" id="inputHint">Tap an option chip or type your input</div>
   </footer>
 
   <!-- ==========================================================================
-       CORE SCRIPT: BUSINESS CONFIG, RECTIFICATIONS, AND 3D INTERACTION
+       LOGIC, I18N, AND INTERACTIVE ENGINE
        ========================================================================== */
   -->
   <script>
     /* ==========================================================================
-       CONFIG & POLICY ENGINE (With Mandatory Floors: ROI < 15% / PF < 1.5% -> CEO)
+       MULTI-LANGUAGE LOCALIZATION DICTIONARY
+       ========================================================================== */
+    const I18N = {
+      en: {
+        code: "en", label: "English",
+        subtitle: "Executive Loan Pricing & Deviation AI",
+        welcome: "👋 Hello Officer! I'm <strong>Lendy</strong>, your credit pricing & policy approval copilot.<br><br>Let's evaluate current vs. requested loan parameters, check our 56-row policy matrix, and calculate precise EMI & DTI deviations.<br><br><strong>What is the customer or case reference name?</strong>",
+        askProduct: "Which <strong>Loan Product</strong> is under review for",
+        askIncomeProg: "Under which <strong>Income Program</strong> is this loan assessed?",
+        askProperty: "What is the <strong>Property Type</strong> mortgaged?",
+        askBureau: "What is the borrower's <strong>Bureau Category</strong>?",
+        askSancAmount: "What is the <strong>Current Sanctioned Loan Amount</strong>?",
+        askSancTenure: "What is the <strong>Current Sanctioned Tenure</strong>?",
+        askSancRoi: "What is the <strong>Current Sanctioned ROI (% p.a.)</strong>?",
+        askSancPf: "What is the <strong>Current Sanctioned Processing Fee (PF %)</strong>?",
+        askIncomeFreq: "How would you like to enter the borrower's gross earnings?",
+        askIncomeAmount: "Enter gross earnings amount for",
+        askExistingEmis: "What are the borrower's <strong>total existing monthly EMIs / obligations</strong>? (0 if none)",
+        sancStatusTitle: "📊 Current Sanctioned Status & Policy Benchmarks",
+        sancEmiLabel: "Current Sanctioned EMI",
+        currentDtiLabel: "Current DTI Ratio",
+        baseRoiLabel: "Matrix Base ROI",
+        basePfLabel: "Matrix Base PF",
+        askReqRoi: "What is the borrower's <strong>Requested ROI (% p.a.)</strong>?",
+        askReqPf: "What is the borrower's <strong>Requested Processing Fee (PF %)</strong>?",
+        floorWarningRoi: "⚠️ Note: Per policy floor, any Requested ROI < 15% mandates CEO approval.",
+        floorWarningPf: "⚠️ Note: Per policy floor, any Requested PF < 1.5% mandates CEO approval.",
+        evalTitle: "🎯 Comprehensive Deviation & Approval Assessment",
+        btnTryRates: "Try different Requested ROI/PF",
+        btnNewCase: "Evaluate new customer",
+        floorAlert: "🏛️ MANDATORY POLICY FLOOR BREACH TRIGGERED (CEO APPROVAL)",
+        dtiAlertTitle: "⚠️ Prudent DTI Alert (>50%)",
+        tableHeader: ["Parameter", "Matrix Benchmark", "Current Sanctioned", "Proposed Requested", "Deviation / Status"],
+        monthly: "Monthly", annual: "Annual"
+      },
+      hi: {
+        code: "hi", label: "हिंदी",
+        subtitle: "ऋण मूल्य निर्धारण एवं विचलन मूल्यांकन सहायक",
+        welcome: "👋 नमस्ते ऑफिसर! मैं <strong>लेंडी (Lendy)</strong> हूँ, आपका ऋण मूल्य निर्धारण एवं नीति अनुमोदन सहायक।<br><br>आइए स्वीकृत बनाम अनुरोधित ऋण शर्तों का मूल्यांकन करें, 56-पंक्ति मैट्रिक्स जांचें और ईएमआई तथा डीटीआई की सटीक गणना करें।<br><br><strong>ग्राहक का नाम या केस संदर्भ (Reference) क्या है?</strong>",
+        askProduct: "के लिए कौन सा <strong>ऋण उत्पाद (Loan Product)</strong> चुनना चाहते हैं:",
+        askIncomeProg: "यह ऋण किस <strong>आय कार्यक्रम (Income Program)</strong> के तहत मूल्यांकित है?",
+        askProperty: "बंधक रखी गई <strong>संपत्ति का प्रकार (Property Type)</strong> क्या है?",
+        askBureau: "उधारकर्ता की <strong>ब्यूरो श्रेणी (Bureau Category)</strong> क्या है?",
+        askSancAmount: "वर्तमान <strong>स्वीकृत ऋण राशि (Sanctioned Loan Amount)</strong> कितनी है?",
+        askSancTenure: "वर्तमान <strong>स्वीकृत अवधि (Sanctioned Tenure)</strong> कितनी है?",
+        askSancRoi: "वर्तमान <strong>स्वीकृत ब्याज दर (Sanctioned ROI % p.a.)</strong> क्या है?",
+        askSancPf: "वर्तमान <strong>स्वीकृत प्रोसेसिंग शुल्क (Sanctioned PF %)</strong> क्या है?",
+        askIncomeFreq: "उधारकर्ता की कुल आय कैसे दर्ज करना चाहते हैं?",
+        askIncomeAmount: "सकल आय दर्ज करें:",
+        askExistingEmis: "उधारकर्ता की <strong>कुल मौजूदा मासिक ईएमआई / देयताएं</strong> कितनी हैं? (यदि कोई नहीं तो 0)",
+        sancStatusTitle: "📊 वर्तमान स्वीकृत स्थिति एवं नीति बेंचमार्क",
+        sancEmiLabel: "स्वीकृत ईएमआई",
+        currentDtiLabel: "मौजूदा डीटीआई अनुपात",
+        baseRoiLabel: "मैट्रिक्स बेस आरओआई",
+        basePfLabel: "मैट्रिक्स बेस पीएफ",
+        askReqRoi: "उधारकर्ता द्वारा <strong>अनुरोधित ब्याज दर (Requested ROI % p.a.)</strong> क्या है?",
+        askReqPf: "उधारकर्ता द्वारा <strong>अनुरोधित प्रोसेसिंग शुल्क (Requested PF %)</strong> क्या है?",
+        floorWarningRoi: "⚠️ ध्यान दें: नीतिगत न्यूनतम सीमा के अनुसार, 15% से कम ROI के लिए CEO अनुमोदन अनिवार्य है।",
+        floorWarningPf: "⚠️ ध्यान दें: नीतिगत न्यूनतम सीमा के अनुसार, 1.5% से कम PF के लिए CEO अनुमोदन अनिवार्य है।",
+        evalTitle: "🎯 संपूर्ण विचलन एवं अनुमोदन मूल्यांकन रिपोर्ट",
+        btnTryRates: "अन्य ROI/PF दरें जांचें",
+        btnNewCase: "नया केस दर्ज करें",
+        floorAlert: "🏛️ नीतिगत न्यूनतम सीमा उल्लंघन (CEO अनुमोदन अनिवार्य)",
+        dtiAlertTitle: "⚠️ उच्च डीटीआई चेतावनी (>50%)",
+        tableHeader: ["पैरामीटर", "मैट्रिक्स बेंचमार्क", "वर्तमान स्वीकृत", "प्रस्तावित अनुरोध", "विचलन / प्राधिकारी"],
+        monthly: "मासिक", annual: "वार्षिक"
+      },
+      gu: {
+        code: "gu", label: "ગુજરાતી",
+        subtitle: "લોન પ્રાઇસિંગ અને મંજૂરી સહાયક AI",
+        welcome: "👋 નમસ્તે ઓફિસર! હું <strong>લેન્ડી (Lendy)</strong> છું, તમારો લોન પ્રાઇસિંગ અને પોલિસી એપ્રૂવલ સહાયક.<br><br>ચાલો મંજૂર અને માંગણી કરેલ લોન શરતોનું મૂલ્યાંકન કરીએ અને સચોટ EMI અને DTI ની ગણતરી કરીએ.<br><br><strong>ગ્રાહકનું નામ અથવા કેસ રેફરન્સ શું છે?</strong>",
+        askProduct: "માટે કયું <strong>લોન પ્રોડક્ટ</strong> પસંદ કરશો?",
+        askIncomeProg: "આ લોન કયા <strong>ઇન્કમ પ્રોગ્રામ</strong> હેઠળ છે?",
+        askProperty: "મિલકતનો પ્રકાર <strong>(Property Type)</strong> શું છે?",
+        askBureau: "ઉધાર લેનારની <strong>બ્યુરો કેટેગરી</strong> શું છે?",
+        askSancAmount: "હાલની <strong>મંજૂર થયેલ લોનની રકમ (Sanctioned Amount)</strong> કેટલી છે?",
+        askSancTenure: "હાલની <strong>મંજૂર મુદત (Tenure)</strong> કેટલી છે?",
+        askSancRoi: "હાલનો <strong>મંજૂર વ્યાજદર (Sanctioned ROI % p.a.)</strong> કેટલો છે?",
+        askSancPf: "હાલની <strong>મંજૂર પ્રોસેસિંગ ફી (Sanctioned PF %)</strong> કેટલી છે?",
+        askIncomeFreq: "આવક કઈ રીતે દાખલ કરશો?",
+        askIncomeAmount: "કુલ આવક દાખલ કરો:",
+        askExistingEmis: "ઉધાર લેનારની <strong>હાલની કુલ માસિક EMI / જવાબદારીઓ</strong> કેટલી છે? (ન હોય તો 0)",
+        sancStatusTitle: "📊 હાલની મંજૂર સ્થિતિ અને પોલિસી બેન્ચમાર્ક",
+        sancEmiLabel: "હાલની EMI",
+        currentDtiLabel: "હાલનો DTI રેશિયો",
+        baseRoiLabel: "બેઝ ROI",
+        basePfLabel: "બેઝ PF",
+        askReqRoi: "ગ્રાહક દ્વારા <strong>વિનંતી કરેલ ROI (% p.a.)</strong> કેટલો છે?",
+        askReqPf: "ગ્રાહક દ્વારા <strong>વિનંતી કરેલ PF (%)</strong> કેટલો છે?",
+        floorWarningRoi: "⚠️ પોલિસી ફ્લોર મુજબ, 15% થી ઓછો ROI હોય તો CEO મંજૂરી ફરજિયાત છે.",
+        floorWarningPf: "⚠️ પોલિસી ફ્લોર મુજબ, 1.5% થી ઓછો PF હોય તો CEO મંજૂરી ફરજિયાત છે.",
+        evalTitle: "🎯 સંપૂર્ણ મૂલ્યાંકન અને મંજૂરી રિપોર્ટ",
+        btnTryRates: "અન્ય ROI/PF ચકાસો",
+        btnNewCase: "નવો કેસ દાખલ કરો",
+        floorAlert: "🏛️ પોલિસી ફ્લોર નિયમ ભંગ (CEO મંજૂરી ફરજિયાત)",
+        dtiAlertTitle: "⚠️ ઊંચો DTI ચેતવણી (>50%)",
+        tableHeader: ["પેરામીટર", "બેન્ચમાર્ક", "હાલનું મંજૂર", "માંગેલ દર", "વિચલન / મંજૂરી"],
+        monthly: "માસિક", annual: "વાર્ષિક"
+      },
+      ml: {
+        code: "ml", label: "മലയാളം",
+        subtitle: "ലോൺ പ്രൈസിംഗ് & അപ്രൂവൽ അസിസ്റ്റന്റ്",
+        welcome: "👋 നമസ്കാരം ഓഫീസർ! ഞാൻ <strong>ലെൻഡി (Lendy)</strong>. നിങ്ങളുടെ ലോൺ പ്രൈസിംഗ് അസിസ്റ്റന്റ്.<br><br>നമുക്ക് അനുവദിച്ചതും ആവശ്യപ്പെട്ടതുമായ ലോൺ നിബന്ധനകൾ താരതമ്യം ചെയ്ത് ശരിയായ ഇ.എം.ഐ, ഡി.ടി.ഐ എന്നിവ കണക്കാക്കാം.<br><br><strong>ഉപഭോക്താവിന്റെ പേര് അല്ലെങ്കിൽ കേസ് റഫറൻസ് നൽകുക:</strong>",
+        askProduct: "തിരഞ്ഞെടുക്കേണ്ട <strong>ലോൺ പ്രൊഡക്റ്റ്</strong> ഏതാണ്:",
+        askIncomeProg: "ഏത് <strong>ഇൻകം പ്രോഗ്രാം</strong> പ്രകാരമാണ് വിലയിരുത്തുന്നത്?",
+        askProperty: "പണയപ്പെടുത്തിയ <strong>പ്രോപ്പർട്ടി തരം</strong> ഏതാണ്?",
+        askBureau: "ക്രെഡിറ്റ് <strong>ബ്യൂറോ കാറ്റഗറി</strong> ഏതാണ്?",
+        askSancAmount: "നിലവിൽ <strong>അനുവദിച്ച വായ്പ തുക</strong> എത്രയാണ്?",
+        askSancTenure: "നിലവിലെ <strong>വായ്പ കാലാവധി</strong> എത്രയാണ്?",
+        askSancRoi: "നിലവിലെ <strong>പലിശ നിരക്ക് (Sanctioned ROI % p.a.)</strong> എത്രയാണ്?",
+        askSancPf: "നിലവിലെ <strong>പ്രോസസ്സിംഗ് ഫീസ് (Sanctioned PF %)</strong> എത്രയാണ്?",
+        askIncomeFreq: "വരുമാനം എങ്ങനെ നൽകാൻ ആഗ്രഹിക്കുന്നു?",
+        askIncomeAmount: "മൊത്തം വരുമാനം നൽകുക:",
+        askExistingEmis: "നിലവിലുള്ള <strong>പ്രതിമാസ ബാധ്യതകൾ / EMIs</strong> എത്രയാണ്? (ഇല്ലെങ്കിൽ 0)",
+        sancStatusTitle: "📊 നിലവിലെ സ്ഥിതിയും പോളിസി ബെഞ്ച്മാർക്കും",
+        sancEmiLabel: "നിലവിലെ EMI",
+        currentDtiLabel: "നിലവിലെ DTI അനുപാതം",
+        baseRoiLabel: "ബേസ് ROI",
+        basePfLabel: "ബേസ് PF",
+        askReqRoi: "ആവശ്യപ്പെടുന്ന <strong>പലിശ നിരക്ക് (Requested ROI %)</strong> നൽകുക:",
+        askReqPf: "ആവശ്യപ്പെടുന്ന <strong>പ്രോസസ്സിംഗ് ഫീസ് (Requested PF %)</strong> നൽകുക:",
+        floorWarningRoi: "⚠️ പോളിസി പ്രകാരം 15%-ൽ താഴെയുള്ള ROI-ക്ക് CEO അനുമതി നിർബന്ധമാണ്.",
+        floorWarningPf: "⚠️ പോളിസി പ്രകാരം 1.5%-ൽ താഴെയുള്ള PF-ന് CEO അനുമതി നിർബന്ധമാണ്.",
+        evalTitle: "🎯 സമഗ്ര മൂല്യനിർണ്ണയവും അപ്രൂവൽ റിപ്പോർട്ടും",
+        btnTryRates: "മറ്റു നിരക്കുകൾ പരിശോധിക്കുക",
+        btnNewCase: "പുതിയ കേസ് ആരംഭിക്കുക",
+        floorAlert: "🏛️ പോളിസി ഫ്ലോർ നിയമലംഘനം (CEO അനുമതി നിർബന്ധം)",
+        dtiAlertTitle: "⚠️ ഉയർന്ന DTI മുന്നറിയിപ്പ് (>50%)",
+        tableHeader: ["ഘടകം", "ബെഞ്ച്മാർക്ക്", "നിലവിൽ അനുവദിച്ചത്", "ആവശ്യപ്പെട്ടത്", "അനുമതി നൽകേണ്ടയാൾ"],
+        monthly: "പ്രതിമാസം", annual: "വാർഷികം"
+      }
+    };
+
+    let currentLang = "en";
+    function t(key) {
+      return (I18N[currentLang] && I18N[currentLang][key]) || I18N["en"][key] || key;
+    }
+
+    function cycleLanguage() {
+      const langs = ["en", "hi", "gu", "ml"];
+      const nextIdx = (langs.indexOf(currentLang) + 1) % langs.length;
+      currentLang = langs[nextIdx];
+      document.getElementById("currentLangLabel").textContent = I18N[currentLang].label;
+      document.getElementById("appSubtitle").textContent = t("subtitle");
+      catSpeech(`Language switched to ${I18N[currentLang].label}! 🌐`, 2000);
+    }
+
+    /* ==========================================================================
+       WALLPAPER THEME CYCLER
+       ========================================================================== */
+    const wallpapers = [
+      { id: "cyber-city", emoji: "🏙️", name: "Cyber City" },
+      { id: "cosmic-nebula", emoji: "🌌", name: "Cosmic Nebula" },
+      { id: "sunset-gold", emoji: "🌅", name: "Sunset Gold" },
+      { id: "emerald-aurora", emoji: "🌿", name: "Emerald Aurora" }
+    ];
+    let currentWpIdx = 0;
+
+    function cycleWallpaperTheme() {
+      currentWpIdx = (currentWpIdx + 1) % wallpapers.length;
+      const wp = wallpapers[currentWpIdx];
+      document.documentElement.setAttribute("data-theme", wp.id);
+      document.getElementById("themeEmoji").textContent = wp.emoji;
+      catLaugh();
+      catSpeech(`Wallpaper: ${wp.name}! ✨`, 2000);
+    }
+
+    /* ==========================================================================
+       LOAN POLICY CONFIGURATION & MANDATORY FLOORS
        ========================================================================== */
     const CONFIG = {
-      APP_NAME: "Lendy Loan Pricing & Approval Chatbot",
-      VERSION: "2.0.0",
+      APP_NAME: "Lendy Loan Pricing & Approval Assistant",
       DTI_LIMIT_PERCENT: 50.0,
       ROUNDING_TOLERANCE: 1e-6,
 
@@ -950,20 +1211,19 @@
 
       BANDS: {
         ROI: [
-          { max: 0.0, approver: "NONE", label: "Standard / Premium" },
-          { max: 2.0, approver: "CBO",  label: "Up to 2.00% (CBO)" },
-          { max: 4.0, approver: "COO",  label: "2.01% - 4.00% (COO)" },
-          { max: Infinity, approver: "CEO", label: "Above 4.00% (CEO)" }
+          { max: 0.0, approver: "NONE" },
+          { max: 2.0, approver: "CBO" },
+          { max: 4.0, approver: "COO" },
+          { max: Infinity, approver: "CEO" }
         ],
         PF: [
-          { max: 0.0, approver: "NONE", label: "Standard / Premium" },
-          { max: 1.0, approver: "CBO",  label: "Up to 1.00% (CBO)" },
-          { max: 1.5, approver: "COO",  label: "1.01% - 1.50% (COO)" },
-          { max: Infinity, approver: "CEO", label: "Above 1.50% (CEO)" }
+          { max: 0.0, approver: "NONE" },
+          { max: 1.0, approver: "CBO" },
+          { max: 1.5, approver: "COO" },
+          { max: Infinity, approver: "CEO" }
         ]
       },
 
-      // Full 56-Row Policy Matrix
       MATRIX: [
         { product: "Regular Secured Business Loan", ticket: "Upto 5 Lacs", income: "Documented Income Program", property: "SORP", bureau: ">=700 or NTC", baseRoi: 20.0, basePf: 3.0 },
         { product: "Regular Secured Business Loan", ticket: "Upto 5 Lacs", income: "Documented Income Program", property: "SORP", bureau: "<700", baseRoi: 22.0, basePf: 3.0 },
@@ -1064,9 +1324,7 @@
       let roiApprover = getApproverForDeviation(roiDeviation, "ROI");
       let pfApprover = getApproverForDeviation(pfDeviation, "PF");
 
-      // Mandatory Absolute Policy Floors:
-      // 1. Requested ROI < 15.0% -> Mandates CEO Approval
-      // 2. Requested PF < 1.50%  -> Mandates CEO Approval
+      // Mandatory Absolute Policy Floors
       const roiFloorBreached = reqRoi < (CONFIG.ROI_FLOOR_PERCENT - eps);
       const pfFloorBreached = reqPf < (CONFIG.PF_FLOOR_PERCENT - eps);
 
@@ -1082,13 +1340,13 @@
       const reasons = [];
 
       if (roiFloorBreached) {
-        reasons.push(`⚠️ Requested ROI (${reqRoi.toFixed(2)}%) is below the absolute 15.00% floor, mandating CEO Approval`);
+        reasons.push(`⚠️ Requested ROI (${reqRoi.toFixed(2)}%) is below the mandatory 15.00% floor, mandating CEO Approval`);
       } else if (roiApprover !== "NONE") {
         reasons.push(`ROI discount of ${roiDeviation.toFixed(2)}% requires ${CONFIG.APPROVERS[roiApprover].name}`);
       }
 
       if (pfFloorBreached) {
-        reasons.push(`⚠️ Requested PF (${reqPf.toFixed(2)}%) is below the absolute 1.50% floor, mandating CEO Approval`);
+        reasons.push(`⚠️ Requested PF (${reqPf.toFixed(2)}%) is below the mandatory 1.50% floor, mandating CEO Approval`);
       } else if (pfApprover !== "NONE") {
         reasons.push(`PF waiver/discount of ${pfDeviation.toFixed(2)}% requires ${CONFIG.APPROVERS[pfApprover].name}`);
       }
@@ -1100,12 +1358,9 @@
       }
 
       return {
-        roiDeviation,
-        pfDeviation,
-        roiApprover,
-        pfApprover,
-        roiFloorBreached,
-        pfFloorBreached,
+        roiDeviation, pfDeviation,
+        roiApprover, pfApprover,
+        roiFloorBreached, pfFloorBreached,
         finalApproverKey: finalKey,
         finalApproverName: approverInfo.name,
         color: approverInfo.color,
@@ -1192,141 +1447,149 @@
     }
 
     /* ==========================================================================
-       3D / 4D INTERACTIVE PET DYNAMICS & MOVEMENT
+       3D REAL STANDING TALKING TOM CAT DYNAMICS
        ========================================================================== */
-    const petBox = document.getElementById("petBox");
-    const petEyeL = document.getElementById("petEyeL");
-    const petEyeR = document.getElementById("petEyeR");
-    const petPupilL = document.getElementById("petPupilL");
-    const petPupilR = document.getElementById("petPupilR");
-    const petMouth = document.getElementById("petMouth");
-    const petBubble = document.getElementById("petBubble");
+    const catBody = document.getElementById("catBody");
+    const tomHeadGroup = document.getElementById("tomHeadGroup");
+    const tomEyeL = document.getElementById("tomEyeL");
+    const tomEyeR = document.getElementById("tomEyeR");
+    const tomPupilL = document.getElementById("tomPupilL");
+    const tomPupilR = document.getElementById("tomPupilR");
+    const tomMouth = document.getElementById("tomMouth");
+    const catBubble = document.getElementById("catBubble");
 
-    // Track cursor for 3D Head and Eye parallax
+    // Real-time Parallax 3D Head Tracking
     window.addEventListener("mousemove", (e) => {
-      if (!petBox) return;
-      const rect = petBox.getBoundingClientRect();
+      if (!catBody) return;
+      const rect = catBody.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
       const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
       const deltaY = (e.clientY - centerY) / (window.innerHeight / 2);
 
-      const rotateY = Math.max(-25, Math.min(25, deltaX * 25));
-      const rotateX = Math.max(-20, Math.min(20, -deltaY * 20));
+      const rotY = Math.max(-28, Math.min(28, deltaX * 28));
+      const rotX = Math.max(-18, Math.min(18, -deltaY * 18));
 
-      petBox.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
+      catBody.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
 
-      // Pupil parallax offset
-      if (petPupilL && petPupilR) {
-        const pX = Math.max(-2, Math.min(2, deltaX * 2.5));
-        const pY = Math.max(-2, Math.min(2, deltaY * 2.5));
-        petPupilL.setAttribute("cx", 30 + pX);
-        petPupilL.setAttribute("cy", 25.5 + pY);
-        petPupilR.setAttribute("cx", 42 + pX);
-        petPupilR.setAttribute("cy", 25.5 + pY);
+      if (tomPupilL && tomPupilR) {
+        const px = Math.max(-2.2, Math.min(2.2, deltaX * 2.8));
+        const py = Math.max(-2.5, Math.min(2.5, deltaY * 2.8));
+        tomPupilL.setAttribute("cx", 39 + px);
+        tomPupilL.setAttribute("cy", 32 + py);
+        tomPupilR.setAttribute("cx", 61 + px);
+        tomPupilR.setAttribute("cy", 32 + py);
       }
     });
 
-    function setPetExpression(expr) {
-      if (!petEyeL || !petEyeR || !petMouth) return;
-      switch (expr) {
+    function setCatMood(mood) {
+      if (!tomEyeL || !tomEyeR || !tomMouth || !catBody) return;
+      catBody.classList.remove("tom-laughing", "tom-talking");
+
+      switch (mood) {
+        case "laughing":
+          catBody.classList.add("tom-laughing");
+          // Crescent Joyful Eyes
+          tomEyeL.setAttribute("rx", "6"); tomEyeL.setAttribute("ry", "2.5");
+          tomEyeR.setAttribute("rx", "6"); tomEyeR.setAttribute("ry", "2.5");
+          // Big Wide Open Laughing Mouth XD
+          tomMouth.setAttribute("d", "M42,44 Q50,56 58,44 Z");
+          tomMouth.setAttribute("fill", "#be123c");
+          break;
+
         case "talking":
-          petEyeL.setAttribute("rx", "3.5"); petEyeL.setAttribute("ry", "4.5");
-          petEyeR.setAttribute("rx", "3.5"); petEyeR.setAttribute("ry", "4.5");
-          petMouth.setAttribute("d", "M32,31 Q35,37 38,31");
+          catBody.classList.add("tom-talking");
+          tomEyeL.setAttribute("rx", "6"); tomEyeL.setAttribute("ry", "7");
+          tomEyeR.setAttribute("rx", "6"); tomEyeR.setAttribute("ry", "7");
+          tomMouth.setAttribute("d", "M44,45 Q50,53 56,45");
+          tomMouth.setAttribute("fill", "none");
           break;
+
         case "thinking":
-          petEyeL.setAttribute("rx", "3.0"); petEyeL.setAttribute("ry", "3.0");
-          petEyeR.setAttribute("rx", "3.0"); petEyeR.setAttribute("ry", "3.0");
-          petMouth.setAttribute("d", "M33,33 L37,33");
+          tomEyeL.setAttribute("rx", "5"); tomEyeL.setAttribute("ry", "5");
+          tomEyeR.setAttribute("rx", "5"); tomEyeR.setAttribute("ry", "5");
+          tomMouth.setAttribute("d", "M45,46 L55,46");
+          tomMouth.setAttribute("fill", "none");
           break;
+
         case "surprised":
-          petEyeL.setAttribute("rx", "4.8"); petEyeL.setAttribute("ry", "5.2");
-          petEyeR.setAttribute("rx", "4.8"); petEyeR.setAttribute("ry", "5.2");
-          petMouth.setAttribute("d", "M33,33 A2,2 0 1 0 37,33 A2,2 0 1 0 33,33");
+          tomEyeL.setAttribute("rx", "7.5"); tomEyeL.setAttribute("ry", "8.5");
+          tomEyeR.setAttribute("rx", "7.5"); tomEyeR.setAttribute("ry", "8.5");
+          tomMouth.setAttribute("d", "M46,45 A4,4 0 1 0 54,45 A4,4 0 1 0 46,45");
+          tomMouth.setAttribute("fill", "#be123c");
           break;
+
         case "happy":
-          petEyeL.setAttribute("rx", "4.0"); petEyeL.setAttribute("ry", "2.0");
-          petEyeR.setAttribute("rx", "4.0"); petEyeR.setAttribute("ry", "2.0");
-          petMouth.setAttribute("d", "M31,31 Q35,38 39,31");
+          tomEyeL.setAttribute("rx", "6"); tomEyeL.setAttribute("ry", "3");
+          tomEyeR.setAttribute("rx", "6"); tomEyeR.setAttribute("ry", "3");
+          tomMouth.setAttribute("d", "M43,44 Q50,52 57,44");
+          tomMouth.setAttribute("fill", "none");
           break;
+
         case "worried":
-          petEyeL.setAttribute("rx", "3.2"); petEyeL.setAttribute("ry", "4.0");
-          petEyeR.setAttribute("rx", "3.2"); petEyeR.setAttribute("ry", "4.0");
-          petMouth.setAttribute("d", "M32,34 Q35,30 38,34");
+          tomEyeL.setAttribute("rx", "5"); tomEyeL.setAttribute("ry", "6.5");
+          tomEyeR.setAttribute("rx", "5"); tomEyeR.setAttribute("ry", "6.5");
+          tomMouth.setAttribute("d", "M44,48 Q50,43 56,48");
+          tomMouth.setAttribute("fill", "none");
           break;
+
         case "celebrating":
-          petEyeL.setAttribute("rx", "4.5"); petEyeL.setAttribute("ry", "2.5");
-          petEyeR.setAttribute("rx", "4.5"); petEyeR.setAttribute("ry", "2.5");
-          petMouth.setAttribute("d", "M30,30 Q35,40 40,30");
+          catBody.classList.add("tom-laughing");
+          tomEyeL.setAttribute("rx", "6.5"); tomEyeL.setAttribute("ry", "3.5");
+          tomEyeR.setAttribute("rx", "6.5"); tomEyeR.setAttribute("ry", "3.5");
+          tomMouth.setAttribute("d", "M41,43 Q50,56 59,43 Z");
+          tomMouth.setAttribute("fill", "#be123c");
           break;
+
         case "idle":
         default:
-          petEyeL.setAttribute("rx", "3.5"); petEyeL.setAttribute("ry", "4.5");
-          petEyeR.setAttribute("rx", "3.5"); petEyeR.setAttribute("ry", "4.5");
-          petMouth.setAttribute("d", "M32,32 Q35,35 38,32");
+          tomEyeL.setAttribute("rx", "6"); tomEyeL.setAttribute("ry", "7.5");
+          tomEyeR.setAttribute("rx", "6"); tomEyeR.setAttribute("ry", "7.5");
+          tomMouth.setAttribute("d", "M44,45 Q50,50 56,45");
+          tomMouth.setAttribute("fill", "none");
           break;
       }
     }
 
-    function showPetBubble(text, durationMs = 2600) {
-      if (!petBubble) return;
-      petBubble.textContent = text;
-      petBubble.classList.add("active");
-      setTimeout(() => {
-        petBubble.classList.remove("active");
-      }, durationMs);
+    function catSpeech(text, durationMs = 2800) {
+      if (!catBubble) return;
+      catBubble.textContent = text;
+      catBubble.classList.add("active");
+      setTimeout(() => catBubble.classList.remove("active"), durationMs);
     }
 
-    function petClicked() {
-      // 3D 360 Spin and celebratory meow
-      if (petBox) {
-        petBox.style.transition = "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
-        petBox.style.transform = "rotateY(360deg) scale(1.15)";
+    function catLaugh() {
+      setCatMood("laughing");
+      const laughs = ["Hehehe! 😸", "Purrrrfect! 💖", "Haha meow! ✨", "Nice choice! 🐾"];
+      catSpeech(laughs[Math.floor(Math.random() * laughs.length)], 2400);
+      setTimeout(() => setCatMood("idle"), 2400);
+    }
+
+    function catTomClicked() {
+      // 360 Spin on Click like Talking Tom
+      if (catBody) {
+        catBody.style.transition = "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        catBody.style.transform = "rotateY(360deg) scale(1.15)";
         setTimeout(() => {
-          petBox.style.transition = "transform 0.15s ease-out";
-          petBox.style.transform = "rotateY(0deg) scale(1)";
+          catBody.style.transition = "transform 0.2s ease-out";
+          catBody.style.transform = "rotateY(0deg) scale(1)";
         }, 600);
       }
-      setPetExpression("happy");
-      const cuteQuotes = [
-        "Purr! Best pricing guaranteed! 💖",
-        "Ready to calculate rates! 🚀",
-        "Meow! I love loan matrices! ✨",
-        "Tap away, I'm with you! 🐱"
-      ];
-      showPetBubble(cuteQuotes[Math.floor(Math.random() * cuteQuotes.length)]);
-      setTimeout(() => setPetExpression("idle"), 2000);
+      catLaugh();
     }
 
-    function petWantsToSend(hovering) {
+    function catWatchesSend(hovering) {
       if (hovering) {
-        setPetExpression("surprised");
-        petBox.style.transform = "rotateY(-15deg) scale(1.08)";
+        setCatMood("surprised");
+        catBody.style.transform = "rotateY(-18deg) scale(1.06)";
       } else {
-        setPetExpression("idle");
-        petBox.style.transform = "rotateY(0deg) scale(1)";
+        setCatMood("idle");
+        catBody.style.transform = "rotateY(0deg) scale(1)";
       }
     }
 
     /* ==========================================================================
-       THEME SELECTOR CYCLER
-       ========================================================================== */
-    const themes = ["neon", "sunset", "emerald"];
-    let currentThemeIdx = 0;
-
-    function cycleTheme() {
-      currentThemeIdx = (currentThemeIdx + 1) % themes.length;
-      const newTheme = themes[currentThemeIdx];
-      document.documentElement.setAttribute("data-theme", newTheme);
-
-      const icons = { neon: "🎨 Neon", sunset: "🌅 Sunset", emerald: "💎 Emerald" };
-      document.getElementById("themeIcon").textContent = icons[newTheme].split(" ")[0];
-      showPetBubble(`Theme switched to ${icons[newTheme]}! ✨`, 2000);
-    }
-
-    /* ==========================================================================
-       CONVERSATIONAL DIALOGUE STATE MACHINE
+       CONVERSATIONAL FLOW STATE MACHINE (AUDIENCE: EXECUTIVE / CREDIT OFFICER)
        ========================================================================== */
     const chatContainer = document.getElementById("chatContainer");
     const chipsArea = document.getElementById("chipsArea");
@@ -1336,17 +1599,47 @@
 
     let conversationToken = 0;
     let session = {
-      customerName: "", product: "", incomeProgram: "", propertyType: "",
-      bureau: "", loanAmount: 0, ticketSize: "", tenureMonths: 0,
-      incomeFrequency: "Monthly", monthlyIncome: 0, existingEmis: 0,
-      baseRoi: 0, basePf: 0, requestedRoi: 0, requestedPf: 0, step: "CUSTOMER_NAME"
+      caseName: "",
+      product: "",
+      incomeProgram: "",
+      propertyType: "",
+      bureau: "",
+      // Policy matrix base
+      baseRoi: 0,
+      basePf: 0,
+      ticketSize: "",
+      // Currently Sanctioned Terms
+      sancAmount: 0,
+      sancTenure: 0,
+      sancRoi: 0,
+      sancPf: 0,
+      sancEmi: 0,
+      // Income & Obligations
+      incomeFreq: "Monthly",
+      monthlyIncome: 0,
+      existingEmis: 0,
+      currentDti: 0,
+      // Requested Terms
+      reqRoi: 0,
+      reqPf: 0,
+      step: "CASE_NAME"
     };
 
     const STEPS = {
-      CUSTOMER_NAME: "CUSTOMER_NAME", PRODUCT: "PRODUCT", INCOME_PROGRAM: "INCOME_PROGRAM",
-      PROPERTY_TYPE: "PROPERTY_TYPE", BUREAU: "BUREAU", LOAN_AMOUNT: "LOAN_AMOUNT",
-      TENURE: "TENURE", INCOME_FREQ: "INCOME_FREQ", INCOME_AMOUNT: "INCOME_AMOUNT",
-      EXISTING_EMIS: "EXISTING_EMIS", REQUESTED_ROI: "REQUESTED_ROI", REQUESTED_PF: "REQUESTED_PF",
+      CASE_NAME: "CASE_NAME",
+      PRODUCT: "PRODUCT",
+      INCOME_PROGRAM: "INCOME_PROGRAM",
+      PROPERTY_TYPE: "PROPERTY_TYPE",
+      BUREAU: "BUREAU",
+      SANC_AMOUNT: "SANC_AMOUNT",
+      SANC_TENURE: "SANC_TENURE",
+      SANC_ROI: "SANC_ROI",
+      SANC_PF: "SANC_PF",
+      INCOME_FREQ: "INCOME_FREQ",
+      INCOME_AMOUNT: "INCOME_AMOUNT",
+      EXISTING_EMIS: "EXISTING_EMIS",
+      REQ_ROI: "REQ_ROI",
+      REQ_PF: "REQ_PF",
       COMPLETED: "COMPLETED"
     };
 
@@ -1362,17 +1655,17 @@
       scrollChatToBottom();
     }
 
-    function appendBotMessage(htmlContent, chips = [], petMood = "idle", delayMs = 380) {
+    function appendBotMessage(htmlContent, chips = [], mood = "idle", delayMs = 380) {
       const currentToken = conversationToken;
-      setPetExpression("thinking");
+      setCatMood("thinking");
 
       const typingRow = document.createElement("div");
       typingRow.className = "message-row bot typing-row";
       typingRow.innerHTML = `
-        <div class="bot-avatar-badge">🐱</div>
+        <div class="avatar-badge">🐱</div>
         <div class="message-bubble">
           <div class="typing-dots">
-            <span class="dot-pulse"></span><span class="dot-pulse"></span><span class="dot-pulse"></span>
+            <span class="pulse-dot"></span><span class="pulse-dot"></span><span class="pulse-dot"></span>
           </div>
         </div>`;
       chatContainer.appendChild(typingRow);
@@ -1385,12 +1678,12 @@
       setTimeout(() => {
         if (currentToken !== conversationToken) return;
         typingRow.remove();
-        setPetExpression("talking");
+        setCatMood("talking");
 
         const msgRow = document.createElement("div");
         msgRow.className = "message-row bot";
         msgRow.innerHTML = `
-          <div class="bot-avatar-badge">🐱</div>
+          <div class="avatar-badge">🐱</div>
           <div class="message-bubble">${htmlContent}</div>`;
         chatContainer.appendChild(msgRow);
 
@@ -1401,8 +1694,8 @@
         scrollChatToBottom();
 
         setTimeout(() => {
-          if (currentToken === conversationToken) setPetExpression(petMood);
-        }, 500);
+          if (currentToken === conversationToken) setCatMood(mood);
+        }, 550);
       }, delayMs);
     }
 
@@ -1416,14 +1709,14 @@
       chips.forEach(chip => {
         const btn = document.createElement("button");
         btn.type = "button";
-        btn.className = `chip-btn ${chip.primary ? 'glow-primary' : ''}`;
+        btn.className = `action-chip ${chip.primary ? 'primary-glow' : ''}`;
         btn.innerHTML = `${chip.icon ? chip.icon + ' ' : ''}<span>${escapeHtml(chip.label)}</span>`;
         btn.onclick = () => onChipSelected(chip.value !== undefined ? chip.value : chip.label);
         chipsArea.appendChild(btn);
       });
     }
 
-    function onChipSelected(value) { handleStepInput(value); }
+    function onChipSelected(val) { handleStepInput(val); }
     function submitInput() {
       const text = userInput.value.trim();
       if (!text) return;
@@ -1431,30 +1724,26 @@
       userInput.value = "";
     }
 
-    function startDialogue() {
+    function startConversation() {
       session = {
-        customerName: "", product: "", incomeProgram: "", propertyType: "",
-        bureau: "", loanAmount: 0, ticketSize: "", tenureMonths: 0,
-        incomeFrequency: "Monthly", monthlyIncome: 0, existingEmis: 0,
-        baseRoi: 0, basePf: 0, requestedRoi: 0, requestedPf: 0, step: STEPS.CUSTOMER_NAME
+        caseName: "", product: "", incomeProgram: "", propertyType: "",
+        bureau: "", baseRoi: 0, basePf: 0, ticketSize: "",
+        sancAmount: 0, sancTenure: 0, sancRoi: 0, sancPf: 0, sancEmi: 0,
+        incomeFreq: "Monthly", monthlyIncome: 0, existingEmis: 0, currentDti: 0,
+        reqRoi: 0, reqPf: 0, step: STEPS.CASE_NAME
       };
       chatContainer.innerHTML = "";
-      inputHint.textContent = "Enter customer full name";
-      userInput.placeholder = "e.g. Rajesh Kumar, Priya Sharma...";
+      inputHint.textContent = "Enter proposal / customer name";
+      userInput.placeholder = "e.g. Ramesh Patel, Proposal #402...";
 
-      appendBotMessage(
-        `👋 Welcome! I'm <strong>Lendy</strong>, your interactive loan pricing & approval companion.<br><br>` +
-        `I will evaluate your loan against our 56-row benchmark matrix, calculate reducing EMIs, and verify authority approval bands.<br><br>` +
-        `<strong>To begin, what is the customer's full name?</strong>`,
-        [], "happy", 200
-      );
+      appendBotMessage(t("welcome"), [], "happy", 200);
     }
 
-    function restartConversation() {
+    function restartSession() {
       conversationToken++;
-      setPetExpression("idle");
-      showPetBubble("Restarting session! 🚀", 1800);
-      startDialogue();
+      setCatMood("idle");
+      catSpeech("Resetting session! 🚀", 1800);
+      startConversation();
     }
 
     function handleStepInput(inputStr) {
@@ -1463,13 +1752,13 @@
       appendUserMessage(clean);
 
       switch (session.step) {
-        case STEPS.CUSTOMER_NAME:
-          session.customerName = clean;
+        case STEPS.CASE_NAME:
+          session.caseName = clean;
           session.step = STEPS.PRODUCT;
-          inputHint.textContent = "Select loan product from chips below";
-          userInput.placeholder = "Or type product name...";
+          inputHint.textContent = "Select loan product";
+          userInput.placeholder = "Choose from chips or type product...";
           appendBotMessage(
-            `Pleasure to assist you, <strong>${escapeHtml(session.customerName)}</strong>! ✨<br>Which <strong>Loan Product</strong> are we pricing today?`,
+            `${t("askProduct")} <strong>${escapeHtml(session.caseName)}</strong>?`,
             [
               { label: "Regular Secured Business Loan", icon: "🏢", primary: true },
               { label: "Secured Working Capital Term Loan", icon: "💼" },
@@ -1482,15 +1771,15 @@
           const validProducts = ["Regular Secured Business Loan", "Secured Working Capital Term Loan", "Hypothecation Loans"];
           const matchedP = validProducts.find(p => p.toLowerCase() === clean.toLowerCase() || clean.toLowerCase().includes(p.toLowerCase().substring(0, 10)));
           if (!matchedP) {
-            appendBotMessage(`Please pick one of our standard loan products:`, validProducts.map(p => ({ label: p })), "worried");
+            appendBotMessage(`Please select one of the valid loan products:`, validProducts.map(p => ({ label: p })), "worried");
             return;
           }
           session.product = matchedP;
           session.step = STEPS.INCOME_PROGRAM;
-          inputHint.textContent = "Select customer income program";
+          inputHint.textContent = "Select Income Program";
           userInput.placeholder = "Select income program...";
           appendBotMessage(
-            `Product chosen: <strong>${session.product}</strong>. 👍<br><br>Under which <strong>Income Program</strong> is this loan assessed?`,
+            `Product: <strong>${session.product}</strong>. 👍<br><br>${t("askIncomeProg")}`,
             [
               { label: "Documented Income Program", icon: "📑", primary: true },
               { label: "Assessed Income Program", icon: "🔍" },
@@ -1504,7 +1793,7 @@
           const programs = ["Documented Income Program", "Assessed Income Program", "Hybrid Income Program", "Semi Documented Income Program"];
           const matchedProg = programs.find(p => p.toLowerCase() === clean.toLowerCase() || p.toLowerCase().startsWith(clean.toLowerCase()));
           if (!matchedProg) {
-            appendBotMessage(`Kindly select one of the four recognized income programs:`, programs.map(p => ({ label: p })), "worried");
+            appendBotMessage(`Kindly select one of the four income programs:`, programs.map(p => ({ label: p })), "worried");
             return;
           }
           session.incomeProgram = matchedProg;
@@ -1512,10 +1801,10 @@
           if (session.product === "Hypothecation Loans") {
             session.propertyType = "NA";
             session.step = STEPS.BUREAU;
-            inputHint.textContent = "Select Bureau category";
+            inputHint.textContent = "Select Bureau Category";
             userInput.placeholder = "Select bureau score...";
             appendBotMessage(
-              `⚡ For <strong>Hypothecation Loans</strong>, Property Type is not applicable (NA) and skipped automatically!<br><br>What is the borrower's <strong>Bureau Category</strong>?`,
+              `⚡ For <strong>Hypothecation Loans</strong>, Property Type is NA and skipped automatically!<br><br>${t("askBureau")}`,
               [{ label: ">=700 or NTC", icon: "⭐", primary: true }, { label: "<700", icon: "📊" }], "happy"
             );
           } else {
@@ -1523,7 +1812,7 @@
             inputHint.textContent = "Select Property Type";
             userInput.placeholder = "Select property type...";
             appendBotMessage(
-              `Income program recorded: <strong>${session.incomeProgram}</strong>. 📋<br><br>What is the <strong>Property Type</strong> mortgaged?`,
+              `Income Program: <strong>${session.incomeProgram}</strong>. 📋<br><br>${t("askProperty")}`,
               [{ label: "SORP", icon: "🏠", primary: true }, { label: "Other", icon: "🏢" }], "talking"
             );
           }
@@ -1533,15 +1822,15 @@
           const props = ["SORP", "Other"];
           const matchedProp = props.find(p => p.toLowerCase() === clean.toLowerCase());
           if (!matchedProp) {
-            appendBotMessage(`Please select whether the property is <strong>SORP</strong> or <strong>Other</strong>:`, props.map(p => ({ label: p })), "worried");
+            appendBotMessage(`Please select whether the mortgaged property is <strong>SORP</strong> or <strong>Other</strong>:`, props.map(p => ({ label: p })), "worried");
             return;
           }
           session.propertyType = matchedProp;
           session.step = STEPS.BUREAU;
-          inputHint.textContent = "Select Bureau category";
-          userInput.placeholder = "Select bureau score...";
+          inputHint.textContent = "Select Bureau Category";
+          userInput.placeholder = "Select bureau category...";
           appendBotMessage(
-            `Property recorded as <strong>${session.propertyType}</strong>.<br><br>Now, what is the borrower's <strong>Bureau Category</strong>?`,
+            `Property recorded: <strong>${session.propertyType}</strong>.<br><br>${t("askBureau")}`,
             [{ label: ">=700 or NTC", icon: "⭐", primary: true }, { label: "<700", icon: "📊" }], "talking"
           );
           break;
@@ -1556,35 +1845,35 @@
             return;
           }
           session.bureau = matchedB;
-          session.step = STEPS.LOAN_AMOUNT;
-          inputHint.textContent = "Enter loan amount (e.g. 5 lakh, 10,00,000, 1.2 cr)";
+          session.step = STEPS.SANC_AMOUNT;
+          inputHint.textContent = "Enter sanctioned loan amount (e.g. 10 lakh, 10,00,000, 1.2 cr)";
           userInput.placeholder = "e.g. 10 Lakhs, 10,00,000, 500000...";
           appendBotMessage(
-            `Bureau recorded: <strong>${session.bureau}</strong>. 📈<br><br>What is the <strong>Loan Amount</strong> requested? (Accepts <em>"10 lakh"</em>, <em>"10,00,000"</em>, <em>"1.2 cr"</em>)`,
+            `Bureau recorded: <strong>${session.bureau}</strong>. 📈<br><br>${t("askSancAmount")} (Accepts <em>"10 lakh"</em>, <em>"10,00,000"</em>, <em>"1.2 cr"</em>)`,
             [
-              { label: "5 Lakhs", value: "500000" },
-              { label: "10 Lakhs", value: "1000000", primary: true },
-              { label: "25 Lakhs", value: "2500000" },
-              { label: "50 Lakhs", value: "5000000" }
+              { label: "₹5 Lakhs", value: "500000" },
+              { label: "₹10 Lakhs", value: "1000000", primary: true },
+              { label: "₹25 Lakhs", value: "2500000" },
+              { label: "₹50 Lakhs", value: "5000000" }
             ], "talking"
           );
           break;
 
-        case STEPS.LOAN_AMOUNT:
+        case STEPS.SANC_AMOUNT:
           const parsedAmount = parseLoanAmount(clean);
           if (!parsedAmount || parsedAmount <= 0) {
-            appendBotMessage(`Please enter a valid loan amount like <strong>5 lakh</strong>, <strong>10,00,000</strong>, or <strong>1.5 cr</strong>:`,
-              [{ label: "5 Lakhs", value: "500000" }, { label: "10 Lakhs", value: "1000000" }, { label: "25 Lakhs", value: "2500000" }], "worried"
+            appendBotMessage(`Please enter a valid loan amount like <strong>10 lakh</strong> or <strong>10,00,000</strong>:`,
+              [{ label: "10 Lakhs", value: "1000000" }, { label: "25 Lakhs", value: "2500000" }], "worried"
             );
             return;
           }
-          session.loanAmount = parsedAmount;
-          session.ticketSize = deriveTicketSize(session.product, session.loanAmount);
-          session.step = STEPS.TENURE;
-          inputHint.textContent = "Enter loan tenure (e.g. 36 months, 5 years)";
+          session.sancAmount = parsedAmount;
+          session.ticketSize = deriveTicketSize(session.product, session.sancAmount);
+          session.step = STEPS.SANC_TENURE;
+          inputHint.textContent = "Enter sanctioned loan tenure (e.g. 60 months, 5 years)";
           userInput.placeholder = "e.g. 60 months, 5 years, 36...";
           appendBotMessage(
-            `Loan Amount: <strong>${formatINR(session.loanAmount)}</strong>.<br>Derived Ticket Size: <strong>${session.ticketSize}</strong>. 🏷️<br><br>What is the proposed <strong>Loan Tenure</strong>? (3 - 360 months)`,
+            `Sanctioned Amount: <strong>${formatINR(session.sancAmount)}</strong> (Ticket Size: <em>${session.ticketSize}</em>). 🏷️<br><br>${t("askSancTenure")}`,
             [
               { label: "3 Years (36m)", value: "36 months" },
               { label: "5 Years (60m)", value: "60 months", primary: true },
@@ -1594,32 +1883,72 @@
           );
           break;
 
-        case STEPS.TENURE:
-          const parsedMonths = parseTenure(clean);
-          if (!parsedMonths) {
-            appendBotMessage(`Please enter tenure between <strong>3 and 360 months</strong> (e.g. <em>"60 months"</em> or <em>"5 years"</em>):`,
-              [{ label: "36 months" }, { label: "60 months", primary: true }, { label: "84 months" }, { label: "120 months" }], "worried"
+        case STEPS.SANC_TENURE:
+          const parsedTenure = parseTenure(clean);
+          if (!parsedTenure) {
+            appendBotMessage(`Please enter a tenure between 3 and 360 months (e.g. <em>"60 months"</em> or <em>"5 years"</em>):`,
+              [{ label: "36 months" }, { label: "60 months", primary: true }, { label: "84 months" }], "worried"
             );
             return;
           }
-          session.tenureMonths = parsedMonths;
+          session.sancTenure = parsedTenure;
+          session.step = STEPS.SANC_ROI;
+          inputHint.textContent = "Enter sanctioned ROI % p.a. (e.g. 18%, 19.5)";
+          userInput.placeholder = "e.g. 18%, 20%...";
+          appendBotMessage(
+            `Sanctioned Tenure: <strong>${session.sancTenure} months (${(session.sancTenure / 12).toFixed(1)} years)</strong>. ⏳<br><br>${t("askSancRoi")}`,
+            [
+              { label: "18.0%", value: "18.0", primary: true },
+              { label: "19.0%", value: "19.0" },
+              { label: "20.0%", value: "20.0" },
+              { label: "22.0%", value: "22.0" }
+            ], "talking"
+          );
+          break;
+
+        case STEPS.SANC_ROI:
+          const parsedRoi = parseFloat(clean.replace(/%/g, ""));
+          if (isNaN(parsedRoi) || parsedRoi <= 0 || parsedRoi > 60) {
+            appendBotMessage(`Please enter a valid sanctioned annual ROI between 0% and 60%:`, [{ label: "18.0%", value: "18.0" }], "worried");
+            return;
+          }
+          session.sancRoi = parsedRoi;
+          session.step = STEPS.SANC_PF;
+          inputHint.textContent = "Enter sanctioned PF % (e.g. 2%, 3)";
+          userInput.placeholder = "e.g. 2%, 3%...";
+          appendBotMessage(
+            `Sanctioned ROI: <strong>${session.sancRoi.toFixed(2)}% p.a.</strong> 📊<br><br>${t("askSancPf")}`,
+            [
+              { label: "2.0%", value: "2.0" },
+              { label: "3.0%", value: "3.0", primary: true }
+            ], "talking"
+          );
+          break;
+
+        case STEPS.SANC_PF:
+          const parsedPf = parseFloat(clean.replace(/%/g, ""));
+          if (isNaN(parsedPf) || parsedPf < 0 || parsedPf > 15) {
+            appendBotMessage(`Please enter a valid Processing Fee between 0% and 15%:`, [{ label: "2.0%", value: "2.0" }, { label: "3.0%", value: "3.0" }], "worried");
+            return;
+          }
+          session.sancPf = parsedPf;
           session.step = STEPS.INCOME_FREQ;
           inputHint.textContent = "Select Monthly or Annual income";
           userInput.placeholder = "Select income frequency...";
           appendBotMessage(
-            `Tenure: <strong>${session.tenureMonths} months (${(session.tenureMonths / 12).toFixed(1)} years)</strong>. ⏳<br><br>How is the customer's income declared?`,
-            [{ label: "Monthly Income", value: "Monthly", icon: "📅", primary: true }, { label: "Annual Income", value: "Annual", icon: "📊" }], "talking"
+            `Sanctioned PF: <strong>${session.sancPf.toFixed(2)}%</strong>. 💼<br><br>${t("askIncomeFreq")}`,
+            [{ label: t("monthly"), value: "Monthly", icon: "📅", primary: true }, { label: t("annual"), value: "Annual", icon: "📊" }], "talking"
           );
           break;
 
         case STEPS.INCOME_FREQ:
-          const freq = clean.toLowerCase().includes("ann") ? "Annual" : "Monthly";
-          session.incomeFrequency = freq;
+          const freq = clean.toLowerCase().includes("ann") || clean === t("annual") ? "Annual" : "Monthly";
+          session.incomeFreq = freq;
           session.step = STEPS.INCOME_AMOUNT;
           inputHint.textContent = `Enter ${freq.toLowerCase()} income amount`;
           userInput.placeholder = freq === "Annual" ? "e.g. 12 lakh, 12,00,000..." : "e.g. 80,000, 1 lakh...";
           appendBotMessage(
-            `Selected <strong>${freq} Income</strong>. What is the customer's gross ${freq.toLowerCase()} earnings?`,
+            `${t("askIncomeAmount")} <strong>${freq} Income</strong>:`,
             freq === "Annual" ? [
               { label: "₹6 Lakhs", value: "600000" },
               { label: "₹12 Lakhs", value: "1200000", primary: true },
@@ -1638,14 +1967,14 @@
             appendBotMessage(`Please enter a valid positive income (e.g. <em>"80,000"</em> or <em>"12 lakh"</em>):`, [], "worried");
             return;
           }
-          session.monthlyIncome = session.incomeFrequency === "Annual" ? parsedInc / 12.0 : parsedInc;
+          session.monthlyIncome = session.incomeFreq === "Annual" ? parsedInc / 12.0 : parsedInc;
           session.step = STEPS.EXISTING_EMIS;
-          inputHint.textContent = "Enter total existing monthly EMIs (0 if none)";
+          inputHint.textContent = "Enter total existing monthly obligations (0 if none)";
           userInput.placeholder = "e.g. 20,000 or 0...";
           appendBotMessage(
-            `Normalized Monthly Income: <strong>${formatINR(session.monthlyIncome)}/month</strong>. 💼<br><br>What are the borrower's <strong>total existing monthly EMIs / debt obligations</strong>? (Enter <strong>0</strong> if none)`,
+            `Monthly Income: <strong>${formatINR(session.monthlyIncome)}/month</strong>. 💼<br><br>${t("askExistingEmis")}`,
             [
-              { label: "0 (No obligations)", value: "0", primary: true },
+              { label: "0 (None)", value: "0", primary: true },
               { label: "₹10,000", value: "10000" },
               { label: "₹20,000", value: "20000" },
               { label: "₹35,000", value: "35000" }
@@ -1656,87 +1985,113 @@
         case STEPS.EXISTING_EMIS:
           const parsedEmis = parseNumber(clean);
           if (parsedEmis === null || parsedEmis < 0) {
-            appendBotMessage(`Please enter 0 or positive existing EMIs:`, [{ label: "0", value: "0" }], "worried");
+            appendBotMessage(`Please enter 0 or positive existing obligations:`, [{ label: "0", value: "0" }], "worried");
             return;
           }
           session.existingEmis = parsedEmis;
 
+          // Compute Current Sanctioned Status
+          session.sancEmi = calculateReducingEMI(session.sancAmount, session.sancRoi, session.sancTenure);
+          const currentDtiObj = calculateDTI(session.existingEmis, session.sancEmi, session.monthlyIncome);
+          session.currentDti = currentDtiObj.updatedDti;
+
+          // Lookup Policy Matrix Benchmark
           const baseRates = lookupBaseRates(session.product, session.ticketSize, session.incomeProgram, session.propertyType, session.bureau);
-          if (!baseRates) {
-            appendBotMessage(
-              `⚠️ <strong>Policy Matrix Notice:</strong> No standard rate entry exists for this exact parameter combination.<br>` +
-              `This exception requires <strong>CEO / Credit Committee Approval</strong>.`,
-              [{ label: "Start Over", value: "restart" }], "worried"
-            );
-            return;
+          if (baseRates) {
+            session.baseRoi = baseRates.baseRoi;
+            session.basePf = baseRates.basePf;
+          } else {
+            session.baseRoi = session.sancRoi;
+            session.basePf = session.sancPf;
           }
 
-          session.baseRoi = baseRates.baseRoi;
-          session.basePf = baseRates.basePf;
-          session.step = STEPS.REQUESTED_ROI;
-          inputHint.textContent = "Enter requested ROI % p.a. (0 - 60)";
-          userInput.placeholder = `Benchmark is ${session.baseRoi}%, enter requested ROI...`;
+          session.step = STEPS.REQ_ROI;
+          inputHint.textContent = "Enter requested ROI % p.a. (e.g. 16.5%)";
+          userInput.placeholder = `Policy base is ${session.baseRoi}%, enter requested ROI...`;
+
+          // Midway Sanctioned Status Milestone Card
+          const sancCardHtml = `
+            <div class="status-card">
+              <div class="status-card-header blue">
+                <span>${t("sancStatusTitle")}</span>
+              </div>
+              <div class="summary-grid">
+                <div class="stat-cell">
+                  <div class="stat-title">${t("sancEmiLabel")}</div>
+                  <div class="stat-num" style="color:var(--accent-primary);">${formatINR(session.sancEmi)}</div>
+                  <div class="stat-sub">${session.sancTenure}m @ ${session.sancRoi}%</div>
+                </div>
+                <div class="stat-cell">
+                  <div class="stat-title">${t("currentDtiLabel")}</div>
+                  <div class="stat-num" style="color:${session.currentDti > 50 ? 'var(--color-amber)' : 'var(--color-green)'};">${session.currentDti}%</div>
+                  <div class="stat-sub">Income: ${formatINR(session.monthlyIncome)}/m</div>
+                </div>
+                <div class="stat-cell">
+                  <div class="stat-title">${t("baseRoiLabel")}</div>
+                  <div class="stat-num" style="color:var(--accent-secondary);">${session.baseRoi.toFixed(2)}%</div>
+                  <div class="stat-sub">56-Row Matrix Policy</div>
+                </div>
+                <div class="stat-cell">
+                  <div class="stat-title">${t("basePfLabel")}</div>
+                  <div class="stat-num" style="color:var(--accent-hot);">${session.basePf.toFixed(2)}%</div>
+                  <div class="stat-sub">Benchmark Fee</div>
+                </div>
+              </div>
+            </div>`;
 
           appendBotMessage(
-            `🎉 <strong>Policy Benchmark Found!</strong><br><br>` +
-            `Standard benchmark rates for this profile:<br>` +
-            `• <strong>Base ROI:</strong> <span style="color:var(--accent-1); font-weight:800;">${session.baseRoi.toFixed(2)}% p.a.</span><br>` +
-            `• <strong>Base Processing Fee:</strong> <span style="color:var(--accent-pink); font-weight:800;">${session.basePf.toFixed(2)}%</span><br><br>` +
-            `<em>Note: Per credit policy, any Requested ROI &lt; 15% requires mandatory CEO Approval.</em><br><br>` +
-            `What <strong>Requested ROI (% p.a.)</strong> would you like to evaluate?`,
+            `${sancCardHtml}<br>${t("floorWarningRoi")}<br><br>${t("askReqRoi")}`,
             [
-              { label: `${session.baseRoi}% (Base Rate)`, value: String(session.baseRoi), primary: true },
-              { label: `${(session.baseRoi - 1.5).toFixed(1)}% (CBO)`, value: String(session.baseRoi - 1.5) },
-              { label: `${(session.baseRoi - 3.0).toFixed(1)}% (COO)`, value: String(session.baseRoi - 3.0) },
-              { label: `14.5% (< 15% CEO Floor)`, value: "14.5" }
+              { label: `${session.baseRoi}% (Policy Base)`, value: String(session.baseRoi), primary: true },
+              { label: `${(session.baseRoi - 1.5).toFixed(1)}% (CBO band)`, value: String(session.baseRoi - 1.5) },
+              { label: `${(session.baseRoi - 3.0).toFixed(1)}% (COO band)`, value: String(session.baseRoi - 3.0) },
+              { label: `14.5% (<15% CEO Floor)`, value: "14.5" }
             ], "surprised"
           );
           break;
 
-        case STEPS.REQUESTED_ROI:
-          const numRoi = parseFloat(clean.replace(/%/g, ""));
-          if (isNaN(numRoi) || numRoi < 0 || numRoi > 60) {
-            appendBotMessage(`Please enter a realistic requested annual ROI between <strong>0% and 60%</strong>:`, [{ label: `${session.baseRoi}%`, value: String(session.baseRoi) }], "worried");
+        case STEPS.REQ_ROI:
+          const numReqRoi = parseFloat(clean.replace(/%/g, ""));
+          if (isNaN(numReqRoi) || numReqRoi <= 0 || numReqRoi > 60) {
+            appendBotMessage(`Please enter a valid requested ROI (0 - 60%):`, [{ label: `${session.baseRoi}%`, value: String(session.baseRoi) }], "worried");
             return;
           }
-          session.requestedRoi = numRoi;
-          session.step = STEPS.REQUESTED_PF;
-          inputHint.textContent = "Enter requested PF % (0 - 15)";
-          userInput.placeholder = `Benchmark is ${session.basePf}%, enter requested PF...`;
+          session.reqRoi = numReqRoi;
+          session.step = STEPS.REQ_PF;
+          inputHint.textContent = "Enter requested PF % (e.g. 1.8%, 1.2)";
+          userInput.placeholder = `Policy base is ${session.basePf}%, enter requested PF...`;
           appendBotMessage(
-            `Requested ROI recorded: <strong>${session.requestedRoi.toFixed(2)}% p.a.</strong> (Base: ${session.baseRoi.toFixed(2)}%).<br>` +
-            `<em>Note: Per credit policy, any Requested PF &lt; 1.5% requires mandatory CEO Approval.</em><br><br>` +
-            `What <strong>Requested Processing Fee (PF %)</strong> are you seeking?`,
+            `Requested ROI: <strong>${session.reqRoi.toFixed(2)}% p.a.</strong><br>${t("floorWarningPf")}<br><br>${t("askReqPf")}`,
             [
               { label: `${session.basePf}% (Full PF)`, value: String(session.basePf), primary: true },
               { label: `1.8% (CBO band)`, value: "1.8" },
               { label: `1.5% (COO band)`, value: "1.5" },
-              { label: `1.2% (< 1.5% CEO Floor)`, value: "1.2" }
+              { label: `1.2% (<1.5% CEO Floor)`, value: "1.2" }
             ], "talking"
           );
           break;
 
-        case STEPS.REQUESTED_PF:
-          const numPf = parseFloat(clean.replace(/%/g, ""));
-          if (isNaN(numPf) || numPf < 0 || numPf > 15) {
-            appendBotMessage(`Please enter a valid Processing Fee between <strong>0% and 15%</strong>:`, [{ label: `${session.basePf}%`, value: String(session.basePf) }], "worried");
+        case STEPS.REQ_PF:
+          const numReqPf = parseFloat(clean.replace(/%/g, ""));
+          if (isNaN(numReqPf) || numReqPf < 0 || numReqPf > 15) {
+            appendBotMessage(`Please enter a valid Processing Fee (0 - 15%):`, [{ label: `${session.basePf}%`, value: String(session.basePf) }], "worried");
             return;
           }
-          session.requestedPf = numPf;
+          session.reqPf = numReqPf;
           session.step = STEPS.COMPLETED;
-          inputHint.textContent = "Select an action below or test other rates";
-          userInput.placeholder = "Click 'Try different ROI / PF' or 'New customer'";
-          renderFullLoanVerdict();
+          inputHint.textContent = "Review results or evaluate another rate";
+          userInput.placeholder = "Click 'Try different ROI/PF' or 'New case'";
+          renderFinalExecutiveReport();
           break;
 
         case STEPS.COMPLETED:
-          if (clean.toLowerCase().includes("different") || clean.toLowerCase().includes("try")) {
-            reAskRatesOnly();
+          if (clean.toLowerCase().includes("try") || clean.toLowerCase().includes("different")) {
+            reAskProposedRates();
           } else if (clean.toLowerCase().includes("new")) {
-            restartConversation();
+            restartSession();
           } else {
-            appendBotMessage(`Would you like to test another rate structure or start a new borrower assessment?`,
-              [{ label: "Try different ROI / PF", icon: "✏️", primary: true }, { label: "New customer", icon: "👤" }], "idle"
+            appendBotMessage(`Would you like to test another requested rate or evaluate a new proposal?`,
+              [{ label: t("btnTryRates"), icon: "✏️", primary: true }, { label: t("btnNewCase"), icon: "👤" }], "idle"
             );
           }
           break;
@@ -1744,63 +2099,58 @@
     }
 
     /* ==========================================================================
-       RENDER COMPREHENSIVE VERDICT CARD
+       FINAL COMPARATIVE EXECUTIVE EVALUATION & GOVERNANCE REPORT
        ========================================================================== */
-    function renderFullLoanVerdict() {
-      const approval = determineFinalApproval(session.baseRoi, session.requestedRoi, session.basePf, session.requestedPf);
-      const baseEmi = calculateReducingEMI(session.loanAmount, session.baseRoi, session.tenureMonths);
-      const reqEmi = calculateReducingEMI(session.loanAmount, session.requestedRoi, session.tenureMonths);
-      const emiDiff = baseEmi - reqEmi;
-      const basePfAmount = (session.loanAmount * session.basePf) / 100.0;
-      const reqPfAmount = (session.loanAmount * session.requestedPf) / 100.0;
-      const pfSavings = basePfAmount - reqPfAmount;
-      const dti = calculateDTI(session.existingEmis, reqEmi, session.monthlyIncome);
+    function renderFinalExecutiveReport() {
+      const approval = determineFinalApproval(session.baseRoi, session.reqRoi, session.basePf, session.reqPf);
+      const reqEmi = calculateReducingEMI(session.sancAmount, session.reqRoi, session.sancTenure);
+      const emiSavings = session.sancEmi - reqEmi;
 
-      let petMood = "celebrating";
-      if (approval.finalApproverKey === "CBO") petMood = "happy";
-      else if (approval.finalApproverKey === "COO") petMood = "surprised";
-      else if (approval.finalApproverKey === "CEO") petMood = "worried";
+      const sancPfAmount = (session.sancAmount * session.sancPf) / 100.0;
+      const reqPfAmount = (session.sancAmount * session.reqPf) / 100.0;
+      const pfSavings = sancPfAmount - reqPfAmount;
 
-      function getBadge(dev, bandType, isFloorBreached, requestedVal, floorVal) {
-        if (isFloorBreached) {
-          return `<span class="pill-badge ceo">⚠️ Below ${floorVal}% Floor (CEO)</span>`;
-        }
-        if (dev <= 0) return `<span class="pill-badge favorable">No Deviation (0.00%)</span>`;
-        const appr = getApproverForDeviation(dev, bandType);
-        return `<span class="pill-badge ${appr.toLowerCase()}">-${dev.toFixed(2)}% (${appr})</span>`;
+      const dtiResult = calculateDTI(session.existingEmis, reqEmi, session.monthlyIncome);
+
+      // Cat Mood
+      let mood = "celebrating";
+      if (approval.finalApproverKey === "CBO") mood = "happy";
+      else if (approval.finalApproverKey === "COO") mood = "surprised";
+      else if (approval.finalApproverKey === "CEO") mood = "worried";
+
+      function formatTag(dev, isFloor, reqVal, floorVal, approver) {
+        if (isFloor) return `<span class="tag-badge ceo">⚠️ &lt;${floorVal}% Floor (CEO)</span>`;
+        if (dev <= 0) return `<span class="tag-badge favorable">No Deviation (0.00%)</span>`;
+        return `<span class="tag-badge ${approver.toLowerCase()}">-${dev.toFixed(2)}% (${approver})</span>`;
       }
 
-      const roiBadge = getBadge(approval.roiDeviation, "ROI", approval.roiFloorBreached, session.requestedRoi, CONFIG.ROI_FLOOR_PERCENT);
-      const pfBadge = getBadge(approval.pfDeviation, "PF", approval.pfFloorBreached, session.requestedPf, CONFIG.PF_FLOOR_PERCENT);
+      const roiTag = formatTag(approval.roiDeviation, approval.roiFloorBreached, session.reqRoi, CONFIG.ROI_FLOOR_PERCENT, approval.roiApprover);
+      const pfTag = formatTag(approval.pfDeviation, approval.pfFloorBreached, session.reqPf, CONFIG.PF_FLOOR_PERCENT, approval.pfApprover);
 
-      let bannerTitle = "";
-      if (approval.finalApproverKey === "NONE") {
-        bannerTitle = `✅ Standard Rate — No Escalation Required`;
-      } else {
-        bannerTitle = `🛡️ Approval Required: ${approval.finalApproverName}`;
-      }
+      const bannerTitle = approval.finalApproverKey === "NONE" 
+        ? `✅ Standard Terms — No Authority Escalation Required`
+        : `🛡️ Deviation Approval Required: ${approval.finalApproverName}`;
 
       const floorAlertHtml = (approval.roiFloorBreached || approval.pfFloorBreached) ? `
         <div style="margin-bottom:8px;">
-          <span class="floor-alert-badge">🏛️ MANDATORY CEO FLOOR OVERRIDE TRIGGERED</span>
-        </div>
-      ` : '';
+          <span class="floor-badge">${t("floorAlert")}</span>
+        </div>` : '';
 
-      const dtiAlertHtml = dti.warning ? `
-        <div class="dti-alert-box">
-          <span style="font-size:18px;">⚠️</span>
+      const dtiAlertHtml = dtiResult.warning ? `
+        <div class="alert-banner">
+          <span style="font-size:20px;">⚠️</span>
           <div>
-            <strong>Prudent DTI Threshold Exceeded:</strong> The updated debt ratio (${dti.updatedDti}%) 
-            surpasses our standard benchmark of ${CONFIG.DTI_LIMIT_PERCENT}%. Special risk assessment applies.
+            <strong>${t("dtiAlertTitle")}:</strong> Proposed DTI of ${dtiResult.updatedDti}% 
+            exceeds our internal benchmark of ${CONFIG.DTI_LIMIT_PERCENT}%. Senior credit risk review applies.
           </div>
         </div>` : '';
 
-      const cardHtml = `
-        <div class="result-card">
-          <div class="verdict-banner ${approval.color}">
+      const reportHtml = `
+        <div class="status-card">
+          <div class="status-card-header ${approval.color}">
             <span>${bannerTitle}</span>
           </div>
-          <div class="verdict-explanation">
+          <div class="status-card-body">
             ${floorAlertHtml}
             ${approval.explanation}
           </div>
@@ -1808,96 +2158,100 @@
             <table class="comparison-table">
               <thead>
                 <tr>
-                  <th>Parameter</th>
-                  <th>Benchmark</th>
-                  <th>Requested</th>
-                  <th>Status & Authority</th>
+                  <th>${t("tableHeader")[0]}</th>
+                  <th>${t("tableHeader")[1]}</th>
+                  <th>${t("tableHeader")[2]}</th>
+                  <th>${t("tableHeader")[3]}</th>
+                  <th>${t("tableHeader")[4]}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td><strong>ROI (% p.a.)</strong></td>
                   <td>${session.baseRoi.toFixed(2)}%</td>
-                  <td><strong>${session.requestedRoi.toFixed(2)}%</strong></td>
-                  <td>${roiBadge}</td>
+                  <td>${session.sancRoi.toFixed(2)}%</td>
+                  <td><strong>${session.reqRoi.toFixed(2)}%</strong></td>
+                  <td>${roiTag}</td>
                 </tr>
                 <tr>
                   <td><strong>Processing Fee</strong></td>
-                  <td>${session.basePf.toFixed(2)}% (${formatINR(basePfAmount)})</td>
-                  <td><strong>${session.requestedPf.toFixed(2)}% (${formatINR(reqPfAmount)})</strong></td>
-                  <td>${pfBadge}</td>
+                  <td>${session.basePf.toFixed(2)}%</td>
+                  <td>${session.sancPf.toFixed(2)}% (${formatINR(sancPfAmount)})</td>
+                  <td><strong>${session.reqPf.toFixed(2)}% (${formatINR(reqPfAmount)})</strong></td>
+                  <td>${pfTag}</td>
                 </tr>
                 <tr>
                   <td><strong>Monthly EMI</strong></td>
-                  <td>${formatINR(baseEmi)}</td>
+                  <td>—</td>
+                  <td>${formatINR(session.sancEmi)}</td>
                   <td><strong>${formatINR(reqEmi)}</strong></td>
-                  <td><span class="pill-badge ${emiDiff >= 0 ? 'favorable' : 'cbo'}">${emiDiff >= 0 ? 'Saves ' + formatINR(emiDiff) + '/m' : '+ ' + formatINR(Math.abs(emiDiff))}</span></td>
+                  <td><span class="tag-badge ${emiSavings >= 0 ? 'favorable' : 'cbo'}">${emiSavings >= 0 ? 'Saves ' + formatINR(emiSavings) + '/m' : '+ ' + formatINR(Math.abs(emiSavings))}</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="metrics-grid">
-            <div class="metric-cell">
-              <div class="metric-title">New Monthly EMI</div>
-              <div class="metric-number" style="color:var(--accent-1);">${formatINR(reqEmi)}</div>
-              <div class="metric-caption">${session.tenureMonths}m reducing rate</div>
+          <div class="summary-grid">
+            <div class="stat-cell">
+              <div class="stat-title">Proposed EMI</div>
+              <div class="stat-num" style="color:var(--accent-primary);">${formatINR(reqEmi)}</div>
+              <div class="stat-sub">${session.sancTenure}m reducing</div>
             </div>
-            <div class="metric-cell">
-              <div class="metric-title">Monthly EMI Savings</div>
-              <div class="metric-number" style="color:var(--color-green);">${formatINR(Math.max(0, emiDiff))}</div>
-              <div class="metric-caption">${emiDiff > 0 ? 'Lower debt burden' : 'At standard rate'}</div>
+            <div class="stat-cell">
+              <div class="stat-title">Monthly EMI Difference</div>
+              <div class="stat-num" style="color:var(--color-green);">${formatINR(Math.max(0, emiSavings))}</div>
+              <div class="stat-sub">${emiSavings > 0 ? 'Monthly borrower savings' : 'Same as sanctioned'}</div>
             </div>
-            <div class="metric-cell">
-              <div class="metric-title">Upfront PF Amount</div>
-              <div class="metric-number" style="color:var(--accent-pink);">${formatINR(reqPfAmount)}</div>
-              <div class="metric-caption">Saves ${formatINR(Math.max(0, pfSavings))}</div>
+            <div class="stat-cell">
+              <div class="stat-title">PF Upfront Difference</div>
+              <div class="stat-num" style="color:var(--accent-secondary);">${formatINR(Math.max(0, pfSavings))}</div>
+              <div class="stat-sub">Fee discount</div>
             </div>
-            <div class="metric-cell">
-              <div class="metric-title">Updated DTI Ratio</div>
-              <div class="metric-number" style="color:${dti.warning ? 'var(--color-amber)' : 'var(--color-green)'};">${dti.updatedDti}%</div>
-              <div class="metric-caption">Was ${dti.currentDti}%</div>
+            <div class="stat-cell">
+              <div class="stat-title">Updated DTI Ratio</div>
+              <div class="stat-num" style="color:${dtiResult.warning ? 'var(--color-amber)' : 'var(--color-green)'};">${dtiResult.updatedDti}%</div>
+              <div class="stat-sub">Was ${session.currentDti}%</div>
             </div>
           </div>
           ${dtiAlertHtml}
         </div>`;
 
       appendBotMessage(
-        `Here is the complete pricing & approval evaluation for <strong>${escapeHtml(session.customerName)}</strong>:<br>${cardHtml}`,
+        `${t("evalTitle")} — <strong>${escapeHtml(session.caseName)}</strong>:<br>${reportHtml}`,
         [
-          { label: "Try different ROI / PF", icon: "✏️", primary: true, value: "re_ask_rates" },
-          { label: "New customer", icon: "👤", value: "new_customer" }
+          { label: t("btnTryRates"), icon: "✏️", primary: true, value: "re_evaluate_rates" },
+          { label: t("btnNewCase"), icon: "👤", value: "new_case" }
         ],
-        petMood, 450
+        mood, 450
       );
     }
 
-    function reAskRatesOnly() {
-      session.step = STEPS.REQUESTED_ROI;
-      inputHint.textContent = `Enter requested ROI % p.a. (Base is ${session.baseRoi}%)`;
-      userInput.placeholder = `Benchmark is ${session.baseRoi}%, enter new ROI...`;
+    function reAskProposedRates() {
+      session.step = STEPS.REQ_ROI;
+      inputHint.textContent = `Enter requested ROI % p.a. (Base: ${session.baseRoi}%, Sanc: ${session.sancRoi}%)`;
+      userInput.placeholder = `Benchmark is ${session.baseRoi}%, enter requested ROI...`;
       appendBotMessage(
-        `Let's adjust the proposal for <strong>${escapeHtml(session.customerName)}</strong>.<br>` +
-        `All other inputs (Loan: ${formatINR(session.loanAmount)}, ${session.tenureMonths}m, Base: ${session.baseRoi}% / ${session.basePf}%) are retained.<br><br>` +
-        `What new <strong>Requested ROI (% p.a.)</strong> would you like to evaluate?`,
+        `Evaluating new proposed rates for <strong>${escapeHtml(session.caseName)}</strong>.<br>` +
+        `Sanctioned Loan: ${formatINR(session.sancAmount)} (${session.sancTenure}m @ ${session.sancRoi}%), Base: ${session.baseRoi}% / ${session.basePf}%.<br><br>` +
+        `${t("askReqRoi")}`,
         [
           { label: `${session.baseRoi}% (Base Rate)`, value: String(session.baseRoi), primary: true },
           { label: `${(session.baseRoi - 1.5).toFixed(1)}% (CBO)`, value: String(session.baseRoi - 1.5) },
           { label: `${(session.baseRoi - 3.0).toFixed(1)}% (COO)`, value: String(session.baseRoi - 3.0) },
-          { label: `14.5% (< 15% CEO Floor)`, value: "14.5" }
+          { label: `14.5% (<15% CEO Floor)`, value: "14.5" }
         ], "talking"
       );
     }
 
-    const originalOnChipSelected = onChipSelected;
+    const origOnChipSelected = onChipSelected;
     onChipSelected = function(val) {
-      if (val === "re_ask_rates") {
-        appendUserMessage("Try different ROI / PF");
-        reAskRatesOnly();
-      } else if (val === "new_customer" || val === "restart") {
-        appendUserMessage("New customer");
-        restartConversation();
+      if (val === "re_evaluate_rates") {
+        appendUserMessage(t("btnTryRates"));
+        reAskProposedRates();
+      } else if (val === "new_case" || val === "restart") {
+        appendUserMessage(t("btnNewCase"));
+        restartSession();
       } else {
-        originalOnChipSelected(val);
+        origOnChipSelected(val);
       }
     };
 
@@ -1909,7 +2263,7 @@
         navigator.serviceWorker.register("./sw.js").catch(() => {});
       });
     }
-    window.addEventListener("DOMContentLoaded", () => { startDialogue(); });
+    window.addEventListener("DOMContentLoaded", () => { startConversation(); });
   </script>
 </body>
 </html>
