@@ -266,9 +266,31 @@ async def upload_catalog(file: UploadFile = File(...)):
 
 
 # Serve static web frontend
+ROOT_DIR = Path(__file__).resolve().parent.parent
+
+# Serve PWA static assets & Lendy index.html
+@app.get("/")
+def serve_lendy_index():
+    index_file = ROOT_DIR / "index.html"
+    if index_file.exists():
+        return FileResponse(str(index_file))
+    if (STATIC_DIR / "index.html").exists():
+        return FileResponse(str(STATIC_DIR / "index.html"))
+    return {"message": "Lendy Loan Pricing Chatbot Ready"}
+
+@app.get("/manifest.json")
+def serve_manifest():
+    manifest_file = ROOT_DIR / "manifest.json"
+    if manifest_file.exists():
+        return FileResponse(str(manifest_file), media_type="application/manifest+json")
+    return {}
+
+@app.get("/sw.js")
+def serve_service_worker():
+    sw_file = ROOT_DIR / "sw.js"
+    if sw_file.exists():
+        return FileResponse(str(sw_file), media_type="application/javascript")
+    return ""
+
 if STATIC_DIR.exists():
     app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
-
-    @app.get("/")
-    def serve_index():
-        return FileResponse(str(STATIC_DIR / "index.html"))

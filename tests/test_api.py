@@ -10,6 +10,20 @@ def test_health():
     assert res.json()["status"] == "healthy"
 
 
+def test_serve_lendy_index():
+    res = client.get("/")
+    assert res.status_code == 200
+    assert "Lendy" in res.text
+    assert "Loan Pricing & Approval" in res.text
+
+
+def test_serve_manifest_and_sw():
+    res_m = client.get("/manifest.json")
+    assert res_m.status_code == 200
+    res_sw = client.get("/sw.js")
+    assert res_sw.status_code == 200
+
+
 def test_api_chat():
     res = client.post("/api/chat", json={"message": "Calculate ROI for cost 1000 and return 2000"})
     assert res.status_code == 200

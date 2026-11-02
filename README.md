@@ -1,148 +1,142 @@
-# ROI & PF Chatbot 📈
+# Lendy 🐱 — Intelligent Loan Pricing & Approval Chatbot
 
-> **Intelligent Chatbot & Analytics Engine for Managed Pricing, Return on Investment (ROI), and Profit / Pricing Factor (PF).**
+> **Enterprise-Grade Loan Pricing, Policy Matrix Engine & Approval Governance Chatbot.**
+> Built as a single-file, dependency-free Progressive Web App (PWA) with responsive mobile-first UX, reducing-balance EMI engine, DTI risk analysis, and an animated robot-cat mascot ("Lendy").
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.162%2B-green.svg)
-![Tests](https://img.shields.io/badge/Tests-26%20Passed-brightgreen.svg)
-![License](https://img.shields.io/badge/License-MIT-purple.svg)
-
----
-
-## 🎯 Key Capabilities
-
-1. **Return on Investment (ROI) Suite**:
-   - **Simple ROI**: Exact percentage returns, net dollar profits, and profitability status.
-   - **Annualized ROI (CAGR)**: Compounded annual returns over multi-year horizons.
-   - **Payback Period**: Duration required to recoup capital outlays.
-   - **Net Present Value (NPV)**: Discounted cash flows analysis against hurdle rates.
-
-2. **Profit Factor & Pricing Factor (PF) Suite**:
-   - **Profit Factor ($PF$)**: $\frac{\text{Gross Profit}}{\text{Gross Loss}}$ ratio assessment with industry health benchmarks.
-   - **Managed Pricing Factor**: Multiplier on unit cost ($PF = \frac{P}{C}$), Keystone markup tiering, and gross margin calculations.
-
-3. **Managed Pricing Analytics**:
-   - **Break-Even Volume & Revenue**: Unit contribution margin and overhead coverage threshold.
-   - **Target ROI Pricing**: Back-solve optimal selling price from capital investment and desired ROI %.
-   - **Price Elasticity of Demand (PED)**: Midpoint formula demand sensitivity and revenue impact direction.
-   - **Discount / Markdown Hurdle**: Required volume surge needed to preserve gross profit after price cuts.
-
-4. **Interactive Multi-Scenario Simulator**:
-   - Dynamic sensitivity grid across price shifts (-20% to +20%) with demand elasticity.
-   - Identifies optimal price points for maximum dollar profit and maximum capital efficiency.
-   - Visualized with interactive Chart.js bar & trend graphs.
-
-5. **Conversational Chatbot**:
-   - Understands natural language queries (e.g., *"Calculate ROI for $25k cost and $42k return"*).
-   - Conversational memory preserves context across multiple turns.
-   - Works 100% offline with zero external API dependencies (optional LLM grounding via `GEMINI_API_KEY`).
-
-6. **Bulk Catalog Upload**:
-   - Upload CSV catalogs containing `product, unit_cost, selling_price, volume` for immediate portfolio analytics.
+![Tests](https://img.shields.io/badge/Tests-36%20Passed-brightgreen.svg)
+![PWA](https://img.shields.io/badge/PWA-Installable-blue.svg)
+![Architecture](https://img.shields.io/badge/Architecture-Clean%20Vanilla%20JS-purple.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 ---
 
-## 🚀 Quick Start
+## 🌟 Executive Overview
 
-### 1. Prerequisites
-- Python 3.10 or higher (compatible with Python 3.14).
+Lendy is a conversational fintech tool designed for commercial loan officers, credit managers, and underwriters. It automates:
+1. **Conversational Data Collection**: Walks through customer parameters step-by-step with warm, encouraging dialogue and tappable quick-reply chips.
+2. **Dynamic Ticket Sizing**: Automatically classifies loans into *Upto 5 Lacs* or *Above 5 Lacs* for Regular Secured Business Loans, or *All Ticket Size* for Working Capital and Hypothecation products.
+3. **56-Row Policy Matrix Benchmark**: Instant lookup of standard **Base ROI (% p.a.)** and **Base Processing Fee (PF %)**.
+4. **Approval Escalation Matrix**:
+   - **ROI Deviation** ($Base - Requested$): Up to 2% (CBO), >2% to 4% (COO), >4% (CEO).
+   - **PF Deviation** ($Base - Requested$): Up to 1% (CBO), >1% to 1.5% (COO), >1.5% (CEO).
+   - **Higher Authority Rule**: If ROI and PF require different tiers, the final authority is the highest (`CEO > COO > CBO > None`).
+   - **Rounding Tolerance**: Embedded $10^{-6}$ epsilon prevents floating point precision artifacts.
+5. **Loan Analytics & Risk Engines**:
+   - Reducing-balance monthly EMI ($EMI = \frac{P \cdot r \cdot (1+r)^n}{(1+r)^n - 1}$).
+   - Monthly and upfront Processing Fee savings.
+   - Debt-to-Income (DTI) ratio before and after, with configurable 50% prudent limit alerts.
+6. **Animated Robot-Cat Mascot ("Lendy")**:
+   - Inline SVG with 7 real-time expressive states: `idle`, `talking`, `thinking`, `surprised`, `happy`, `worried`, and `celebrating`.
 
-### 2. Installation
+---
+
+## 🚀 How to Run
+
+### Option 1: Double-Click / Direct Browser (Zero Dependencies)
+Simply open [`index.html`](file:///c:/Users/ishga/OneDrive/Desktop/Chatbots/ROI%20%26%20PF%20Chatbot/index.html) in Chrome, Edge, Safari, or Firefox on desktop or mobile. No installation or server required!
+
+### Option 2: Run via Python Server
 ```bash
-# Clone the repository
-git clone https://github.com/IG-Creation/ROI_PF_Chatbot.git
-cd ROI_PF_Chatbot
+# Using Python built-in HTTP server:
+python -m http.server 8000
 
-# Create and activate virtual environment
-python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-# Linux/macOS:
-source .venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### 3. Launch the Application
-
-#### Option A: Web Dashboard (Recommended)
-```bash
-python run.py
+# Or using the included FastAPI server:
+.\.venv\Scripts\python.exe run.py
 ```
 Open **[http://127.0.0.1:8000](http://127.0.0.1:8000)** in your browser.
 
-#### Option B: Terminal CLI Mode
-```bash
-python run.py --cli
-```
-
 ---
 
-## 🧪 Running Tests
+## 🧪 Automated Test Suite (36/36 Passed)
 
-The test suite covers unit calculations, financial validations, conversational intent extraction, and API endpoints:
+Run the automated test suite verifying all 8 enterprise acceptance scenarios:
 
 ```bash
-pytest -v
+.\.venv\Scripts\pytest.exe -v
 ```
 
----
-
-## 📡 REST API Endpoints
-
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/health` | Service health status |
-| `POST` | `/api/chat` | Conversational NLP query interface |
-| `POST` | `/api/roi` | Direct ROI calculation |
-| `POST` | `/api/pf/profit-factor` | Gross Profit / Loss analysis |
-| `POST` | `/api/pf/pricing-factor` | Unit cost & pricing factor markup |
-| `POST` | `/api/pricing/break-even` | Fixed cost & contribution margin |
-| `POST` | `/api/pricing/target-roi` | Price recommendation for ROI target |
-| `POST` | `/api/pricing/elasticity` | Price elasticity of demand |
-| `POST` | `/api/pricing/markdown` | Discount impact & volume hurdle |
-| `POST` | `/api/pricing/simulate` | Multi-scenario sensitivity grid |
-| `POST` | `/api/upload/catalog` | Bulk CSV portfolio processing |
+### Verified Acceptance Scenarios:
+- **Case 1**: Regular Secured Business Loan (Above 5 Lacs, Documented, SORP, $\ge$700, 10L loan, Base ROI 18%, PF 2%):
+  - Req ROI 16.5% $\rightarrow$ Deviation 1.5% $\rightarrow$ **CBO Approval**
+  - Req ROI 15.0% $\rightarrow$ Deviation 3.0% $\rightarrow$ **COO Approval**
+  - Req ROI 13.5% $\rightarrow$ Deviation 4.5% $\rightarrow$ **CEO Approval**
+- **Case 2**: Same case with PF deviations:
+  - Req PF 1.2% $\rightarrow$ Deviation 0.8% $\rightarrow$ **CBO Approval**
+  - Req PF 0.4% $\rightarrow$ Deviation 1.6% $\rightarrow$ **CEO Approval**
+- **Case 3**: Dual deviation (ROI 3.0% COO + PF 1.6% CEO) $\rightarrow$ Governed by highest authority: **CEO Approval**.
+- **Case 4**: Premium pricing (Req ROI 19%, PF 2%) $\rightarrow$ **No Approval Needed**.
+- **Case 5**: Reducing-balance EMI for 10L loan at 18% for 60m $\rightarrow$ **₹25,393/month**.
+- **Case 6**: Income ₹80,000/m, existing ₹20,000, new EMI ₹25,393 $\rightarrow$ Current DTI 25.0%, Updated DTI 56.7% with **DTI Warning Alert**.
+- **Case 7**: Annual income ₹12,00,000 correctly normalized to **₹1,00,000/month**.
+- **Case 8**: Hypothecation Loan automatically skips Property Type question (defaults to `NA`).
 
 ---
 
-## 📂 Project Architecture
+## 📊 Benchmark Policy Matrix (56 Rows)
+
+| Product | Ticket Size | Income Program | Property Type | Bureau Category | Base ROI % | Base PF % |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Regular Secured Business Loan | Upto 5 Lacs | Documented | SORP | $\ge$700 or NTC | 20.0% | 3.0% |
+| Regular Secured Business Loan | Upto 5 Lacs | Documented | SORP | <700 | 22.0% | 3.0% |
+| Regular Secured Business Loan | Upto 5 Lacs | Documented | Other | $\ge$700 or NTC | 22.0% | 3.0% |
+| Regular Secured Business Loan | Upto 5 Lacs | Documented | Other | <700 | 22.0% | 3.0% |
+| Regular Secured Business Loan | Upto 5 Lacs | Assessed / Hybrid / Semi | SORP | $\ge$700 or NTC | 21.0% | 3.0% |
+| Regular Secured Business Loan | Upto 5 Lacs | Assessed / Hybrid / Semi | SORP | <700 | 22.0% | 3.0% |
+| Regular Secured Business Loan | Upto 5 Lacs | Assessed / Hybrid / Semi | Other | $\ge$700 or NTC | 21.5% | 3.0% |
+| Regular Secured Business Loan | Upto 5 Lacs | Assessed / Hybrid / Semi | Other | <700 | 22.0% | 3.0% |
+| Regular Secured Business Loan | Above 5 Lacs | Documented | SORP | $\ge$700 or NTC | 18.0% | 2.0% |
+| Regular Secured Business Loan | Above 5 Lacs | Documented | SORP | <700 | 20.0% | 2.0% |
+| Regular Secured Business Loan | Above 5 Lacs | Documented | Other | $\ge$700 or NTC | 19.0% | 3.0% |
+| Regular Secured Business Loan | Above 5 Lacs | Documented | Other | <700 | 20.0% | 3.0% |
+| Regular Secured Business Loan | Above 5 Lacs | Assessed / Hybrid / Semi | SORP | $\ge$700 or NTC | 20.0% | 3.0% |
+| Regular Secured Business Loan | Above 5 Lacs | Assessed / Hybrid / Semi | SORP | <700 | 20.5% | 3.0% |
+| Regular Secured Business Loan | Above 5 Lacs | Assessed / Hybrid / Semi | Other | $\ge$700 or NTC | 20.0% | 3.0% |
+| Regular Secured Business Loan | Above 5 Lacs | Assessed / Hybrid / Semi | Other | <700 | 21.0% | 3.0% |
+| Secured Working Capital Term Loan | All Ticket Size | Documented | SORP | $\ge$700 or NTC | 22.0% | 3.0% |
+| Secured Working Capital Term Loan | All Ticket Size | Documented | SORP | <700 | 24.0% | 3.0% |
+| Secured Working Capital Term Loan | All Ticket Size | Documented | Other | $\ge$700 or NTC | 24.0% | 3.0% |
+| Secured Working Capital Term Loan | All Ticket Size | Documented | Other | <700 | 24.0% | 3.0% |
+| Secured Working Capital Term Loan | All Ticket Size | Assessed / Hybrid / Semi | SORP | $\ge$700 or NTC | 23.0% | 3.0% |
+| Secured Working Capital Term Loan | All Ticket Size | Assessed / Hybrid / Semi | SORP | <700 | 24.0% | 3.0% |
+| Secured Working Capital Term Loan | All Ticket Size | Assessed / Hybrid / Semi | Other | $\ge$700 or NTC | 24.0% | 3.0% |
+| Secured Working Capital Term Loan | All Ticket Size | Assessed / Hybrid / Semi | Other | <700 | 24.0% | 3.0% |
+| Hypothecation Loans | All Ticket Size | Documented | NA | $\ge$700 or NTC | 20.0% | 3.0% |
+| Hypothecation Loans | All Ticket Size | Documented | NA | <700 | 22.0% | 3.0% |
+| Hypothecation Loans | All Ticket Size | Assessed / Hybrid / Semi | NA | $\ge$700 or NTC | 22.0% | 3.0% |
+| Hypothecation Loans | All Ticket Size | Assessed / Hybrid / Semi | NA | <700 | 22.0% | 3.0% |
+
+---
+
+## 📱 Mobile & PWA Features
+- **100dvh & Safe-Area Insets**: Seamless display on iPhone notch / Dynamic Island and Android navigation bars.
+- **VisualViewport Keyboard Shield**: Prevents sticky input and chips from being obscured when virtual mobile keyboards pop up.
+- **Installable PWA**: Includes [`manifest.json`](file:///c:/Users/ishga/OneDrive/Desktop/Chatbots/ROI%20%26%20PF%20Chatbot/manifest.json) and [`sw.js`](file:///c:/Users/ishga/OneDrive/Desktop/Chatbots/ROI%20%26%20PF%20Chatbot/sw.js) for native offline installation on mobile and desktop.
+- **Accessibility**: Includes `aria-live="polite"` regions, accessible color contrast ratios, and minimum 44px touch targets.
+- **Async Guard Protection**: Restarting conversation mid-flow invalidates background async tokens to eliminate ghost or out-of-order messages.
+
+---
+
+## 📂 Project Structure
 
 ```
 ROI_PF_Chatbot/
+├── index.html                   # Complete Lendy Chatbot (Single-file HTML + CSS + JS)
+├── manifest.json                # PWA Web Application Manifest
+├── sw.js                        # PWA Offline Service Worker
+├── run.py                       # Unified entrypoint runner
 ├── app/
-│   ├── chatbot/          # NLP intent classification & dialogue manager
-│   │   ├── dialogue.py
-│   │   ├── handler.py
-│   │   └── intent.py
-│   ├── engine/           # Mathematical finance & pricing engines
-│   │   ├── pf.py
-│   │   ├── pricing.py
-│   │   ├── roi.py
-│   │   └── simulator.py
-│   ├── static/           # Modern Web Dashboard (HTML/CSS/JS + Chart.js)
-│   │   ├── app.js
-│   │   ├── index.html
-│   │   └── style.css
-│   ├── config.py         # App configuration
-│   └── main.py           # FastAPI application
-├── examples/             # Sample datasets
-│   └── catalog_sample.csv
-├── tests/                # Automated pytest suite (26 tests)
-│   ├── test_api.py
-│   ├── test_chatbot.py
-│   ├── test_pf.py
-│   ├── test_pricing.py
-│   ├── test_roi.py
-│   └── test_simulator.py
-├── .gitignore
-├── README.md
+│   ├── main.py                  # FastAPI Application (serves Lendy + API)
+│   ├── config.py
+│   └── engine/                  # Core calculation engines
+├── tests/
+│   ├── test_lendy_acceptance.py # 8/8 Acceptance test suite
+│   ├── verify_lendy_matrix.py   # Matrix verification engine
+│   └── test_api.py              # End-to-end API test suite
 ├── requirements.txt
-└── run.py                # Unified launcher (Web & CLI)
+└── README.md
 ```
 
 ---
 
 ## 📄 License
-MIT License. Created by IG-Creation.
+MIT License. Created for IG-Creation.
