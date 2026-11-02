@@ -1,9 +1,9 @@
-// Lendy PWA Service Worker
-const CACHE_NAME = 'lendy-cache-v1';
+// Lendy PWA Service Worker (Compatible with GitHub Pages and Localhost)
+const CACHE_NAME = 'lendy-pwa-v2';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/manifest.json'
+  './',
+  './index.html',
+  './manifest.json'
 ];
 
 self.addEventListener('install', (event) => {
@@ -33,7 +33,7 @@ self.addEventListener('fetch', (event) => {
           }
           return response;
         });
-      }).catch(() => caches.match('/index.html'));
+      }).catch(() => caches.match('./index.html'));
     })
   );
 });

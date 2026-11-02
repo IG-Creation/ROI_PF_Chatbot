@@ -1,49 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="neon">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Lendy — Intelligent Loan Pricing & Approval Chatbot</title>
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#2563eb">
+  <title>Lendy 🐱 — 3D Loan Pricing & Approval AI</title>
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#8b5cf6">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="description" content="Lendy is a smart, mobile-first loan pricing, EMI calculation, and approval matrix chatbot.">
+  <meta name="description" content="Lendy is an interactive, mobile-first loan pricing, policy matrix engine, and approval chatbot with an animated 3D pet companion.">
 
   <style>
     /* ==========================================================================
-       CSS RESET & VARIABLES
+       VIBRANT MULTI-COLOR THEMES & CSS VARIABLES
        ========================================================================== */
-    :root {
-      --bg-canvas: #090e17;
-      --bg-panel: #111827;
-      --bg-card: #1f2937;
-      --bg-card-hover: #283548;
-      --border-subtle: #2d3748;
-      --border-focus: #3b82f6;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --text-subtle: #6b7280;
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --primary-glow: rgba(37, 99, 235, 0.25);
-      --accent-cyan: #06b6d4;
+    :root, [data-theme="neon"] {
+      --bg-canvas: #090d16;
+      --bg-panel: rgba(17, 24, 39, 0.85);
+      --bg-card: rgba(30, 41, 59, 0.75);
+      --bg-card-hover: rgba(51, 65, 85, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --border-glow: rgba(56, 189, 248, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --accent-1: #38bdf8;   /* Electric Cyan */
+      --accent-2: #818cf8;   /* Indigo Laser */
+      --accent-3: #c084fc;   /* Neon Violet */
+      --accent-pink: #f472b6;/* Cyber Pink */
+      --color-green: #34d399;/* Emerald */
+      --color-green-bg: rgba(52, 211, 153, 0.18);
+      --color-blue: #60a5fa; /* Vibrant Blue */
+      --color-blue-bg: rgba(96, 165, 250, 0.18);
+      --color-amber: #fbbf24;/* Solar Amber */
+      --color-amber-bg: rgba(251, 191, 36, 0.18);
+      --color-red: #f87171;  /* Radiant Coral Red */
+      --color-red-bg: rgba(248, 113, 113, 0.18);
+      --bubble-user-grad: linear-gradient(135deg, #4f46e5, #9333ea);
+      --btn-grad: linear-gradient(135deg, #06b6d4, #8b5cf6);
+      --mascot-color: #38bdf8;
+      --orb-1: rgba(139, 92, 246, 0.35);
+      --orb-2: rgba(6, 182, 212, 0.3);
+      --orb-3: rgba(236, 72, 153, 0.25);
+    }
+
+    [data-theme="sunset"] {
+      --bg-canvas: #0f0b18;
+      --bg-panel: rgba(26, 16, 37, 0.85);
+      --bg-card: rgba(45, 25, 62, 0.75);
+      --bg-card-hover: rgba(67, 38, 92, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --border-glow: rgba(249, 115, 22, 0.45);
+      --text-main: #fff7ed;
+      --text-muted: #fed7aa;
+      --text-subtle: #9a6850;
+      --accent-1: #fb923c;   /* Fiery Orange */
+      --accent-2: #f43f5e;   /* Rose Coral */
+      --accent-3: #fbbf24;   /* Golden Amber */
+      --accent-pink: #ec4899;
       --color-green: #10b981;
-      --color-green-bg: rgba(16, 185, 129, 0.15);
-      --color-blue: #3b82f6;
-      --color-blue-bg: rgba(59, 130, 246, 0.15);
+      --color-green-bg: rgba(16, 185, 129, 0.2);
+      --color-blue: #38bdf8;
+      --color-blue-bg: rgba(56, 189, 248, 0.2);
       --color-amber: #f59e0b;
-      --color-amber-bg: rgba(245, 158, 11, 0.15);
+      --color-amber-bg: rgba(245, 158, 11, 0.2);
       --color-red: #ef4444;
-      --color-red-bg: rgba(239, 68, 68, 0.15);
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-pill: 9999px;
-      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
-      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.35);
-      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --color-red-bg: rgba(239, 68, 68, 0.2);
+      --bubble-user-grad: linear-gradient(135deg, #ea580c, #db2777);
+      --btn-grad: linear-gradient(135deg, #f59e0b, #e11d48);
+      --mascot-color: #fb923c;
+      --orb-1: rgba(249, 115, 22, 0.35);
+      --orb-2: rgba(219, 39, 119, 0.3);
+      --orb-3: rgba(245, 158, 11, 0.25);
+    }
+
+    [data-theme="emerald"] {
+      --bg-canvas: #061412;
+      --bg-panel: rgba(10, 31, 28, 0.85);
+      --bg-card: rgba(18, 53, 47, 0.75);
+      --bg-card-hover: rgba(27, 77, 68, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --border-glow: rgba(52, 211, 153, 0.4);
+      --text-main: #f0fdf4;
+      --text-muted: #a7f3d0;
+      --text-subtle: #4d7c6f;
+      --accent-1: #34d399;   /* Mint Green */
+      --accent-2: #2dd4bf;   /* Teal */
+      --accent-3: #38bdf8;   /* Cyan */
+      --accent-pink: #f472b6;
+      --color-green: #34d399;
+      --color-green-bg: rgba(52, 211, 153, 0.2);
+      --color-blue: #60a5fa;
+      --color-blue-bg: rgba(96, 165, 250, 0.2);
+      --color-amber: #fbbf24;
+      --color-amber-bg: rgba(251, 191, 36, 0.2);
+      --color-red: #f87171;
+      --color-red-bg: rgba(248, 113, 113, 0.2);
+      --bubble-user-grad: linear-gradient(135deg, #059669, #0284c7);
+      --btn-grad: linear-gradient(135deg, #10b981, #06b6d4);
+      --mascot-color: #34d399;
+      --orb-1: rgba(16, 185, 129, 0.35);
+      --orb-2: rgba(6, 182, 212, 0.3);
+      --orb-3: rgba(20, 184, 166, 0.25);
     }
 
     * {
@@ -60,12 +118,12 @@
       overflow: hidden;
       background-color: var(--bg-canvas);
       color: var(--text-main);
-      font-family: var(--font-stack);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       font-size: 15px;
       line-height: 1.5;
+      position: relative;
     }
 
-    /* Safe Area insets for modern mobile devices */
     body {
       display: flex;
       flex-direction: column;
@@ -75,20 +133,48 @@
       padding-right: env(safe-area-inset-right);
     }
 
+    /* Ambient animated multi-color backdrop orbs */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(85px);
+      opacity: 0.6;
+      animation: float-orb 14s infinite alternate ease-in-out;
+    }
+
+    .orb-1 { width: 340px; height: 340px; background: var(--orb-1); top: -80px; left: -60px; animation-duration: 12s; }
+    .orb-2 { width: 380px; height: 380px; background: var(--orb-2); bottom: 10%; right: -80px; animation-duration: 16s; }
+    .orb-3 { width: 300px; height: 300px; background: var(--orb-3); top: 40%; left: 30%; animation-duration: 14s; }
+
+    @keyframes float-orb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, 35px) scale(1.15); }
+    }
+
     /* ==========================================================================
-       HEADER & MASCOT
+       HEADER & NAVIGATION
        ========================================================================== */
     .app-header {
       height: 68px;
-      background-color: var(--bg-panel);
+      background: var(--bg-panel);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 16px;
       flex-shrink: 0;
-      z-index: 10;
-      box-shadow: var(--shadow-sm);
+      z-index: 30;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
 
     .header-left {
@@ -97,127 +183,89 @@
       gap: 12px;
     }
 
-    .mascot-container {
-      width: 48px;
-      height: 48px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    /* Robot-Cat SVG Styling & Animations */
-    .mascot-svg {
-      width: 100%;
-      height: 100%;
-      transition: transform 0.2s ease;
-      filter: drop-shadow(0 2px 6px rgba(6, 182, 212, 0.3));
-    }
-
-    .mascot-svg:hover {
-      transform: scale(1.08);
-    }
-
-    /* Antenna Pulsing */
-    @keyframes antenna-pulse {
-      0%, 100% { opacity: 0.5; r: 3.5; fill: #38bdf8; }
-      50% { opacity: 1; r: 4.5; fill: #67e8f9; filter: drop-shadow(0 0 4px #06b6d4); }
-    }
-    .antenna-light {
-      animation: antenna-pulse 2s infinite ease-in-out;
-    }
-
-    /* Floating Head */
-    @keyframes float-head {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-2px); }
-    }
-    .mascot-head-group {
-      animation: float-head 3.5s ease-in-out infinite;
-      transform-origin: center bottom;
-    }
-
-    /* Cat Eyes Blinking */
-    @keyframes eyes-blink {
-      0%, 92%, 100% { transform: scaleY(1); }
-      96% { transform: scaleY(0.1); }
-    }
-    .eye-pupil {
-      transform-origin: center center;
-      animation: eyes-blink 4s infinite ease-in-out;
-    }
-
-    /* Talking mouth animation */
-    @keyframes cat-talking {
-      0%, 100% { transform: scaleY(1); }
-      50% { transform: scaleY(1.8); }
-    }
-    .mascot-talking .cat-mouth {
-      animation: cat-talking 0.25s infinite alternate ease-in-out;
-      transform-origin: center;
-    }
-
-    /* Bouncing celebration */
-    @keyframes cat-celebrating {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      25% { transform: translateY(-4px) rotate(-3deg); }
-      75% { transform: translateY(-4px) rotate(3deg); }
-    }
-    .mascot-celebrating {
-      animation: cat-celebrating 0.6s infinite ease-in-out;
-    }
-
-    .header-info h1 {
+    .brand-title {
       font-size: 17px;
-      font-weight: 700;
-      color: var(--text-main);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    .header-info p {
-      font-size: 12px;
-      color: var(--accent-cyan);
+    .brand-subtitle {
+      font-size: 11.5px;
+      color: var(--text-muted);
       font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    .restart-btn {
-      min-height: 44px;
-      min-width: 44px;
-      padding: 8px 14px;
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background-color: var(--color-green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--color-green);
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.6; }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-action-btn {
+      min-height: 40px;
+      min-width: 40px;
+      padding: 0 12px;
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-pill);
-      color: var(--text-muted);
+      border-radius: 9999px;
+      color: var(--text-main);
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.2s;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
 
-    .restart-btn:hover {
+    .icon-action-btn:hover {
       background: var(--bg-card-hover);
-      color: var(--text-main);
-      border-color: var(--border-focus);
+      border-color: var(--border-glow);
+      transform: translateY(-1px);
+    }
+
+    .icon-action-btn:active {
+      transform: scale(0.96);
     }
 
     /* ==========================================================================
-       CHAT HISTORY CONTAINER
+       CHAT STREAM
        ========================================================================== */
     .chat-container {
       flex: 1;
       overflow-y: auto;
       overflow-x: hidden;
-      padding: 16px 16px 20px 16px;
+      padding: 16px 16px 24px 16px;
       display: flex;
       flex-direction: column;
       gap: 16px;
       scroll-behavior: smooth;
+      position: relative;
+      z-index: 10;
     }
 
     .message-row {
@@ -227,150 +275,158 @@
       width: 100%;
       margin: 0 auto;
       opacity: 0;
-      transform: translateY(8px);
-      animation: message-appear 0.28s ease-out forwards;
+      transform: translateY(10px);
+      animation: message-in 0.28s ease-out forwards;
     }
 
-    @keyframes message-appear {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes message-in {
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .message-row.user {
       justify-content: flex-end;
     }
 
-    .message-avatar {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      flex-shrink: 0;
+    .bot-avatar-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--btn-grad);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      margin-top: 2px;
-    }
-
-    .message-avatar.bot {
-      background: linear-gradient(135deg, #1e3a8a, #06b6d4);
-      color: white;
-      box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
+      font-size: 18px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .message-bubble {
-      padding: 12px 16px;
-      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      border-radius: 16px;
       line-height: 1.55;
       font-size: 14.5px;
       position: relative;
       word-break: break-word;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .message-row.bot .message-bubble {
-      background-color: var(--bg-panel);
+      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       color: var(--text-main);
       border-top-left-radius: 4px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
 
     .message-row.user .message-bubble {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: white;
+      background: var(--bubble-user-grad);
+      color: #ffffff;
       border-top-right-radius: 4px;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-    }
-
-    .message-row.user .message-avatar {
-      display: none;
+      box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-weight: 500;
     }
 
     /* Typing Dots */
-    .typing-indicator {
+    .typing-dots {
       display: flex;
       align-items: center;
       gap: 5px;
-      padding: 6px 4px;
+      padding: 4px 2px;
     }
 
-    .typing-dot {
-      width: 7px;
-      height: 7px;
-      background-color: var(--accent-cyan);
+    .dot-pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-1);
       border-radius: 50%;
-      animation: typing-bounce 1.4s infinite ease-in-out both;
+      box-shadow: 0 0 6px var(--accent-1);
+      animation: dot-glow 1.4s infinite ease-in-out both;
     }
 
-    .typing-dot:nth-child(1) { animation-delay: -0.32s; }
-    .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+    .dot-pulse:nth-child(1) { animation-delay: -0.32s; }
+    .dot-pulse:nth-child(2) { animation-delay: -0.16s; }
 
-    @keyframes typing-bounce {
-      0%, 80%, 100% { transform: scale(0.4); opacity: 0.4; }
-      40% { transform: scale(1); opacity: 1; }
+    @keyframes dot-glow {
+      0%, 80%, 100% { transform: scale(0.4); opacity: 0.3; }
+      40% { transform: scale(1.1); opacity: 1; }
     }
 
     /* ==========================================================================
-       RESULT CARD & TABLES
+       ENHANCED VERDICT RESULT CARD
        ========================================================================== */
     .result-card {
-      background-color: var(--bg-panel);
+      background: var(--bg-panel);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
+      border-radius: 16px;
       overflow: hidden;
-      margin-top: 10px;
-      box-shadow: var(--shadow-md);
+      margin-top: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
     }
 
     .verdict-banner {
-      padding: 12px 16px;
+      padding: 14px 18px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: 15px;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 15.5px;
       border-bottom: 1px solid var(--border-subtle);
     }
 
     .verdict-banner.green {
       background: var(--color-green-bg);
       color: var(--color-green);
-      border-bottom-color: rgba(16, 185, 129, 0.3);
+      border-bottom-color: rgba(52, 211, 153, 0.4);
+      box-shadow: inset 0 0 20px rgba(52, 211, 153, 0.1);
     }
 
     .verdict-banner.blue {
       background: var(--color-blue-bg);
       color: var(--color-blue);
-      border-bottom-color: rgba(59, 130, 246, 0.3);
+      border-bottom-color: rgba(96, 165, 250, 0.4);
+      box-shadow: inset 0 0 20px rgba(96, 165, 250, 0.1);
     }
 
     .verdict-banner.amber {
       background: var(--color-amber-bg);
       color: var(--color-amber);
-      border-bottom-color: rgba(245, 158, 11, 0.3);
+      border-bottom-color: rgba(251, 191, 36, 0.4);
+      box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.1);
     }
 
     .verdict-banner.red {
       background: var(--color-red-bg);
       color: var(--color-red);
-      border-bottom-color: rgba(239, 68, 68, 0.3);
+      border-bottom-color: rgba(248, 113, 113, 0.4);
+      box-shadow: inset 0 0 25px rgba(248, 113, 113, 0.2);
     }
 
     .verdict-explanation {
-      padding: 12px 16px;
+      padding: 14px 18px;
       background: rgba(255, 255, 255, 0.02);
       font-size: 13.5px;
       color: var(--text-muted);
       border-bottom: 1px solid var(--border-subtle);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .verdict-explanation strong {
       color: var(--text-main);
+    }
+
+    .floor-alert-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--color-red-bg);
+      color: var(--color-red);
+      border: 1px solid rgba(248, 113, 113, 0.4);
+      margin-bottom: 6px;
     }
 
     .comparison-table-wrapper {
@@ -381,23 +437,23 @@
     .comparison-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 13px;
+      font-size: 13.5px;
     }
 
     .comparison-table th, 
     .comparison-table td {
-      padding: 10px 14px;
+      padding: 11px 16px;
       text-align: left;
       border-bottom: 1px solid var(--border-subtle);
     }
 
     .comparison-table th {
       background: rgba(255, 255, 255, 0.04);
-      color: var(--text-subtle);
-      font-weight: 600;
+      color: var(--text-muted);
+      font-weight: 700;
       text-transform: uppercase;
       font-size: 11px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
     .comparison-table td:last-child,
@@ -405,83 +461,85 @@
       text-align: right;
     }
 
-    .tag-deviation {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: var(--radius-pill);
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 9999px;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .tag-deviation.neutral { background: rgba(156, 163, 175, 0.2); color: var(--text-muted); }
-    .tag-deviation.favorable { background: var(--color-green-bg); color: var(--color-green); }
-    .tag-deviation.cbo { background: var(--color-blue-bg); color: var(--color-blue); }
-    .tag-deviation.coo { background: var(--color-amber-bg); color: var(--color-amber); }
-    .tag-deviation.ceo { background: var(--color-red-bg); color: var(--color-red); }
+    .pill-badge.favorable { background: var(--color-green-bg); color: var(--color-green); border: 1px solid rgba(52, 211, 153, 0.3); }
+    .pill-badge.cbo { background: var(--color-blue-bg); color: var(--color-blue); border: 1px solid rgba(96, 165, 250, 0.3); }
+    .pill-badge.coo { background: var(--color-amber-bg); color: var(--color-amber); border: 1px solid rgba(251, 191, 36, 0.3); }
+    .pill-badge.ceo { background: var(--color-red-bg); color: var(--color-red); border: 1px solid rgba(248, 113, 113, 0.3); }
 
-    /* Summary Grid */
     .metrics-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 10px;
-      padding: 12px 14px;
-      background: var(--bg-card);
+      padding: 14px;
+      background: rgba(0, 0, 0, 0.2);
     }
 
     @media (min-width: 600px) {
-      .metrics-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
+      .metrics-grid { grid-template-columns: repeat(4, 1fr); }
     }
 
     .metric-cell {
-      background: var(--bg-panel);
+      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-sm);
-      padding: 8px 12px;
+      border-radius: 12px;
+      padding: 10px 14px;
+      transition: transform 0.2s;
     }
 
-    .metric-label {
+    .metric-cell:hover {
+      transform: translateY(-2px);
+    }
+
+    .metric-title {
       font-size: 11px;
       color: var(--text-muted);
-      margin-bottom: 2px;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      font-weight: 700;
+      letter-spacing: 0.04em;
     }
 
-    .metric-value {
-      font-size: 15px;
-      font-weight: 700;
+    .metric-number {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 3px 0;
       color: var(--text-main);
     }
 
-    .metric-sub {
+    .metric-caption {
       font-size: 11px;
       color: var(--text-subtle);
-      margin-top: 1px;
     }
 
-    /* DTI Alert Banner */
-    .dti-alert {
+    /* DTI Warning Banner */
+    .dti-alert-box {
       margin: 12px 14px;
-      padding: 10px 14px;
-      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      border-radius: 12px;
       background: var(--color-amber-bg);
-      border: 1px solid rgba(245, 158, 11, 0.4);
+      border: 1px solid rgba(251, 191, 36, 0.4);
       color: #fef3c7;
-      font-size: 12.5px;
+      font-size: 13px;
       display: flex;
       align-items: flex-start;
-      gap: 8px;
-      line-height: 1.4;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(251, 191, 36, 0.15);
     }
 
     /* ==========================================================================
-       CHIPS & ACTION AREA
+       TAPPABLE CHIPS AREA
        ========================================================================== */
     .chips-area {
       padding: 8px 16px 12px 16px;
-      background-color: var(--bg-canvas);
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -489,277 +547,400 @@
       max-width: 860px;
       width: 100%;
       margin: 0 auto;
+      z-index: 20;
     }
 
     .chip-btn {
       min-height: 44px;
       padding: 10px 16px;
       background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-pill);
+      border-radius: 9999px;
       color: var(--text-main);
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: all 0.15s ease-out;
-      box-shadow: var(--shadow-sm);
+      gap: 7px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     .chip-btn:hover {
       background: var(--bg-card-hover);
-      border-color: var(--border-focus);
-      transform: translateY(-1px);
+      border-color: var(--border-glow);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(6, 182, 212, 0.25);
     }
 
     .chip-btn:active {
-      transform: scale(0.97);
+      transform: scale(0.96);
     }
 
-    .chip-btn.primary {
-      background: linear-gradient(135deg, #1e40af, #2563eb);
-      border-color: #3b82f6;
+    .chip-btn.glow-primary {
+      background: var(--btn-grad);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
     }
 
     /* ==========================================================================
-       BOTTOM INPUT BAR
+       3D / 4D INTERACTIVE PET COMPANION NEAR SEND BUTTON
        ========================================================================== */
-    .input-bar-wrapper {
-      background-color: var(--bg-panel);
+    .input-bar-container {
+      background: var(--bg-panel);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-top: 1px solid var(--border-subtle);
       padding: 10px 16px;
       flex-shrink: 0;
-      z-index: 20;
+      z-index: 30;
+      position: relative;
     }
 
-    .input-form {
+    .input-row-wrapper {
       max-width: 860px;
       margin: 0 auto;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       gap: 10px;
+      position: relative;
+    }
+
+    /* 3D Interactive Mascot Container Anchored Near Send Button */
+    .pet-3d-anchor {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 700px;
+      cursor: pointer;
+    }
+
+    .pet-3d-box {
+      width: 58px;
+      height: 58px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+    }
+
+    /* 3D Cat Mascot Vector */
+    .pet-svg {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+
+    /* 3D Wagging Tail */
+    @keyframes tail-wag-3d {
+      0%, 100% { transform: rotate(0deg) skewX(0deg); }
+      50% { transform: rotate(18deg) skewX(8deg); }
+    }
+    .pet-tail {
+      transform-origin: 22px 52px;
+      animation: tail-wag-3d 1.6s infinite ease-in-out;
+    }
+
+    /* 3D Ears Twitch */
+    @keyframes ear-twitch {
+      0%, 90%, 100% { transform: rotate(0deg); }
+      93% { transform: rotate(-4deg); }
+      96% { transform: rotate(3deg); }
+    }
+    .pet-ears {
+      transform-origin: 30px 20px;
+      animation: ear-twitch 5s infinite;
+    }
+
+    /* 3D Bounce Animation */
+    @keyframes pet-float-3d {
+      0%, 100% { transform: translateY(0px) rotateX(4deg); }
+      50% { transform: translateY(-3px) rotateX(-2deg); }
+    }
+    .pet-floating {
+      animation: pet-float-3d 3.2s infinite ease-in-out;
+    }
+
+    /* Speech Bubble from Pet */
+    .pet-speech-bubble {
+      position: absolute;
+      bottom: 64px;
+      right: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      padding: 5px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-1);
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px) scale(0.9);
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      z-index: 50;
+    }
+
+    .pet-speech-bubble.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .pet-speech-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      right: 22px;
+      border-width: 6px 6px 0;
+      border-style: solid;
+      border-color: var(--border-glow) transparent transparent;
+    }
+
+    .input-field-wrapper {
+      flex: 1;
+      position: relative;
     }
 
     .chat-input {
-      flex: 1;
-      min-height: 46px;
-      background-color: var(--bg-card);
+      width: 100%;
+      min-height: 48px;
+      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-pill);
-      padding: 10px 20px;
+      border-radius: 9999px;
+      padding: 12px 20px;
       color: var(--text-main);
       font-size: 15px;
       font-family: inherit;
       outline: none;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
     }
 
     .chat-input:focus {
-      border-color: var(--border-focus);
-      box-shadow: 0 0 0 3px var(--primary-glow);
+      border-color: var(--accent-1);
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.25);
     }
 
     .chat-input::placeholder {
       color: var(--text-subtle);
-      font-size: 14px;
     }
 
-    .send-btn {
-      min-width: 46px;
-      min-height: 46px;
-      width: 46px;
-      height: 46px;
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: white;
+    .send-btn-action {
+      min-width: 48px;
+      min-height: 48px;
+      width: 48px;
+      height: 48px;
+      background: var(--btn-grad);
+      color: #ffffff;
       border: none;
       border-radius: 50%;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 4px 18px rgba(6, 182, 212, 0.4);
     }
 
-    .send-btn:hover {
-      transform: scale(1.05);
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
+    .send-btn-action:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 24px rgba(139, 92, 246, 0.5);
     }
 
-    .send-btn:active {
-      transform: scale(0.95);
+    .send-btn-action:active {
+      transform: scale(0.94);
     }
 
-    .send-btn:disabled {
+    .send-btn-action:disabled {
       opacity: 0.4;
       cursor: not-allowed;
       transform: none;
     }
 
-    .send-btn svg {
-      width: 18px;
-      height: 18px;
+    .send-btn-action svg {
+      width: 20px;
+      height: 20px;
       fill: none;
       stroke: currentColor;
-      stroke-width: 2.2;
+      stroke-width: 2.3;
       stroke-linecap: round;
       stroke-linejoin: round;
       margin-left: 2px;
     }
 
-    /* Subtle helper notes */
-    .input-hint {
+    .input-hint-text {
       font-size: 11.5px;
       color: var(--text-subtle);
-      margin-top: 4px;
+      margin-top: 5px;
       text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <!-- ========================================================================
-       TOP NAVIGATION & MASCOT
-       ======================================================================== -->
+  <!-- Ambient glowing gradient background orbs -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
+
+  <!-- Header -->
   <header class="app-header">
     <div class="header-left">
-      <!-- Animated SVG Mascot "Lendy" (Robot-Cat) -->
-      <div class="mascot-container" id="mascotWrapper" title="Lendy the Robot-Cat" onclick="triggerMascotMeow()">
-        <svg class="mascot-svg" id="lendyMascot" viewBox="0 0 80 80" role="img" aria-label="Lendy Robot-Cat Mascot">
-          <defs>
-            <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8"/>
-              <stop offset="100%" stop-color="#1e40af"/>
-            </linearGradient>
-            <linearGradient id="visorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#020617"/>
-              <stop offset="100%" stop-color="#0f172a"/>
-            </linearGradient>
-            <linearGradient id="earInner" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#f472b6"/>
-              <stop offset="100%" stop-color="#db2777"/>
-            </linearGradient>
-          </defs>
-
-          <!-- Antenna -->
-          <line x1="40" y1="20" x2="40" y2="9" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="40" cy="7" r="4" fill="#38bdf8" class="antenna-light"/>
-
-          <!-- Head Group (Floating) -->
-          <g class="mascot-head-group">
-            <!-- Left Cat Ear -->
-            <polygon points="21,30 11,10 32,21" fill="url(#bodyGrad)"/>
-            <polygon points="21,27 15,14 29,21" fill="url(#earInner)"/>
-
-            <!-- Right Cat Ear -->
-            <polygon points="59,30 69,10 48,21" fill="url(#bodyGrad)"/>
-            <polygon points="59,27 65,14 51,21" fill="url(#earInner)"/>
-
-            <!-- Head Capsule -->
-            <rect x="16" y="19" width="48" height="42" rx="18" fill="url(#bodyGrad)" stroke="#67e8f9" stroke-width="1.5"/>
-
-            <!-- Visor Screen -->
-            <rect x="20" y="25" width="40" height="25" rx="10" fill="url(#visorGrad)" stroke="#1e293b" stroke-width="1"/>
-
-            <!-- Robot Whiskers (Left) -->
-            <line x1="8" y1="36" x2="17" y2="38" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
-            <line x1="9" y1="42" x2="17" y2="42" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
-
-            <!-- Robot Whiskers (Right) -->
-            <line x1="63" y1="38" x2="72" y2="36" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
-            <line x1="63" y1="42" x2="71" y2="42" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
-
-            <!-- Dynamic Eyes & Face Elements -->
-            <g id="mascotFace">
-              <!-- Default Idle Eyes -->
-              <ellipse id="eyeLeft" class="eye-pupil" cx="30" cy="36" rx="4.5" ry="5.5" fill="#38bdf8"/>
-              <ellipse id="eyeRight" class="eye-pupil" cx="50" cy="36" rx="4.5" ry="5.5" fill="#38bdf8"/>
-              <circle cx="31.5" cy="34" r="1.5" fill="#ffffff"/>
-              <circle cx="51.5" cy="34" r="1.5" fill="#ffffff"/>
-
-              <!-- Cute Cat Mouth -->
-              <path id="mascotMouth" class="cat-mouth" d="M36,44 Q40,47 44,44" stroke="#38bdf8" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-            </g>
-
-            <!-- Collar with Bell / Badge -->
-            <rect x="28" y="59" width="24" height="4" rx="2" fill="#f59e0b"/>
-            <circle cx="40" cy="62" r="3" fill="#fbbf24" stroke="#b45309" stroke-width="0.8"/>
-          </g>
-        </svg>
-      </div>
-
-      <div class="header-info">
-        <h1>Lendy <span style="font-size: 13px; font-weight: normal; color: var(--text-subtle);">● Active</span></h1>
-        <p>Loan Pricing & Approval AI</p>
+      <div class="brand-info">
+        <div class="brand-title">
+          <span>🐱 Lendy AI</span>
+          <span class="status-dot" title="Online and Ready"></span>
+        </div>
+        <div class="brand-subtitle">
+          <span>Enterprise Loan Pricing & Approval Matrix</span>
+        </div>
       </div>
     </div>
 
-    <div>
-      <button class="restart-btn" id="restartBtn" onclick="restartConversation()" aria-label="Restart conversation">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-          <path d="M3 3v5h5"/>
-        </svg>
-        <span>Restart</span>
+    <div class="header-actions">
+      <!-- Live Theme Selector -->
+      <button class="icon-action-btn" id="themeBtn" onclick="cycleTheme()" aria-label="Switch Theme" title="Switch Theme Palette">
+        <span id="themeIcon">🎨</span>
+        <span style="font-size:12px; font-weight:600;">Theme</span>
+      </button>
+
+      <!-- Restart Conversation -->
+      <button class="icon-action-btn" onclick="restartConversation()" aria-label="Restart Conversation" title="Restart Conversation">
+        <span>🔄</span>
+        <span style="font-size:12px; font-weight:600;">Restart</span>
       </button>
     </div>
   </header>
 
-  <!-- ========================================================================
-       CHAT STREAM
-       ======================================================================== -->
-  <main class="chat-container" id="chatContainer" aria-live="polite">
-    <!-- Messages appended dynamically -->
-  </main>
+  <!-- Chat History Stream -->
+  <main class="chat-container" id="chatContainer" aria-live="polite"></main>
 
-  <!-- ========================================================================
-       QUICK-REPLY CHIPS
-       ======================================================================== -->
-  <div class="chips-area" id="chipsArea" role="group" aria-label="Quick reply options">
-    <!-- Interactive chips injected here -->
-  </div>
+  <!-- Quick Reply Tappable Chips -->
+  <div class="chips-area" id="chipsArea" role="group" aria-label="Quick reply options"></div>
 
-  <!-- ========================================================================
-       STICKY INPUT BAR
-       ======================================================================== -->
-  <footer class="input-bar-wrapper">
-    <form class="input-form" id="inputForm" onsubmit="event.preventDefault(); submitInput();">
-      <input 
-        type="text" 
-        id="userInput" 
-        class="chat-input" 
-        placeholder="Type your answer here..." 
-        autocomplete="off" 
-        enterkeyhint="send"
-        aria-label="User response"
+  <!-- Sticky Input Bar with 3D/4D Interactive Pet Anchor -->
+  <footer class="input-bar-container">
+    <div class="input-row-wrapper">
+      
+      <!-- Input Text Field -->
+      <div class="input-field-wrapper">
+        <form id="inputForm" onsubmit="event.preventDefault(); submitInput();">
+          <input 
+            type="text" 
+            id="userInput" 
+            class="chat-input" 
+            placeholder="Type your response here..." 
+            autocomplete="off" 
+            enterkeyhint="send"
+            aria-label="User input"
+          >
+        </form>
+      </div>
+
+      <!-- Interactive 3D Pet Companion near Send Button -->
+      <div class="pet-3d-anchor" id="petAnchor" onclick="petClicked()" title="I'm Lendy! Tap me for fun!">
+        <div class="pet-speech-bubble" id="petBubble">Meow! Let's price! ✨</div>
+        <div class="pet-3d-box pet-floating" id="petBox">
+          <svg class="pet-svg" viewBox="0 0 70 70">
+            <defs>
+              <linearGradient id="petGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8"/>
+                <stop offset="50%" stop-color="#818cf8"/>
+                <stop offset="100%" stop-color="#c084fc"/>
+              </linearGradient>
+              <linearGradient id="pawGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#e0e7ff"/>
+                <stop offset="100%" stop-color="#94a3b8"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Wagging 3D Tail -->
+            <path class="pet-tail" d="M22,50 Q12,56 10,44 Q9,36 18,34" fill="none" stroke="url(#petGrad)" stroke-width="4.5" stroke-linecap="round"/>
+
+            <!-- Pet Body / Sitting -->
+            <ellipse cx="35" cy="46" rx="16" ry="14" fill="#0f172a" stroke="#818cf8" stroke-width="2"/>
+
+            <!-- 3D Ears with Twitch -->
+            <g class="pet-ears">
+              <polygon points="23,24 13,8 30,17" fill="url(#petGrad)"/>
+              <polygon points="22,22 17,12 28,18" fill="#f472b6"/>
+              <polygon points="47,24 57,8 40,17" fill="url(#petGrad)"/>
+              <polygon points="48,22 53,12 42,18" fill="#f472b6"/>
+            </g>
+
+            <!-- Pet Head (Spherical 3D shading) -->
+            <circle cx="35" cy="27" r="16" fill="url(#petGrad)" stroke="#c084fc" stroke-width="1.5"/>
+
+            <!-- Visor Screen -->
+            <rect x="22" y="20" width="26" height="15" rx="7" fill="#020617" stroke="#1e293b" stroke-width="1"/>
+
+            <!-- Dynamic 3D Eyes -->
+            <ellipse id="petEyeL" cx="29" cy="27" rx="3.5" ry="4.5" fill="#38bdf8"/>
+            <ellipse id="petEyeR" cx="41" cy="27" rx="3.5" ry="4.5" fill="#38bdf8"/>
+            <circle id="petPupilL" cx="30" cy="25.5" r="1.3" fill="#ffffff"/>
+            <circle id="petPupilR" cx="42" cy="25.5" r="1.3" fill="#ffffff"/>
+
+            <!-- Cute Cat Mouth -->
+            <path id="petMouth" d="M32,32 Q35,35 38,32" fill="none" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round"/>
+
+            <!-- Cute Blushing Cheeks -->
+            <circle cx="25" cy="31" r="2.2" fill="#f472b6" opacity="0.8"/>
+            <circle cx="45" cy="31" r="2.2" fill="#f472b6" opacity="0.8"/>
+
+            <!-- Paws -->
+            <ellipse cx="28" cy="56" rx="4.5" ry="3" fill="url(#pawGrad)"/>
+            <ellipse cx="42" cy="56" rx="4.5" ry="3" fill="url(#pawGrad)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Send Action Button -->
+      <button 
+        type="button" 
+        id="sendBtn" 
+        class="send-btn-action" 
+        onclick="submitInput()" 
+        aria-label="Send message" 
+        title="Send"
+        onmouseenter="petWantsToSend(true)"
+        onmouseleave="petWantsToSend(false)"
       >
-      <button type="submit" id="sendBtn" class="send-btn" aria-label="Send message">
         <svg viewBox="0 0 24 24">
           <line x1="22" y1="2" x2="11" y2="13"/>
           <polygon points="22 2 15 22 11 13 2 9 22 2"/>
         </svg>
       </button>
-    </form>
-    <div class="input-hint" id="inputHint">Tap a chip or type your answer above</div>
+    </div>
+    <div class="input-hint-text" id="inputHint">Tap a chip or enter your response</div>
   </footer>
 
-  <!-- ========================================================================
-       CORE LOGIC & CONFIGURATION (VANILLA JAVASCRIPT)
-       ======================================================================== -->
+  <!-- ==========================================================================
+       CORE SCRIPT: BUSINESS CONFIG, RECTIFICATIONS, AND 3D INTERACTION
+       ========================================================================== */
+  -->
   <script>
     /* ==========================================================================
-       CONFIG BLOCK — Loan Pricing & Approval Business Rules
+       CONFIG & POLICY ENGINE (With Mandatory Floors: ROI < 15% / PF < 1.5% -> CEO)
        ========================================================================== */
     const CONFIG = {
       APP_NAME: "Lendy Loan Pricing & Approval Chatbot",
-      VERSION: "1.0.0",
+      VERSION: "2.0.0",
       DTI_LIMIT_PERCENT: 50.0,
       ROUNDING_TOLERANCE: 1e-6,
 
-      // Approver Definitions
+      // Mandatory Absolute Policy Floors
+      ROI_FLOOR_PERCENT: 15.0, // Requested ROI < 15.0% -> Mandates CEO Approval
+      PF_FLOOR_PERCENT: 1.5,   // Requested PF < 1.50%  -> Mandates CEO Approval
+
       APPROVERS: {
         NONE: { name: "No Approval Needed", level: 0, color: "green", title: "Standard Processing" },
         CBO:  { name: "CBO Approval", level: 1, color: "blue", title: "Chief Business Officer" },
@@ -767,7 +948,6 @@
         CEO:  { name: "CEO Approval", level: 3, color: "red", title: "Chief Executive Officer" }
       },
 
-      // Deviation Approval Bands
       BANDS: {
         ROI: [
           { max: 0.0, approver: "NONE", label: "Standard / Premium" },
@@ -783,9 +963,8 @@
         ]
       },
 
-      // Full 56-Row Matrix (Product | Ticket Size | Income Program | Property Type | Bureau | Base ROI | Base PF)
+      // Full 56-Row Policy Matrix
       MATRIX: [
-        // Regular Secured Business Loan - Upto 5 Lacs (16 rows)
         { product: "Regular Secured Business Loan", ticket: "Upto 5 Lacs", income: "Documented Income Program", property: "SORP", bureau: ">=700 or NTC", baseRoi: 20.0, basePf: 3.0 },
         { product: "Regular Secured Business Loan", ticket: "Upto 5 Lacs", income: "Documented Income Program", property: "SORP", bureau: "<700", baseRoi: 22.0, basePf: 3.0 },
         { product: "Regular Secured Business Loan", ticket: "Upto 5 Lacs", income: "Documented Income Program", property: "Other", bureau: ">=700 or NTC", baseRoi: 22.0, basePf: 3.0 },
@@ -803,7 +982,6 @@
         { product: "Regular Secured Business Loan", ticket: "Upto 5 Lacs", income: "Hybrid Income Program", property: "Other", bureau: "<700", baseRoi: 22.0, basePf: 3.0 },
         { product: "Regular Secured Business Loan", ticket: "Upto 5 Lacs", income: "Semi Documented Income Program", property: "Other", bureau: "<700", baseRoi: 22.0, basePf: 3.0 },
 
-        // Regular Secured Business Loan - Above 5 Lacs (16 rows)
         { product: "Regular Secured Business Loan", ticket: "Above 5 Lacs", income: "Documented Income Program", property: "SORP", bureau: ">=700 or NTC", baseRoi: 18.0, basePf: 2.0 },
         { product: "Regular Secured Business Loan", ticket: "Above 5 Lacs", income: "Documented Income Program", property: "SORP", bureau: "<700", baseRoi: 20.0, basePf: 2.0 },
         { product: "Regular Secured Business Loan", ticket: "Above 5 Lacs", income: "Documented Income Program", property: "Other", bureau: ">=700 or NTC", baseRoi: 19.0, basePf: 3.0 },
@@ -821,7 +999,6 @@
         { product: "Regular Secured Business Loan", ticket: "Above 5 Lacs", income: "Hybrid Income Program", property: "Other", bureau: "<700", baseRoi: 21.0, basePf: 3.0 },
         { product: "Regular Secured Business Loan", ticket: "Above 5 Lacs", income: "Semi Documented Income Program", property: "Other", bureau: "<700", baseRoi: 21.0, basePf: 3.0 },
 
-        // Secured Working Capital Term Loan - All Ticket Size (16 rows)
         { product: "Secured Working Capital Term Loan", ticket: "All Ticket Size", income: "Documented Income Program", property: "SORP", bureau: ">=700 or NTC", baseRoi: 22.0, basePf: 3.0 },
         { product: "Secured Working Capital Term Loan", ticket: "All Ticket Size", income: "Documented Income Program", property: "SORP", bureau: "<700", baseRoi: 24.0, basePf: 3.0 },
         { product: "Secured Working Capital Term Loan", ticket: "All Ticket Size", income: "Documented Income Program", property: "Other", bureau: ">=700 or NTC", baseRoi: 24.0, basePf: 3.0 },
@@ -839,7 +1016,6 @@
         { product: "Secured Working Capital Term Loan", ticket: "All Ticket Size", income: "Hybrid Income Program", property: "Other", bureau: "<700", baseRoi: 24.0, basePf: 3.0 },
         { product: "Secured Working Capital Term Loan", ticket: "All Ticket Size", income: "Semi Documented Income Program", property: "Other", bureau: "<700", baseRoi: 24.0, basePf: 3.0 },
 
-        // Hypothecation Loans - All Ticket Size (8 rows)
         { product: "Hypothecation Loans", ticket: "All Ticket Size", income: "Documented Income Program", property: "NA", bureau: ">=700 or NTC", baseRoi: 20.0, basePf: 3.0 },
         { product: "Hypothecation Loans", ticket: "All Ticket Size", income: "Documented Income Program", property: "NA", bureau: "<700", baseRoi: 22.0, basePf: 3.0 },
         { product: "Hypothecation Loans", ticket: "All Ticket Size", income: "Assessed Income Program", property: "NA", bureau: ">=700 or NTC", baseRoi: 22.0, basePf: 3.0 },
@@ -851,9 +1027,6 @@
       ]
     };
 
-    /* ==========================================================================
-       PURE DOMAIN & FINANCIAL FUNCTIONS
-       ========================================================================== */
     function deriveTicketSize(product, loanAmount) {
       if (product === "Regular Secured Business Loan") {
         return loanAmount <= 500000.0 ? "Upto 5 Lacs" : "Above 5 Lacs";
@@ -869,52 +1042,61 @@
         row.property === propertyType &&
         row.bureau === bureau
       );
-      if (match) {
-        return { baseRoi: match.baseRoi, basePf: match.basePf };
-      }
+      if (match) return { baseRoi: match.baseRoi, basePf: match.basePf };
       return null;
     }
 
     function getApproverForDeviation(deviation, bandType) {
       const eps = CONFIG.ROUNDING_TOLERANCE;
-      if (deviation <= eps) {
-        return "NONE";
-      }
+      if (deviation <= eps) return "NONE";
       const bands = CONFIG.BANDS[bandType];
       for (let i = 0; i < bands.length; i++) {
-        if (deviation <= bands[i].max + eps) {
-          return bands[i].approver;
-        }
+        if (deviation <= bands[i].max + eps) return bands[i].approver;
       }
       return "CEO";
     }
 
     function determineFinalApproval(baseRoi, reqRoi, basePf, reqPf) {
+      const eps = CONFIG.ROUNDING_TOLERANCE;
       const roiDeviation = parseFloat((baseRoi - reqRoi).toFixed(4));
       const pfDeviation = parseFloat((basePf - reqPf).toFixed(4));
 
-      const roiApprover = getApproverForDeviation(roiDeviation, "ROI");
-      const pfApprover = getApproverForDeviation(pfDeviation, "PF");
+      let roiApprover = getApproverForDeviation(roiDeviation, "ROI");
+      let pfApprover = getApproverForDeviation(pfDeviation, "PF");
+
+      // Mandatory Absolute Policy Floors:
+      // 1. Requested ROI < 15.0% -> Mandates CEO Approval
+      // 2. Requested PF < 1.50%  -> Mandates CEO Approval
+      const roiFloorBreached = reqRoi < (CONFIG.ROI_FLOOR_PERCENT - eps);
+      const pfFloorBreached = reqPf < (CONFIG.PF_FLOOR_PERCENT - eps);
+
+      if (roiFloorBreached) roiApprover = "CEO";
+      if (pfFloorBreached) pfApprover = "CEO";
 
       const levelRoi = CONFIG.APPROVERS[roiApprover].level;
       const levelPf = CONFIG.APPROVERS[pfApprover].level;
-
       const finalKey = levelRoi >= levelPf ? roiApprover : pfApprover;
       const approverInfo = CONFIG.APPROVERS[finalKey];
 
-      // Formulate human-friendly explanation
       let explanation = "";
-      if (finalKey === "NONE") {
+      const reasons = [];
+
+      if (roiFloorBreached) {
+        reasons.push(`⚠️ Requested ROI (${reqRoi.toFixed(2)}%) is below the absolute 15.00% floor, mandating CEO Approval`);
+      } else if (roiApprover !== "NONE") {
+        reasons.push(`ROI discount of ${roiDeviation.toFixed(2)}% requires ${CONFIG.APPROVERS[roiApprover].name}`);
+      }
+
+      if (pfFloorBreached) {
+        reasons.push(`⚠️ Requested PF (${reqPf.toFixed(2)}%) is below the absolute 1.50% floor, mandating CEO Approval`);
+      } else if (pfApprover !== "NONE") {
+        reasons.push(`PF waiver/discount of ${pfDeviation.toFixed(2)}% requires ${CONFIG.APPROVERS[pfApprover].name}`);
+      }
+
+      if (reasons.length === 0) {
         explanation = "Requested rates match or exceed benchmark requirements. Standard processing without deviation.";
       } else {
-        const reasons = [];
-        if (roiApprover !== "NONE") {
-          reasons.push(`ROI discount of ${roiDeviation.toFixed(2)}% requires ${CONFIG.APPROVERS[roiApprover].name}`);
-        }
-        if (pfApprover !== "NONE") {
-          reasons.push(`PF waiver/discount of ${pfDeviation.toFixed(2)}% requires ${CONFIG.APPROVERS[pfApprover].name}`);
-        }
-        explanation = reasons.join(", and ") + `. Governed by highest authority: ${approverInfo.name} (${approverInfo.title}).`;
+        explanation = reasons.join(" • ") + `. Final authority governed by: <strong>${approverInfo.name} (${approverInfo.title})</strong>.`;
       }
 
       return {
@@ -922,6 +1104,8 @@
         pfDeviation,
         roiApprover,
         pfApprover,
+        roiFloorBreached,
+        pfFloorBreached,
         finalApproverKey: finalKey,
         finalApproverName: approverInfo.name,
         color: approverInfo.color,
@@ -933,11 +1117,9 @@
     function calculateReducingEMI(principal, annualRatePct, tenureMonths) {
       if (tenureMonths <= 0) return 0;
       if (annualRatePct <= 0) return principal / tenureMonths;
-
       const r = annualRatePct / 12.0 / 100.0;
       const factor = Math.pow(1.0 + r, tenureMonths);
-      const emi = (principal * r * factor) / (factor - 1.0);
-      return emi;
+      return (principal * r * factor) / (factor - 1.0);
     }
 
     function calculateDTI(existingEmis, newEmi, monthlyIncome) {
@@ -952,17 +1134,11 @@
       };
     }
 
-    /* ==========================================================================
-       PARSING & FORMATTING UTILITIES
-       ========================================================================== */
     function escapeHtml(str) {
       if (!str) return "";
       return String(str)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;").replace(/'/g, "&#039;");
     }
 
     function formatINR(number) {
@@ -970,33 +1146,21 @@
       return "₹" + Math.round(number).toLocaleString("en-IN");
     }
 
-    function formatNumberTwoDecimals(number) {
-      if (isNaN(number)) return "0.00";
-      return parseFloat(number).toFixed(2);
-    }
-
     function parseLoanAmount(text) {
       if (!text) return null;
       let clean = text.toLowerCase().trim().replace(/,/g, "").replace(/₹/g, "").replace(/rs\.?/g, "");
-
-      // Handle Crores
       if (clean.includes("cr") || clean.includes("crore")) {
         const num = parseFloat(clean.replace(/crores?|cr/g, "").trim());
         return isNaN(num) || num <= 0 ? null : num * 10000000;
       }
-
-      // Handle Lakhs / Lacs
       if (clean.includes("lakh") || clean.includes("lac")) {
         const num = parseFloat(clean.replace(/lakhs?|lacs?|lac/g, "").trim());
         return isNaN(num) || num <= 0 ? null : num * 100000;
       }
-
-      // Handle Thousands (k)
       if (clean.includes("k")) {
         const num = parseFloat(clean.replace(/k/g, "").trim());
         return isNaN(num) || num <= 0 ? null : num * 1000;
       }
-
       const num = parseFloat(clean);
       return isNaN(num) || num <= 0 ? null : num;
     }
@@ -1004,22 +1168,17 @@
     function parseTenure(text) {
       if (!text) return null;
       let clean = text.toLowerCase().trim().replace(/,/g, "");
-
-      // Years
       if (clean.includes("year") || clean.includes("yr") || clean.includes("y")) {
         const num = parseFloat(clean.replace(/years?|yrs?|y/g, "").trim());
         if (isNaN(num) || num <= 0) return null;
         const months = Math.round(num * 12);
         return months >= 3 && months <= 360 ? months : null;
       }
-
-      // Months
       if (clean.includes("month") || clean.includes("m")) {
         const num = parseFloat(clean.replace(/months?|m/g, "").trim());
         if (isNaN(num) || num <= 0) return null;
         return num >= 3 && num <= 360 ? Math.round(num) : null;
       }
-
       const num = parseFloat(clean);
       if (isNaN(num) || num < 3 || num > 360) return null;
       return Math.round(num);
@@ -1028,81 +1187,146 @@
     function parseNumber(text) {
       if (!text) return null;
       let clean = text.toLowerCase().trim().replace(/,/g, "").replace(/₹/g, "").replace(/rs\.?/g, "");
-      if (["nil", "none", "zero", "0", "na", "no"].includes(clean)) {
-        return 0.0;
-      }
+      if (["nil", "none", "zero", "0", "na", "no"].includes(clean)) return 0.0;
       return parseLoanAmount(clean);
     }
 
     /* ==========================================================================
-       MASCOT EMOTIONAL EXPRESSIONS
+       3D / 4D INTERACTIVE PET DYNAMICS & MOVEMENT
        ========================================================================== */
-    function setMascotExpression(expression) {
-      const eyeL = document.getElementById("eyeLeft");
-      const eyeR = document.getElementById("eyeRight");
-      const mouth = document.getElementById("mascotMouth");
-      const mascot = document.getElementById("lendyMascot");
+    const petBox = document.getElementById("petBox");
+    const petEyeL = document.getElementById("petEyeL");
+    const petEyeR = document.getElementById("petEyeR");
+    const petPupilL = document.getElementById("petPupilL");
+    const petPupilR = document.getElementById("petPupilR");
+    const petMouth = document.getElementById("petMouth");
+    const petBubble = document.getElementById("petBubble");
 
-      if (!eyeL || !eyeR || !mouth || !mascot) return;
+    // Track cursor for 3D Head and Eye parallax
+    window.addEventListener("mousemove", (e) => {
+      if (!petBox) return;
+      const rect = petBox.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
+      const deltaY = (e.clientY - centerY) / (window.innerHeight / 2);
 
-      // Remove animated classes
-      mascot.classList.remove("mascot-talking", "mascot-celebrating");
+      const rotateY = Math.max(-25, Math.min(25, deltaX * 25));
+      const rotateX = Math.max(-20, Math.min(20, -deltaY * 20));
 
-      switch (expression) {
+      petBox.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
+
+      // Pupil parallax offset
+      if (petPupilL && petPupilR) {
+        const pX = Math.max(-2, Math.min(2, deltaX * 2.5));
+        const pY = Math.max(-2, Math.min(2, deltaY * 2.5));
+        petPupilL.setAttribute("cx", 30 + pX);
+        petPupilL.setAttribute("cy", 25.5 + pY);
+        petPupilR.setAttribute("cx", 42 + pX);
+        petPupilR.setAttribute("cy", 25.5 + pY);
+      }
+    });
+
+    function setPetExpression(expr) {
+      if (!petEyeL || !petEyeR || !petMouth) return;
+      switch (expr) {
         case "talking":
-          mascot.classList.add("mascot-talking");
-          eyeL.setAttribute("rx", "4.5"); eyeL.setAttribute("ry", "5.5"); eyeL.setAttribute("cy", "36");
-          eyeR.setAttribute("rx", "4.5"); eyeR.setAttribute("ry", "5.5"); eyeR.setAttribute("cy", "36");
-          mouth.setAttribute("d", "M36,44 Q40,49 44,44");
+          petEyeL.setAttribute("rx", "3.5"); petEyeL.setAttribute("ry", "4.5");
+          petEyeR.setAttribute("rx", "3.5"); petEyeR.setAttribute("ry", "4.5");
+          petMouth.setAttribute("d", "M32,31 Q35,37 38,31");
           break;
-
         case "thinking":
-          eyeL.setAttribute("rx", "4.0"); eyeL.setAttribute("ry", "4.0"); eyeL.setAttribute("cy", "32");
-          eyeR.setAttribute("rx", "4.0"); eyeR.setAttribute("ry", "4.0"); eyeR.setAttribute("cy", "32");
-          mouth.setAttribute("d", "M36,45 L44,45");
+          petEyeL.setAttribute("rx", "3.0"); petEyeL.setAttribute("ry", "3.0");
+          petEyeR.setAttribute("rx", "3.0"); petEyeR.setAttribute("ry", "3.0");
+          petMouth.setAttribute("d", "M33,33 L37,33");
           break;
-
         case "surprised":
-          eyeL.setAttribute("rx", "6.0"); eyeL.setAttribute("ry", "6.5"); eyeL.setAttribute("cy", "35");
-          eyeR.setAttribute("rx", "6.0"); eyeR.setAttribute("ry", "6.5"); eyeR.setAttribute("cy", "35");
-          mouth.setAttribute("d", "M38,45 A2,2 0 1 0 42,45 A2,2 0 1 0 38,45");
+          petEyeL.setAttribute("rx", "4.8"); petEyeL.setAttribute("ry", "5.2");
+          petEyeR.setAttribute("rx", "4.8"); petEyeR.setAttribute("ry", "5.2");
+          petMouth.setAttribute("d", "M33,33 A2,2 0 1 0 37,33 A2,2 0 1 0 33,33");
           break;
-
         case "happy":
-          eyeL.setAttribute("rx", "4.5"); eyeL.setAttribute("ry", "3.0"); eyeL.setAttribute("cy", "35");
-          eyeR.setAttribute("rx", "4.5"); eyeR.setAttribute("ry", "3.0"); eyeR.setAttribute("cy", "35");
-          mouth.setAttribute("d", "M35,43 Q40,49 45,43");
+          petEyeL.setAttribute("rx", "4.0"); petEyeL.setAttribute("ry", "2.0");
+          petEyeR.setAttribute("rx", "4.0"); petEyeR.setAttribute("ry", "2.0");
+          petMouth.setAttribute("d", "M31,31 Q35,38 39,31");
           break;
-
         case "worried":
-          eyeL.setAttribute("rx", "4.0"); eyeL.setAttribute("ry", "5.0"); eyeL.setAttribute("cy", "38");
-          eyeR.setAttribute("rx", "4.0"); eyeR.setAttribute("ry", "5.0"); eyeR.setAttribute("cy", "38");
-          mouth.setAttribute("d", "M35,46 Q40,42 45,46");
+          petEyeL.setAttribute("rx", "3.2"); petEyeL.setAttribute("ry", "4.0");
+          petEyeR.setAttribute("rx", "3.2"); petEyeR.setAttribute("ry", "4.0");
+          petMouth.setAttribute("d", "M32,34 Q35,30 38,34");
           break;
-
         case "celebrating":
-          mascot.classList.add("mascot-celebrating");
-          eyeL.setAttribute("rx", "5.0"); eyeL.setAttribute("ry", "3.0"); eyeL.setAttribute("cy", "35");
-          eyeR.setAttribute("rx", "5.0"); eyeR.setAttribute("ry", "3.0"); eyeR.setAttribute("cy", "35");
-          mouth.setAttribute("d", "M34,42 Q40,50 46,42");
+          petEyeL.setAttribute("rx", "4.5"); petEyeL.setAttribute("ry", "2.5");
+          petEyeR.setAttribute("rx", "4.5"); petEyeR.setAttribute("ry", "2.5");
+          petMouth.setAttribute("d", "M30,30 Q35,40 40,30");
           break;
-
         case "idle":
         default:
-          eyeL.setAttribute("rx", "4.5"); eyeL.setAttribute("ry", "5.5"); eyeL.setAttribute("cy", "36");
-          eyeR.setAttribute("rx", "4.5"); eyeR.setAttribute("ry", "5.5"); eyeR.setAttribute("cy", "36");
-          mouth.setAttribute("d", "M36,44 Q40,47 44,44");
+          petEyeL.setAttribute("rx", "3.5"); petEyeL.setAttribute("ry", "4.5");
+          petEyeR.setAttribute("rx", "3.5"); petEyeR.setAttribute("ry", "4.5");
+          petMouth.setAttribute("d", "M32,32 Q35,35 38,32");
           break;
       }
     }
 
-    function triggerMascotMeow() {
-      setMascotExpression("happy");
-      setTimeout(() => setMascotExpression("idle"), 1500);
+    function showPetBubble(text, durationMs = 2600) {
+      if (!petBubble) return;
+      petBubble.textContent = text;
+      petBubble.classList.add("active");
+      setTimeout(() => {
+        petBubble.classList.remove("active");
+      }, durationMs);
+    }
+
+    function petClicked() {
+      // 3D 360 Spin and celebratory meow
+      if (petBox) {
+        petBox.style.transition = "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        petBox.style.transform = "rotateY(360deg) scale(1.15)";
+        setTimeout(() => {
+          petBox.style.transition = "transform 0.15s ease-out";
+          petBox.style.transform = "rotateY(0deg) scale(1)";
+        }, 600);
+      }
+      setPetExpression("happy");
+      const cuteQuotes = [
+        "Purr! Best pricing guaranteed! 💖",
+        "Ready to calculate rates! 🚀",
+        "Meow! I love loan matrices! ✨",
+        "Tap away, I'm with you! 🐱"
+      ];
+      showPetBubble(cuteQuotes[Math.floor(Math.random() * cuteQuotes.length)]);
+      setTimeout(() => setPetExpression("idle"), 2000);
+    }
+
+    function petWantsToSend(hovering) {
+      if (hovering) {
+        setPetExpression("surprised");
+        petBox.style.transform = "rotateY(-15deg) scale(1.08)";
+      } else {
+        setPetExpression("idle");
+        petBox.style.transform = "rotateY(0deg) scale(1)";
+      }
     }
 
     /* ==========================================================================
-       CONVERSATION STATE & FLOW MANAGER
+       THEME SELECTOR CYCLER
+       ========================================================================== */
+    const themes = ["neon", "sunset", "emerald"];
+    let currentThemeIdx = 0;
+
+    function cycleTheme() {
+      currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+      const newTheme = themes[currentThemeIdx];
+      document.documentElement.setAttribute("data-theme", newTheme);
+
+      const icons = { neon: "🎨 Neon", sunset: "🌅 Sunset", emerald: "💎 Emerald" };
+      document.getElementById("themeIcon").textContent = icons[newTheme].split(" ")[0];
+      showPetBubble(`Theme switched to ${icons[newTheme]}! ✨`, 2000);
+    }
+
+    /* ==========================================================================
+       CONVERSATIONAL DIALOGUE STATE MACHINE
        ========================================================================== */
     const chatContainer = document.getElementById("chatContainer");
     const chipsArea = document.getElementById("chipsArea");
@@ -1110,50 +1334,24 @@
     const sendBtn = document.getElementById("sendBtn");
     const inputHint = document.getElementById("inputHint");
 
-    // Guard token prevents stale async timeouts if user taps Restart mid-response
     let conversationToken = 0;
-
-    // Customer Session State
     let session = {
-      customerName: "",
-      product: "",
-      incomeProgram: "",
-      propertyType: "",
-      bureau: "",
-      loanAmount: 0,
-      ticketSize: "",
-      tenureMonths: 0,
-      incomeFrequency: "Monthly",
-      monthlyIncome: 0,
-      existingEmis: 0,
-      baseRoi: 0,
-      basePf: 0,
-      requestedRoi: 0,
-      requestedPf: 0,
-      step: "CUSTOMER_NAME"
+      customerName: "", product: "", incomeProgram: "", propertyType: "",
+      bureau: "", loanAmount: 0, ticketSize: "", tenureMonths: 0,
+      incomeFrequency: "Monthly", monthlyIncome: 0, existingEmis: 0,
+      baseRoi: 0, basePf: 0, requestedRoi: 0, requestedPf: 0, step: "CUSTOMER_NAME"
     };
 
-    // Chat Steps Definition
     const STEPS = {
-      CUSTOMER_NAME: "CUSTOMER_NAME",
-      PRODUCT: "PRODUCT",
-      INCOME_PROGRAM: "INCOME_PROGRAM",
-      PROPERTY_TYPE: "PROPERTY_TYPE",
-      BUREAU: "BUREAU",
-      LOAN_AMOUNT: "LOAN_AMOUNT",
-      TENURE: "TENURE",
-      INCOME_FREQ: "INCOME_FREQ",
-      INCOME_AMOUNT: "INCOME_AMOUNT",
-      EXISTING_EMIS: "EXISTING_EMIS",
-      REQUESTED_ROI: "REQUESTED_ROI",
-      REQUESTED_PF: "REQUESTED_PF",
+      CUSTOMER_NAME: "CUSTOMER_NAME", PRODUCT: "PRODUCT", INCOME_PROGRAM: "INCOME_PROGRAM",
+      PROPERTY_TYPE: "PROPERTY_TYPE", BUREAU: "BUREAU", LOAN_AMOUNT: "LOAN_AMOUNT",
+      TENURE: "TENURE", INCOME_FREQ: "INCOME_FREQ", INCOME_AMOUNT: "INCOME_AMOUNT",
+      EXISTING_EMIS: "EXISTING_EMIS", REQUESTED_ROI: "REQUESTED_ROI", REQUESTED_PF: "REQUESTED_PF",
       COMPLETED: "COMPLETED"
     };
 
     function scrollChatToBottom() {
-      requestAnimationFrame(() => {
-        chatContainer.scrollTop = chatContainer.scrollHeight;
-      });
+      requestAnimationFrame(() => { chatContainer.scrollTop = chatContainer.scrollHeight; });
     }
 
     function appendUserMessage(text) {
@@ -1164,59 +1362,47 @@
       scrollChatToBottom();
     }
 
-    function appendBotMessage(htmlContent, chips = [], newExpression = "idle", delayMs = 380) {
+    function appendBotMessage(htmlContent, chips = [], petMood = "idle", delayMs = 380) {
       const currentToken = conversationToken;
-      setMascotExpression("thinking");
+      setPetExpression("thinking");
 
-      // Show typing dots
       const typingRow = document.createElement("div");
-      typingRow.className = "message-row bot typing-indicator-row";
+      typingRow.className = "message-row bot typing-row";
       typingRow.innerHTML = `
-        <div class="message-avatar bot">🐱</div>
+        <div class="bot-avatar-badge">🐱</div>
         <div class="message-bubble">
-          <div class="typing-indicator">
-            <span class="typing-dot"></span>
-            <span class="typing-dot"></span>
-            <span class="typing-dot"></span>
+          <div class="typing-dots">
+            <span class="dot-pulse"></span><span class="dot-pulse"></span><span class="dot-pulse"></span>
           </div>
-        </div>
-      `;
+        </div>`;
       chatContainer.appendChild(typingRow);
       scrollChatToBottom();
 
-      // Disable inputs while thinking
       userInput.disabled = true;
       sendBtn.disabled = true;
       chipsArea.innerHTML = "";
 
       setTimeout(() => {
-        // Discard stale message if conversation was restarted
         if (currentToken !== conversationToken) return;
-
         typingRow.remove();
-        setMascotExpression("talking");
+        setPetExpression("talking");
 
         const msgRow = document.createElement("div");
         msgRow.className = "message-row bot";
         msgRow.innerHTML = `
-          <div class="message-avatar bot">🐱</div>
-          <div class="message-bubble">${htmlContent}</div>
-        `;
+          <div class="bot-avatar-badge">🐱</div>
+          <div class="message-bubble">${htmlContent}</div>`;
         chatContainer.appendChild(msgRow);
 
-        // Render tappable chips
         renderChips(chips);
-
         userInput.disabled = false;
         sendBtn.disabled = false;
         userInput.focus();
         scrollChatToBottom();
 
         setTimeout(() => {
-          if (currentToken === conversationToken) {
-            setMascotExpression(newExpression);
-          }
-        }, 600);
+          if (currentToken === conversationToken) setPetExpression(petMood);
+        }, 500);
       }, delayMs);
     }
 
@@ -1230,17 +1416,14 @@
       chips.forEach(chip => {
         const btn = document.createElement("button");
         btn.type = "button";
-        btn.className = `chip-btn ${chip.primary ? 'primary' : ''}`;
+        btn.className = `chip-btn ${chip.primary ? 'glow-primary' : ''}`;
         btn.innerHTML = `${chip.icon ? chip.icon + ' ' : ''}<span>${escapeHtml(chip.label)}</span>`;
         btn.onclick = () => onChipSelected(chip.value !== undefined ? chip.value : chip.label);
         chipsArea.appendChild(btn);
       });
     }
 
-    function onChipSelected(value) {
-      handleStepInput(value);
-    }
-
+    function onChipSelected(value) { handleStepInput(value); }
     function submitInput() {
       const text = userInput.value.trim();
       if (!text) return;
@@ -1248,298 +1431,193 @@
       userInput.value = "";
     }
 
-    /* ==========================================================================
-       CONVERSATIONAL DIALOGUE STATE MACHINE
-       ========================================================================== */
     function startDialogue() {
       session = {
-        customerName: "",
-        product: "",
-        incomeProgram: "",
-        propertyType: "",
-        bureau: "",
-        loanAmount: 0,
-        ticketSize: "",
-        tenureMonths: 0,
-        incomeFrequency: "Monthly",
-        monthlyIncome: 0,
-        existingEmis: 0,
-        baseRoi: 0,
-        basePf: 0,
-        requestedRoi: 0,
-        requestedPf: 0,
-        step: STEPS.CUSTOMER_NAME
+        customerName: "", product: "", incomeProgram: "", propertyType: "",
+        bureau: "", loanAmount: 0, ticketSize: "", tenureMonths: 0,
+        incomeFrequency: "Monthly", monthlyIncome: 0, existingEmis: 0,
+        baseRoi: 0, basePf: 0, requestedRoi: 0, requestedPf: 0, step: STEPS.CUSTOMER_NAME
       };
-
       chatContainer.innerHTML = "";
       inputHint.textContent = "Enter customer full name";
-      userInput.placeholder = "e.g. Ramesh Patel, Priya Sharma...";
+      userInput.placeholder = "e.g. Rajesh Kumar, Priya Sharma...";
 
       appendBotMessage(
-        `👋 Hello! I'm <strong>Lendy</strong>, your loan pricing and matrix approval specialist.<br><br>Let's calculate the exact benchmark rates, EMI, and authority sign-offs for your customer.<br><br>To begin, <strong>what is the customer's full name?</strong>`,
-        [],
-        "happy",
-        200
+        `👋 Welcome! I'm <strong>Lendy</strong>, your interactive loan pricing & approval companion.<br><br>` +
+        `I will evaluate your loan against our 56-row benchmark matrix, calculate reducing EMIs, and verify authority approval bands.<br><br>` +
+        `<strong>To begin, what is the customer's full name?</strong>`,
+        [], "happy", 200
       );
     }
 
     function restartConversation() {
       conversationToken++;
-      setMascotExpression("idle");
+      setPetExpression("idle");
+      showPetBubble("Restarting session! 🚀", 1800);
       startDialogue();
     }
 
     function handleStepInput(inputStr) {
       const clean = String(inputStr).trim();
       if (!clean) return;
-
       appendUserMessage(clean);
 
       switch (session.step) {
-        case STEPS.CUSTOMER_NAME: {
+        case STEPS.CUSTOMER_NAME:
           session.customerName = clean;
           session.step = STEPS.PRODUCT;
           inputHint.textContent = "Select loan product from chips below";
           userInput.placeholder = "Or type product name...";
-
           appendBotMessage(
-            `Great to meet you, <strong>${escapeHtml(session.customerName)}</strong>! 😊<br>Which <strong>Loan Product</strong> are we pricing today?`,
+            `Pleasure to assist you, <strong>${escapeHtml(session.customerName)}</strong>! ✨<br>Which <strong>Loan Product</strong> are we pricing today?`,
             [
               { label: "Regular Secured Business Loan", icon: "🏢", primary: true },
               { label: "Secured Working Capital Term Loan", icon: "💼" },
               { label: "Hypothecation Loans", icon: "🚗" }
-            ],
-            "talking"
+            ], "talking"
           );
           break;
-        }
 
-        case STEPS.PRODUCT: {
-          const validProducts = [
-            "Regular Secured Business Loan",
-            "Secured Working Capital Term Loan",
-            "Hypothecation Loans"
-          ];
-          const matched = validProducts.find(p => p.toLowerCase() === clean.toLowerCase() || clean.toLowerCase().includes(p.toLowerCase().substring(0, 10)));
-          if (!matched) {
-            appendBotMessage(
-              `Please pick one of our three standard loan products using the options below:`,
-              validProducts.map(p => ({ label: p })),
-              "worried"
-            );
+        case STEPS.PRODUCT:
+          const validProducts = ["Regular Secured Business Loan", "Secured Working Capital Term Loan", "Hypothecation Loans"];
+          const matchedP = validProducts.find(p => p.toLowerCase() === clean.toLowerCase() || clean.toLowerCase().includes(p.toLowerCase().substring(0, 10)));
+          if (!matchedP) {
+            appendBotMessage(`Please pick one of our standard loan products:`, validProducts.map(p => ({ label: p })), "worried");
             return;
           }
-
-          session.product = matched;
+          session.product = matchedP;
           session.step = STEPS.INCOME_PROGRAM;
           inputHint.textContent = "Select customer income program";
           userInput.placeholder = "Select income program...";
-
           appendBotMessage(
-            `Got it: <strong>${session.product}</strong>. 👍<br><br>Under which <strong>Income Program</strong> is this loan being assessed?`,
+            `Product chosen: <strong>${session.product}</strong>. 👍<br><br>Under which <strong>Income Program</strong> is this loan assessed?`,
             [
               { label: "Documented Income Program", icon: "📑", primary: true },
               { label: "Assessed Income Program", icon: "🔍" },
               { label: "Hybrid Income Program", icon: "⚡" },
               { label: "Semi Documented Income Program", icon: "📂" }
-            ],
-            "talking"
+            ], "talking"
           );
           break;
-        }
 
-        case STEPS.INCOME_PROGRAM: {
-          const programs = [
-            "Documented Income Program",
-            "Assessed Income Program",
-            "Hybrid Income Program",
-            "Semi Documented Income Program"
-          ];
-          const matched = programs.find(p => p.toLowerCase() === clean.toLowerCase() || p.toLowerCase().startsWith(clean.toLowerCase()));
-          if (!matched) {
-            appendBotMessage(
-              `Kindly select one of the four recognized income programs:`,
-              programs.map(p => ({ label: p })),
-              "worried"
-            );
+        case STEPS.INCOME_PROGRAM:
+          const programs = ["Documented Income Program", "Assessed Income Program", "Hybrid Income Program", "Semi Documented Income Program"];
+          const matchedProg = programs.find(p => p.toLowerCase() === clean.toLowerCase() || p.toLowerCase().startsWith(clean.toLowerCase()));
+          if (!matchedProg) {
+            appendBotMessage(`Kindly select one of the four recognized income programs:`, programs.map(p => ({ label: p })), "worried");
             return;
           }
+          session.incomeProgram = matchedProg;
 
-          session.incomeProgram = matched;
-
-          // Rule 8: If product is Hypothecation Loans, property type is NA -> Skip question!
           if (session.product === "Hypothecation Loans") {
             session.propertyType = "NA";
             session.step = STEPS.BUREAU;
             inputHint.textContent = "Select Bureau category";
             userInput.placeholder = "Select bureau score...";
-
             appendBotMessage(
-              `For <strong>Hypothecation Loans</strong>, Property Type is not applicable (NA) and skipped automatically! ⚡<br><br>What is the borrower's <strong>Bureau Category</strong>?`,
-              [
-                { label: ">=700 or NTC", icon: "⭐", primary: true },
-                { label: "<700", icon: "📊" }
-              ],
-              "happy"
+              `⚡ For <strong>Hypothecation Loans</strong>, Property Type is not applicable (NA) and skipped automatically!<br><br>What is the borrower's <strong>Bureau Category</strong>?`,
+              [{ label: ">=700 or NTC", icon: "⭐", primary: true }, { label: "<700", icon: "📊" }], "happy"
             );
           } else {
             session.step = STEPS.PROPERTY_TYPE;
             inputHint.textContent = "Select Property Type";
             userInput.placeholder = "Select property type...";
-
             appendBotMessage(
-              `Recorded <strong>${session.incomeProgram}</strong>. 📋<br><br>What is the <strong>Property Type</strong> mortgaged?`,
-              [
-                { label: "SORP", icon: "🏠", primary: true },
-                { label: "Other", icon: "🏢" }
-              ],
-              "talking"
+              `Income program recorded: <strong>${session.incomeProgram}</strong>. 📋<br><br>What is the <strong>Property Type</strong> mortgaged?`,
+              [{ label: "SORP", icon: "🏠", primary: true }, { label: "Other", icon: "🏢" }], "talking"
             );
           }
           break;
-        }
 
-        case STEPS.PROPERTY_TYPE: {
+        case STEPS.PROPERTY_TYPE:
           const props = ["SORP", "Other"];
-          const matched = props.find(p => p.toLowerCase() === clean.toLowerCase());
-          if (!matched) {
-            appendBotMessage(
-              `Please select whether the property is <strong>SORP</strong> (Self-Occupied Residential Property) or <strong>Other</strong>:`,
-              props.map(p => ({ label: p })),
-              "worried"
-            );
+          const matchedProp = props.find(p => p.toLowerCase() === clean.toLowerCase());
+          if (!matchedProp) {
+            appendBotMessage(`Please select whether the property is <strong>SORP</strong> or <strong>Other</strong>:`, props.map(p => ({ label: p })), "worried");
             return;
           }
-
-          session.propertyType = matched;
+          session.propertyType = matchedProp;
           session.step = STEPS.BUREAU;
           inputHint.textContent = "Select Bureau category";
           userInput.placeholder = "Select bureau score...";
-
           appendBotMessage(
             `Property recorded as <strong>${session.propertyType}</strong>.<br><br>Now, what is the borrower's <strong>Bureau Category</strong>?`,
-            [
-              { label: ">=700 or NTC", icon: "⭐", primary: true },
-              { label: "<700", icon: "📊" }
-            ],
-            "talking"
+            [{ label: ">=700 or NTC", icon: "⭐", primary: true }, { label: "<700", icon: "📊" }], "talking"
           );
           break;
-        }
 
-        case STEPS.BUREAU: {
-          let matched = null;
-          if (clean.includes(">=700") || clean.toLowerCase().includes("ntc") || clean.includes("700+")) {
-            matched = ">=700 or NTC";
-          } else if (clean.includes("<700") || clean.toLowerCase().includes("below")) {
-            matched = "<700";
-          }
+        case STEPS.BUREAU:
+          let matchedB = null;
+          if (clean.includes(">=700") || clean.toLowerCase().includes("ntc") || clean.includes("700+")) matchedB = ">=700 or NTC";
+          else if (clean.includes("<700") || clean.toLowerCase().includes("below")) matchedB = "<700";
 
-          if (!matched) {
-            appendBotMessage(
-              `Please indicate if the bureau score is <strong>&gt;=700 or NTC</strong> (New to Credit) or <strong>&lt;700</strong>:`,
-              [
-                { label: ">=700 or NTC", icon: "⭐" },
-                { label: "<700", icon: "📊" }
-              ],
-              "worried"
-            );
+          if (!matchedB) {
+            appendBotMessage(`Please select bureau category:`, [{ label: ">=700 or NTC", icon: "⭐" }, { label: "<700", icon: "📊" }], "worried");
             return;
           }
-
-          session.bureau = matched;
+          session.bureau = matchedB;
           session.step = STEPS.LOAN_AMOUNT;
           inputHint.textContent = "Enter loan amount (e.g. 5 lakh, 10,00,000, 1.2 cr)";
           userInput.placeholder = "e.g. 10 Lakhs, 10,00,000, 500000...";
-
           appendBotMessage(
-            `Bureau recorded: <strong>${session.bureau}</strong>. 📈<br><br>What is the <strong>Loan Amount</strong> requested? (You can type e.g. <em>"10 lakh"</em>, <em>"10,00,000"</em>, or <em>"1.2 cr"</em>)`,
+            `Bureau recorded: <strong>${session.bureau}</strong>. 📈<br><br>What is the <strong>Loan Amount</strong> requested? (Accepts <em>"10 lakh"</em>, <em>"10,00,000"</em>, <em>"1.2 cr"</em>)`,
             [
               { label: "5 Lakhs", value: "500000" },
               { label: "10 Lakhs", value: "1000000", primary: true },
               { label: "25 Lakhs", value: "2500000" },
               { label: "50 Lakhs", value: "5000000" }
-            ],
-            "talking"
+            ], "talking"
           );
           break;
-        }
 
-        case STEPS.LOAN_AMOUNT: {
+        case STEPS.LOAN_AMOUNT:
           const parsedAmount = parseLoanAmount(clean);
           if (!parsedAmount || parsedAmount <= 0) {
-            appendBotMessage(
-              `Hmm, I couldn't understand that amount. Please enter a positive figure like <strong>5 lakh</strong>, <strong>10,00,000</strong>, or <strong>1.5 cr</strong>:`,
-              [
-                { label: "5 Lakhs", value: "500000" },
-                { label: "10 Lakhs", value: "1000000" },
-                { label: "25 Lakhs", value: "2500000" }
-              ],
-              "worried"
+            appendBotMessage(`Please enter a valid loan amount like <strong>5 lakh</strong>, <strong>10,00,000</strong>, or <strong>1.5 cr</strong>:`,
+              [{ label: "5 Lakhs", value: "500000" }, { label: "10 Lakhs", value: "1000000" }, { label: "25 Lakhs", value: "2500000" }], "worried"
             );
             return;
           }
-
           session.loanAmount = parsedAmount;
-          // Derive Ticket size automatically
           session.ticketSize = deriveTicketSize(session.product, session.loanAmount);
-
           session.step = STEPS.TENURE;
           inputHint.textContent = "Enter loan tenure (e.g. 36 months, 5 years)";
           userInput.placeholder = "e.g. 60 months, 5 years, 36...";
-
           appendBotMessage(
-            `Loan Amount: <strong>${formatINR(session.loanAmount)}</strong>.<br><em>Derived Ticket Size: <strong>${session.ticketSize}</strong></em>. 🏷️<br><br>What is the proposed <strong>Loan Tenure</strong>? (Min 3 months, Max 360 months)`,
+            `Loan Amount: <strong>${formatINR(session.loanAmount)}</strong>.<br>Derived Ticket Size: <strong>${session.ticketSize}</strong>. 🏷️<br><br>What is the proposed <strong>Loan Tenure</strong>? (3 - 360 months)`,
             [
               { label: "3 Years (36m)", value: "36 months" },
               { label: "5 Years (60m)", value: "60 months", primary: true },
               { label: "7 Years (84m)", value: "84 months" },
               { label: "10 Years (120m)", value: "120 months" }
-            ],
-            "talking"
+            ], "talking"
           );
           break;
-        }
 
-        case STEPS.TENURE: {
+        case STEPS.TENURE:
           const parsedMonths = parseTenure(clean);
           if (!parsedMonths) {
-            appendBotMessage(
-              `Please enter a valid tenure between <strong>3 months and 360 months</strong> (e.g. <em>"60 months"</em> or <em>"5 years"</em>):`,
-              [
-                { label: "36 months" },
-                { label: "60 months", primary: true },
-                { label: "84 months" },
-                { label: "120 months" }
-              ],
-              "worried"
+            appendBotMessage(`Please enter tenure between <strong>3 and 360 months</strong> (e.g. <em>"60 months"</em> or <em>"5 years"</em>):`,
+              [{ label: "36 months" }, { label: "60 months", primary: true }, { label: "84 months" }, { label: "120 months" }], "worried"
             );
             return;
           }
-
           session.tenureMonths = parsedMonths;
           session.step = STEPS.INCOME_FREQ;
           inputHint.textContent = "Select Monthly or Annual income";
           userInput.placeholder = "Select income frequency...";
-
           appendBotMessage(
-            `Tenure: <strong>${session.tenureMonths} months (${(session.tenureMonths / 12).toFixed(1)} years)</strong>. ⏳<br><br>How would you like to declare the customer's income?`,
-            [
-              { label: "Monthly Income", value: "Monthly", icon: "📅", primary: true },
-              { label: "Annual Income", value: "Annual", icon: "📊" }
-            ],
-            "talking"
+            `Tenure: <strong>${session.tenureMonths} months (${(session.tenureMonths / 12).toFixed(1)} years)</strong>. ⏳<br><br>How is the customer's income declared?`,
+            [{ label: "Monthly Income", value: "Monthly", icon: "📅", primary: true }, { label: "Annual Income", value: "Annual", icon: "📊" }], "talking"
           );
           break;
-        }
 
-        case STEPS.INCOME_FREQ: {
+        case STEPS.INCOME_FREQ:
           const freq = clean.toLowerCase().includes("ann") ? "Annual" : "Monthly";
           session.incomeFrequency = freq;
           session.step = STEPS.INCOME_AMOUNT;
           inputHint.textContent = `Enter ${freq.toLowerCase()} income amount`;
           userInput.placeholder = freq === "Annual" ? "e.g. 12 lakh, 12,00,000..." : "e.g. 80,000, 1 lakh...";
-
           appendBotMessage(
             `Selected <strong>${freq} Income</strong>. What is the customer's gross ${freq.toLowerCase()} earnings?`,
             freq === "Annual" ? [
@@ -1550,219 +1628,150 @@
               { label: "₹50,000", value: "50000" },
               { label: "₹80,000", value: "80000", primary: true },
               { label: "₹1,50,000", value: "150000" }
-            ],
-            "talking"
+            ], "talking"
           );
           break;
-        }
 
-        case STEPS.INCOME_AMOUNT: {
-          const parsed = parseNumber(clean);
-          if (!parsed || parsed <= 0) {
-            appendBotMessage(
-              `Please enter a valid positive income figure (e.g. <em>"80,000"</em> or <em>"12 lakh"</em>):`,
-              [],
-              "worried"
-            );
+        case STEPS.INCOME_AMOUNT:
+          const parsedInc = parseNumber(clean);
+          if (!parsedInc || parsedInc <= 0) {
+            appendBotMessage(`Please enter a valid positive income (e.g. <em>"80,000"</em> or <em>"12 lakh"</em>):`, [], "worried");
             return;
           }
-
-          if (session.incomeFrequency === "Annual") {
-            session.monthlyIncome = parsed / 12.0;
-          } else {
-            session.monthlyIncome = parsed;
-          }
-
+          session.monthlyIncome = session.incomeFrequency === "Annual" ? parsedInc / 12.0 : parsedInc;
           session.step = STEPS.EXISTING_EMIS;
-          inputHint.textContent = "Enter total existing monthly EMIs / debt obligations (0 if none)";
+          inputHint.textContent = "Enter total existing monthly EMIs (0 if none)";
           userInput.placeholder = "e.g. 20,000 or 0...";
-
           appendBotMessage(
-            `Normalized Monthly Income: <strong>${formatINR(session.monthlyIncome)}/month</strong>. 💼<br><br>What are the borrower's <strong>total existing monthly EMIs / debt obligations</strong>? (Enter <strong>0</strong> or <em>"None"</em> if zero)`,
+            `Normalized Monthly Income: <strong>${formatINR(session.monthlyIncome)}/month</strong>. 💼<br><br>What are the borrower's <strong>total existing monthly EMIs / debt obligations</strong>? (Enter <strong>0</strong> if none)`,
             [
               { label: "0 (No obligations)", value: "0", primary: true },
               { label: "₹10,000", value: "10000" },
               { label: "₹20,000", value: "20000" },
               { label: "₹35,000", value: "35000" }
-            ],
-            "talking"
+            ], "talking"
           );
           break;
-        }
 
-        case STEPS.EXISTING_EMIS: {
-          const parsed = parseNumber(clean);
-          if (parsed === null || parsed < 0) {
-            appendBotMessage(
-              `Please enter a non-negative number for existing EMIs (type <strong>0</strong> if there are no existing loans):`,
-              [{ label: "0", value: "0" }],
-              "worried"
-            );
+        case STEPS.EXISTING_EMIS:
+          const parsedEmis = parseNumber(clean);
+          if (parsedEmis === null || parsedEmis < 0) {
+            appendBotMessage(`Please enter 0 or positive existing EMIs:`, [{ label: "0", value: "0" }], "worried");
             return;
           }
+          session.existingEmis = parsedEmis;
 
-          session.existingEmis = parsed;
-
-          // Look up Base Rates in Matrix
-          const baseRates = lookupBaseRates(
-            session.product,
-            session.ticketSize,
-            session.incomeProgram,
-            session.propertyType,
-            session.bureau
-          );
-
+          const baseRates = lookupBaseRates(session.product, session.ticketSize, session.incomeProgram, session.propertyType, session.bureau);
           if (!baseRates) {
             appendBotMessage(
-              `⚠️ <strong>Policy Matrix Notice:</strong> No standard rate entry exists for this exact parameter combination.<br><br>` +
-              `• Product: ${session.product}<br>` +
-              `• Ticket: ${session.ticketSize}<br>` +
-              `• Income: ${session.incomeProgram}<br>` +
-              `• Property: ${session.propertyType}<br>` +
-              `• Bureau: ${session.bureau}<br><br>` +
-              `This special policy exception requires <strong>CEO / Credit Committee Approval</strong>.`,
-              [{ label: "Start Over", value: "restart" }],
-              "worried"
+              `⚠️ <strong>Policy Matrix Notice:</strong> No standard rate entry exists for this exact parameter combination.<br>` +
+              `This exception requires <strong>CEO / Credit Committee Approval</strong>.`,
+              [{ label: "Start Over", value: "restart" }], "worried"
             );
             return;
           }
 
           session.baseRoi = baseRates.baseRoi;
           session.basePf = baseRates.basePf;
-
           session.step = STEPS.REQUESTED_ROI;
           inputHint.textContent = "Enter requested ROI % p.a. (0 - 60)";
           userInput.placeholder = `Benchmark is ${session.baseRoi}%, enter requested ROI...`;
 
           appendBotMessage(
-            `🎉 <strong>Benchmark Matrix Found!</strong><br><br>` +
-            `Based on your customer's profile, the standard benchmark rates are:<br>` +
-            `• <strong>Base ROI:</strong> <span style="color:#60a5fa; font-weight:700;">${session.baseRoi.toFixed(2)}% p.a.</span><br>` +
-            `• <strong>Base Processing Fee (PF):</strong> <span style="color:#60a5fa; font-weight:700;">${session.basePf.toFixed(2)}%</span><br><br>` +
-            `Now, what <strong>Requested ROI (% p.a.)</strong> would you like to propose?`,
+            `🎉 <strong>Policy Benchmark Found!</strong><br><br>` +
+            `Standard benchmark rates for this profile:<br>` +
+            `• <strong>Base ROI:</strong> <span style="color:var(--accent-1); font-weight:800;">${session.baseRoi.toFixed(2)}% p.a.</span><br>` +
+            `• <strong>Base Processing Fee:</strong> <span style="color:var(--accent-pink); font-weight:800;">${session.basePf.toFixed(2)}%</span><br><br>` +
+            `<em>Note: Per credit policy, any Requested ROI &lt; 15% requires mandatory CEO Approval.</em><br><br>` +
+            `What <strong>Requested ROI (% p.a.)</strong> would you like to evaluate?`,
             [
               { label: `${session.baseRoi}% (Base Rate)`, value: String(session.baseRoi), primary: true },
-              { label: `${(session.baseRoi - 1.5).toFixed(1)}% (-1.5% CBO)`, value: String(session.baseRoi - 1.5) },
-              { label: `${(session.baseRoi - 3.0).toFixed(1)}% (-3.0% COO)`, value: String(session.baseRoi - 3.0) },
-              { label: `${(session.baseRoi - 4.5).toFixed(1)}% (-4.5% CEO)`, value: String(session.baseRoi - 4.5) }
-            ],
-            "surprised"
+              { label: `${(session.baseRoi - 1.5).toFixed(1)}% (CBO)`, value: String(session.baseRoi - 1.5) },
+              { label: `${(session.baseRoi - 3.0).toFixed(1)}% (COO)`, value: String(session.baseRoi - 3.0) },
+              { label: `14.5% (< 15% CEO Floor)`, value: "14.5" }
+            ], "surprised"
           );
           break;
-        }
 
-        case STEPS.REQUESTED_ROI: {
-          const num = parseFloat(clean.replace(/%/g, ""));
-          if (isNaN(num) || num < 0 || num > 60) {
-            appendBotMessage(
-              `Please enter a realistic requested annual ROI between <strong>0% and 60%</strong>:`,
-              [{ label: `${session.baseRoi}%`, value: String(session.baseRoi) }],
-              "worried"
-            );
+        case STEPS.REQUESTED_ROI:
+          const numRoi = parseFloat(clean.replace(/%/g, ""));
+          if (isNaN(numRoi) || numRoi < 0 || numRoi > 60) {
+            appendBotMessage(`Please enter a realistic requested annual ROI between <strong>0% and 60%</strong>:`, [{ label: `${session.baseRoi}%`, value: String(session.baseRoi) }], "worried");
             return;
           }
-
-          session.requestedRoi = num;
+          session.requestedRoi = numRoi;
           session.step = STEPS.REQUESTED_PF;
           inputHint.textContent = "Enter requested PF % (0 - 15)";
           userInput.placeholder = `Benchmark is ${session.basePf}%, enter requested PF...`;
-
           appendBotMessage(
-            `Requested ROI recorded: <strong>${session.requestedRoi.toFixed(2)}% p.a.</strong> (Base is ${session.baseRoi.toFixed(2)}%).<br><br>` +
+            `Requested ROI recorded: <strong>${session.requestedRoi.toFixed(2)}% p.a.</strong> (Base: ${session.baseRoi.toFixed(2)}%).<br>` +
+            `<em>Note: Per credit policy, any Requested PF &lt; 1.5% requires mandatory CEO Approval.</em><br><br>` +
             `What <strong>Requested Processing Fee (PF %)</strong> are you seeking?`,
             [
               { label: `${session.basePf}% (Full PF)`, value: String(session.basePf), primary: true },
-              { label: `${Math.max(0, session.basePf - 0.8).toFixed(1)}% (CBO)`, value: String(Math.max(0, session.basePf - 0.8)) },
-              { label: `${Math.max(0, session.basePf - 1.2).toFixed(1)}% (COO)`, value: String(Math.max(0, session.basePf - 1.2)) },
-              { label: `${Math.max(0, session.basePf - 1.6).toFixed(1)}% (CEO)`, value: String(Math.max(0, session.basePf - 1.6)) }
-            ],
-            "talking"
+              { label: `1.8% (CBO band)`, value: "1.8" },
+              { label: `1.5% (COO band)`, value: "1.5" },
+              { label: `1.2% (< 1.5% CEO Floor)`, value: "1.2" }
+            ], "talking"
           );
           break;
-        }
 
-        case STEPS.REQUESTED_PF: {
-          const num = parseFloat(clean.replace(/%/g, ""));
-          if (isNaN(num) || num < 0 || num > 15) {
-            appendBotMessage(
-              `Please enter a valid Processing Fee between <strong>0% and 15%</strong>:`,
-              [{ label: `${session.basePf}%`, value: String(session.basePf) }],
-              "worried"
-            );
+        case STEPS.REQUESTED_PF:
+          const numPf = parseFloat(clean.replace(/%/g, ""));
+          if (isNaN(numPf) || numPf < 0 || numPf > 15) {
+            appendBotMessage(`Please enter a valid Processing Fee between <strong>0% and 15%</strong>:`, [{ label: `${session.basePf}%`, value: String(session.basePf) }], "worried");
             return;
           }
-
-          session.requestedPf = num;
+          session.requestedPf = numPf;
           session.step = STEPS.COMPLETED;
           inputHint.textContent = "Select an action below or test other rates";
           userInput.placeholder = "Click 'Try different ROI / PF' or 'New customer'";
-
-          // Execute full evaluation and display verdict
           renderFullLoanVerdict();
           break;
-        }
 
-        case STEPS.COMPLETED: {
+        case STEPS.COMPLETED:
           if (clean.toLowerCase().includes("different") || clean.toLowerCase().includes("try")) {
             reAskRatesOnly();
           } else if (clean.toLowerCase().includes("new")) {
             restartConversation();
           } else {
-            appendBotMessage(
-              `Would you like to test another rate structure or start a new borrower assessment?`,
-              [
-                { label: "Try different ROI / PF", icon: "✏️", primary: true },
-                { label: "New customer", icon: "👤" }
-              ],
-              "idle"
+            appendBotMessage(`Would you like to test another rate structure or start a new borrower assessment?`,
+              [{ label: "Try different ROI / PF", icon: "✏️", primary: true }, { label: "New customer", icon: "👤" }], "idle"
             );
           }
           break;
-        }
       }
     }
 
     /* ==========================================================================
-       RESULT CARD GENERATOR
+       RENDER COMPREHENSIVE VERDICT CARD
        ========================================================================== */
     function renderFullLoanVerdict() {
-      // 1. Approval Engine
-      const approval = determineFinalApproval(
-        session.baseRoi,
-        session.requestedRoi,
-        session.basePf,
-        session.requestedPf
-      );
-
-      // 2. Reducing Balance EMI Calculations
+      const approval = determineFinalApproval(session.baseRoi, session.requestedRoi, session.basePf, session.requestedPf);
       const baseEmi = calculateReducingEMI(session.loanAmount, session.baseRoi, session.tenureMonths);
       const reqEmi = calculateReducingEMI(session.loanAmount, session.requestedRoi, session.tenureMonths);
       const emiDiff = baseEmi - reqEmi;
-
-      // 3. PF Amounts
       const basePfAmount = (session.loanAmount * session.basePf) / 100.0;
       const reqPfAmount = (session.loanAmount * session.requestedPf) / 100.0;
       const pfSavings = basePfAmount - reqPfAmount;
-
-      // 4. DTI Analysis
       const dti = calculateDTI(session.existingEmis, reqEmi, session.monthlyIncome);
 
-      // Emotional mascot reaction
-      let mascotExpression = "celebrating";
-      if (approval.finalApproverKey === "CBO") mascotExpression = "happy";
-      else if (approval.finalApproverKey === "COO") mascotExpression = "surprised";
-      else if (approval.finalApproverKey === "CEO") mascotExpression = "worried";
+      let petMood = "celebrating";
+      if (approval.finalApproverKey === "CBO") petMood = "happy";
+      else if (approval.finalApproverKey === "COO") petMood = "surprised";
+      else if (approval.finalApproverKey === "CEO") petMood = "worried";
 
-      // Deviation Badge formatting
-      function getBadge(dev, bandType) {
-        if (dev <= 0) return `<span class="tag-deviation favorable">No Deviation (0.00%)</span>`;
+      function getBadge(dev, bandType, isFloorBreached, requestedVal, floorVal) {
+        if (isFloorBreached) {
+          return `<span class="pill-badge ceo">⚠️ Below ${floorVal}% Floor (CEO)</span>`;
+        }
+        if (dev <= 0) return `<span class="pill-badge favorable">No Deviation (0.00%)</span>`;
         const appr = getApproverForDeviation(dev, bandType);
-        const cls = appr.toLowerCase();
-        return `<span class="tag-deviation ${cls}">-${dev.toFixed(2)}% (${appr})</span>`;
+        return `<span class="pill-badge ${appr.toLowerCase()}">-${dev.toFixed(2)}% (${appr})</span>`;
       }
 
-      const roiBadge = getBadge(approval.roiDeviation, "ROI");
-      const pfBadge = getBadge(approval.pfDeviation, "PF");
+      const roiBadge = getBadge(approval.roiDeviation, "ROI", approval.roiFloorBreached, session.requestedRoi, CONFIG.ROI_FLOOR_PERCENT);
+      const pfBadge = getBadge(approval.pfDeviation, "PF", approval.pfFloorBreached, session.requestedPf, CONFIG.PF_FLOOR_PERCENT);
 
       let bannerTitle = "";
       if (approval.finalApproverKey === "NONE") {
@@ -1771,38 +1780,38 @@
         bannerTitle = `🛡️ Approval Required: ${approval.finalApproverName}`;
       }
 
-      // DTI Warning block
-      const dtiAlertHtml = dti.warning ? `
-        <div class="dti-alert">
-          <span style="font-size:18px;">⚠️</span>
-          <div>
-            <strong>High DTI Alert:</strong> The updated Debt-to-Income ratio (${dti.updatedDti}%) 
-            exceeds our internal prudent benchmark of ${CONFIG.DTI_LIMIT_PERCENT}%. Special credit risk review recommended.
-          </div>
+      const floorAlertHtml = (approval.roiFloorBreached || approval.pfFloorBreached) ? `
+        <div style="margin-bottom:8px;">
+          <span class="floor-alert-badge">🏛️ MANDATORY CEO FLOOR OVERRIDE TRIGGERED</span>
         </div>
       ` : '';
 
+      const dtiAlertHtml = dti.warning ? `
+        <div class="dti-alert-box">
+          <span style="font-size:18px;">⚠️</span>
+          <div>
+            <strong>Prudent DTI Threshold Exceeded:</strong> The updated debt ratio (${dti.updatedDti}%) 
+            surpasses our standard benchmark of ${CONFIG.DTI_LIMIT_PERCENT}%. Special risk assessment applies.
+          </div>
+        </div>` : '';
+
       const cardHtml = `
         <div class="result-card">
-          <!-- Verdict Banner -->
           <div class="verdict-banner ${approval.color}">
             <span>${bannerTitle}</span>
           </div>
-
-          <!-- Explanation -->
           <div class="verdict-explanation">
-            <strong>Approval Assessment:</strong> ${escapeHtml(approval.explanation)}
+            ${floorAlertHtml}
+            ${approval.explanation}
           </div>
-
-          <!-- Comparison Table -->
           <div class="comparison-table-wrapper">
             <table class="comparison-table">
               <thead>
                 <tr>
                   <th>Parameter</th>
-                  <th>Base Policy</th>
+                  <th>Benchmark</th>
                   <th>Requested</th>
-                  <th>Deviation & Approver</th>
+                  <th>Status & Authority</th>
                 </tr>
               </thead>
               <tbody>
@@ -1822,42 +1831,35 @@
                   <td><strong>Monthly EMI</strong></td>
                   <td>${formatINR(baseEmi)}</td>
                   <td><strong>${formatINR(reqEmi)}</strong></td>
-                  <td><span class="tag-deviation ${emiDiff >= 0 ? 'favorable' : 'neutral'}">${emiDiff >= 0 ? 'Saves ' + formatINR(emiDiff) + '/m' : '+ ' + formatINR(Math.abs(emiDiff))}</span></td>
+                  <td><span class="pill-badge ${emiDiff >= 0 ? 'favorable' : 'cbo'}">${emiDiff >= 0 ? 'Saves ' + formatINR(emiDiff) + '/m' : '+ ' + formatINR(Math.abs(emiDiff))}</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-          <!-- Financial Impact Grid -->
           <div class="metrics-grid">
             <div class="metric-cell">
-              <div class="metric-label">New Monthly EMI</div>
-              <div class="metric-value" style="color:#60a5fa;">${formatINR(reqEmi)}</div>
-              <div class="metric-sub">${session.tenureMonths} months reducing</div>
+              <div class="metric-title">New Monthly EMI</div>
+              <div class="metric-number" style="color:var(--accent-1);">${formatINR(reqEmi)}</div>
+              <div class="metric-caption">${session.tenureMonths}m reducing rate</div>
             </div>
-
             <div class="metric-cell">
-              <div class="metric-label">Monthly EMI Savings</div>
-              <div class="metric-value" style="color:#10b981;">${formatINR(Math.max(0, emiDiff))}</div>
-              <div class="metric-sub">${emiDiff > 0 ? 'Lower debt burden' : 'At base rate'}</div>
+              <div class="metric-title">Monthly EMI Savings</div>
+              <div class="metric-number" style="color:var(--color-green);">${formatINR(Math.max(0, emiDiff))}</div>
+              <div class="metric-caption">${emiDiff > 0 ? 'Lower debt burden' : 'At standard rate'}</div>
             </div>
-
             <div class="metric-cell">
-              <div class="metric-label">Upfront PF Amount</div>
-              <div class="metric-value">${formatINR(reqPfAmount)}</div>
-              <div class="metric-sub">Saves ${formatINR(Math.max(0, pfSavings))}</div>
+              <div class="metric-title">Upfront PF Amount</div>
+              <div class="metric-number" style="color:var(--accent-pink);">${formatINR(reqPfAmount)}</div>
+              <div class="metric-caption">Saves ${formatINR(Math.max(0, pfSavings))}</div>
             </div>
-
             <div class="metric-cell">
-              <div class="metric-label">Updated DTI Ratio</div>
-              <div class="metric-value" style="color:${dti.warning ? '#f59e0b' : '#10b981'};">${dti.updatedDti}%</div>
-              <div class="metric-sub">Was ${dti.currentDti}%</div>
+              <div class="metric-title">Updated DTI Ratio</div>
+              <div class="metric-number" style="color:${dti.warning ? 'var(--color-amber)' : 'var(--color-green)'};">${dti.updatedDti}%</div>
+              <div class="metric-caption">Was ${dti.currentDti}%</div>
             </div>
           </div>
-
           ${dtiAlertHtml}
-        </div>
-      `;
+        </div>`;
 
       appendBotMessage(
         `Here is the complete pricing & approval evaluation for <strong>${escapeHtml(session.customerName)}</strong>:<br>${cardHtml}`,
@@ -1865,8 +1867,7 @@
           { label: "Try different ROI / PF", icon: "✏️", primary: true, value: "re_ask_rates" },
           { label: "New customer", icon: "👤", value: "new_customer" }
         ],
-        mascotExpression,
-        450
+        petMood, 450
       );
     }
 
@@ -1874,22 +1875,19 @@
       session.step = STEPS.REQUESTED_ROI;
       inputHint.textContent = `Enter requested ROI % p.a. (Base is ${session.baseRoi}%)`;
       userInput.placeholder = `Benchmark is ${session.baseRoi}%, enter new ROI...`;
-
       appendBotMessage(
         `Let's adjust the proposal for <strong>${escapeHtml(session.customerName)}</strong>.<br>` +
-        `All other inputs (Loan: ${formatINR(session.loanAmount)}, ${session.tenureMonths}m, Base: ${session.baseRoi}% / ${session.basePf}%) are safely retained.<br><br>` +
+        `All other inputs (Loan: ${formatINR(session.loanAmount)}, ${session.tenureMonths}m, Base: ${session.baseRoi}% / ${session.basePf}%) are retained.<br><br>` +
         `What new <strong>Requested ROI (% p.a.)</strong> would you like to evaluate?`,
         [
           { label: `${session.baseRoi}% (Base Rate)`, value: String(session.baseRoi), primary: true },
           { label: `${(session.baseRoi - 1.5).toFixed(1)}% (CBO)`, value: String(session.baseRoi - 1.5) },
           { label: `${(session.baseRoi - 3.0).toFixed(1)}% (COO)`, value: String(session.baseRoi - 3.0) },
-          { label: `${(session.baseRoi - 4.5).toFixed(1)}% (CEO)`, value: String(session.baseRoi - 4.5) }
-        ],
-        "talking"
+          { label: `14.5% (< 15% CEO Floor)`, value: "14.5" }
+        ], "talking"
       );
     }
 
-    // Handle button chip selection for post-results actions
     const originalOnChipSelected = onChipSelected;
     onChipSelected = function(val) {
       if (val === "re_ask_rates") {
@@ -1903,29 +1901,15 @@
       }
     };
 
-    /* ==========================================================================
-       MOBILE KEYBOARD HANDLING & PWA REGISTRATION
-       ========================================================================== */
-    // Prevent mobile keyboard from obscuring input area using VisualViewport API
     if (window.visualViewport) {
-      window.visualViewport.addEventListener("resize", () => {
-        scrollChatToBottom();
-      });
+      window.visualViewport.addEventListener("resize", () => { scrollChatToBottom(); });
     }
-
-    // Register Service Worker for PWA
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("sw.js").catch(err => {
-          console.log("Service Worker registration skipped:", err);
-        });
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
       });
     }
-
-    // Initialize chatbot on page load
-    window.addEventListener("DOMContentLoaded", () => {
-      startDialogue();
-    });
+    window.addEventListener("DOMContentLoaded", () => { startDialogue(); });
   </script>
 </body>
 </html>

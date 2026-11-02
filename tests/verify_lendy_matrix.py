@@ -7,6 +7,8 @@ import math
 CONFIG = {
     "DTI_LIMIT_PERCENT": 50.0,
     "ROUNDING_TOLERANCE": 1e-6,
+    "ROI_FLOOR_PERCENT": 15.0,
+    "PF_FLOOR_PERCENT": 1.5,
     "APPROVERS": {
         "NONE": {"name": "No Approval Needed", "level": 0, "color": "green"},
         "CBO": {"name": "CBO Approval", "level": 1, "color": "blue"},
@@ -132,11 +134,22 @@ def get_approver_for_deviation(deviation: float, band_type: str) -> str:
 
 
 def determine_final_approval(base_roi: float, req_roi: float, base_pf: float, req_pf: float):
+    eps = CONFIG["ROUNDING_TOLERANCE"]
     roi_dev = round(base_roi - req_roi, 4)
     pf_dev = round(base_pf - req_pf, 4)
 
+    # Standard deviation-based approver
     roi_appr = get_approver_for_deviation(roi_dev, "ROI")
     pf_appr = get_approver_for_deviation(pf_dev, "PF")
+
+    # Hard floor overrides (Rule: Req ROI < 15.0% -> CEO, Req PF < 1.5% -> CEO)
+    roi_floor_breached = req_roi < (CONFIG["ROI_FLOOR_PERCENT"] - eps)
+    pf_floor_breached = req_pf < (CONFIG["PF_FLOOR_PERCENT"] - eps)
+
+    if roi_floor_breached:
+        roi_appr = "CEO"
+    if pf_floor_breached:
+        pf_appr = "CEO"
 
     levels = {"NONE": 0, "CBO": 1, "COO": 2, "CEO": 3}
     final_key = roi_appr if levels[roi_appr] >= levels[pf_appr] else pf_appr
@@ -145,6 +158,8 @@ def determine_final_approval(base_roi: float, req_roi: float, base_pf: float, re
         "pf_deviation": pf_dev,
         "roi_approver": roi_appr,
         "pf_approver": pf_appr,
+        "roi_floor_breached": roi_floor_breached,
+        "pf_floor_breached": pf_floor_breached,
         "final_approver": final_key,
         "requires_approval": final_key != "NONE",
     }

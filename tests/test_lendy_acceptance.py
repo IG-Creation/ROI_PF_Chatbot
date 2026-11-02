@@ -44,18 +44,34 @@ def test_acceptance_case_1():
 
 
 def test_acceptance_case_2():
-    # 2. Same case with requested ROI 18 and PF 1.2 -> PF deviation 0.8 -> CBO.
-    # With PF 0.4 -> deviation 1.6 -> CEO.
+    # 2. Base ROI 18, PF 2.
+    # Case A: Req PF 1.6% -> PF dev 0.4 <= 1.0 and PF >= 1.5% floor -> CBO
     base_roi = 18.0
     base_pf = 2.0
 
-    res1 = determine_final_approval(base_roi, 18.0, base_pf, 1.2)
-    assert pytest.approx(res1["pf_deviation"], 0.01) == 0.8
-    assert res1["final_approver"] == "CBO"
+    res_cbo = determine_final_approval(base_roi, 18.0, base_pf, 1.6)
+    assert pytest.approx(res_cbo["pf_deviation"], 0.01) == 0.4
+    assert res_cbo["final_approver"] == "CBO"
 
-    res2 = determine_final_approval(base_roi, 18.0, base_pf, 0.4)
-    assert pytest.approx(res2["pf_deviation"], 0.01) == 1.6
-    assert res2["final_approver"] == "CEO"
+    # Case B: Req PF 1.2% -> less than 1.5% floor -> CEO approval required
+    res_floor = determine_final_approval(base_roi, 18.0, base_pf, 1.2)
+    assert res_floor["pf_floor_breached"] is True
+    assert res_floor["final_approver"] == "CEO"
+
+    # Case C: Req PF 0.4% -> less than 1.5% and dev 1.6 -> CEO approval
+    res_ceo = determine_final_approval(base_roi, 18.0, base_pf, 0.4)
+    assert pytest.approx(res_ceo["pf_deviation"], 0.01) == 1.6
+    assert res_ceo["final_approver"] == "CEO"
+
+
+def test_roi_floor_rule():
+    # ROI Floor: Any requested ROI < 15% requires CEO approval regardless of deviation
+    # E.g. Base ROI 15.5%, Req ROI 14.5% -> deviation is only 1.0% (normally CBO),
+    # but because 14.5% < 15.0%, CEO approval is mandated!
+    res = determine_final_approval(base_roi=15.5, req_roi=14.5, base_pf=3.0, req_pf=3.0)
+    assert res["roi_deviation"] == 1.0
+    assert res["roi_floor_breached"] is True
+    assert res["final_approver"] == "CEO"
 
 
 def test_acceptance_case_3():

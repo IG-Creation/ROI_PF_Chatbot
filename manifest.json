@@ -1,14 +1,15 @@
 {
   "name": "Lendy - Loan Pricing & Approval Chatbot",
   "short_name": "Lendy",
-  "description": "Interactive loan pricing and approval matrix chatbot for enterprise lending.",
-  "start_url": "/",
+  "description": "Interactive loan pricing and approval matrix chatbot with animated 3D companion.",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#0b1120",
-  "theme_color": "#2563eb",
+  "background_color": "#0b0f19",
+  "theme_color": "#8b5cf6",
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><circle cx='50' cy='50' r='30' fill='white'/><circle cx='40' cy='45' r='5' fill='%232563eb'/><circle cx='60' cy='45' r='5' fill='%232563eb'/><path d='M42 60 Q50 68 58 60' stroke='%232563eb' stroke-width='3' fill='none'/></svg>",
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%238b5cf6'/><circle cx='50' cy='50' r='32' fill='%230f172a'/><polygon points='25,38 12,14 38,28' fill='%2338bdf8'/><polygon points='75,38 88,14 62,28' fill='%2338bdf8'/><circle cx='38' cy='46' r='6' fill='%2338bdf8'/><circle cx='62' cy='46' r='6' fill='%2338bdf8'/><path d='M42 62 Q50 70 58 62' stroke='%2338bdf8' stroke-width='4' fill='none' stroke-linecap='round'/></svg>",
       "sizes": "192x192 512x512",
       "type": "image/svg+xml"
     }
