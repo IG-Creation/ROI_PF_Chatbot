@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROI & Managed Pricing Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <!-- Chart.js for visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- Marked for markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-icon">📈</div>
+      <div class="brand-text">
+        <h1>ROI & PF Chatbot</h1>
+        <p>Managed Pricing & Financial Analytics Assistant</p>
+      </div>
+    </div>
+    <div class="header-badges">
+      <span class="badge online">● Online & Ready</span>
+      <span class="badge">v1.0.0</span>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="app-container">
+    <!-- Sidebar / Presets -->
+    <aside class="sidebar">
+      <div>
+        <div class="section-title">Quick Calculation Presets</div>
+        <div class="preset-list">
+          <button class="preset-btn" onclick="sendPreset('Calculate ROI on $25,000 cost and $42,000 return over 2 years')">
+            📊 <strong>ROI Analysis</strong><br>
+            <small>$25k cost, $42k gain, 2 yrs</small>
+          </button>
+          <button class="preset-btn" onclick="sendPreset('Cost is $40, selling price is $85, calculate pricing factor and margins')">
+            🏷️ <strong>Pricing Factor (PF)</strong><br>
+            <small>$40 cost, $85 price markup</small>
+          </button>
+          <button class="preset-btn" onclick="sendPreset('Calculate profit factor: gross profit $75,000, gross loss $22,000')">
+            📈 <strong>Trading Profit Factor</strong><br>
+            <small>$75k gains vs $22k losses</small>
+          </button>
+          <button class="preset-btn" onclick="sendPreset('Break even: fixed costs 25000, variable cost 12, selling price 28')">
+            ⚖️ <strong>Break-Even Volume</strong><br>
+            <small>$25k fixed, $12 var, $28 price</small>
+          </button>
+          <button class="preset-btn" onclick="sendPreset('Simulate scenarios: price 50, cost 25, volume 1000, fixed costs 5000')">
+            🔬 <strong>Pricing Scenarios Matrix</strong><br>
+            <small>Multi-price sensitivity grid</small>
+          </button>
+          <button class="preset-btn" onclick="sendPreset('Simulate 15% discount on $100 price with unit cost $60 and volume 500')">
+            🏷️ <strong>Discount / Markdown Hurdle</strong><br>
+            <small>Volume required to keep profit</small>
+          </button>
+          <button class="preset-btn" onclick="sendPreset('Price changed from $50 to $60, demand dropped from 1000 to 820, calculate elasticity')">
+            📉 <strong>Price Elasticity (PED)</strong><br>
+            <small>Demand sensitivity test</small>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bulk CSV Upload Card -->
+      <div class="tool-card">
+        <h4>📁 Bulk Catalog Analysis</h4>
+        <p>Upload a CSV file containing columns <code>product, unit_cost, selling_price, volume</code> to analyze whole catalogs.</p>
+        <label for="csvFileInput" class="file-upload-btn">Upload CSV File</label>
+        <input type="file" id="csvFileInput" accept=".csv" style="display:none" onchange="uploadCatalog(this)">
+      </div>
+
+      <!-- Quick Reset Button -->
+      <div>
+        <button class="preset-btn" style="width: 100%; text-align: center; color: var(--text-muted);" onclick="clearChat()">
+          🔄 Reset Conversation
+        </button>
+      </div>
+    </aside>
+
+    <!-- Chat Area -->
+    <main class="chat-main">
+      <div class="chat-history" id="chatHistory">
+        <!-- Initial welcome bot message -->
+        <div class="message-wrapper">
+          <div class="avatar bot">🤖</div>
+          <div class="message-bubble">
+            <h3>Welcome to ROI & Managed Pricing Chatbot!</h3>
+            <p>I am your financial and pricing optimization analyst. You can ask me any questions in natural language, or click any preset in the sidebar.</p>
+            <br>
+            <p><strong>Try asking:</strong></p>
+            <ul>
+              <li><em>"Calculate ROI for $50,000 cost and $82,000 return"</em></li>
+              <li><em>"What price should I set if cost is $30 and target PF is 2.5?"</em></li>
+              <li><em>"Break even analysis: fixed overhead 20000, variable cost 8, selling price 22"</em></li>
+              <li><em>"Simulate what happens if I increase price by 10% on a product with cost $35 and price $60"</em></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input -->
+      <div class="chat-input-container">
+        <input 
+          type="text" 
+          id="userInput" 
+          class="input-box" 
+          placeholder="Ask a pricing question, e.g. 'Calculate ROI for $15,000 cost and $28,000 return'..."
+          onkeydown="if(event.key === 'Enter') sendMessage()"
+          autocomplete="off"
+        >
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+          Send ➔
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
