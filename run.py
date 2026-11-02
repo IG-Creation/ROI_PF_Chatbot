@@ -8,6 +8,15 @@ Usage:
 
 import sys
 import argparse
+
+# Ensure UTF-8 output on Windows consoles to prevent UnicodeEncodeError
+if sys.platform == "win32" and hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 import uvicorn
 from app.config import config
 from app.chatbot.handler import handle_chat_message
