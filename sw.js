@@ -1,5 +1,5 @@
 // Lendy PWA Service Worker (Always Network-First to guarantee immediate updates)
-const CACHE_NAME = 'lendy-pwa-v7-network-first';
+const CACHE_NAME = 'lendy-pwa-v8-network-first';
 
 self.addEventListener('install', (event) => {
   // Immediately activate new service worker without waiting
