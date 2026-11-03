@@ -2014,11 +2014,15 @@
     const companionBubble = document.getElementById("companionBubble");
     const eyeLeft = document.getElementById("eyeLeft");
     const eyeRight = document.getElementById("eyeRight");
+    const pupilLeft = document.getElementById("pupilLeft");
+    const pupilRight = document.getElementById("pupilRight");
     const mouthLine = document.getElementById("mouthLine");
     const cyberVisor = document.getElementById("cyberVisor");
     const eyesNormalLayer = document.getElementById("eyesNormalLayer");
     const eyesStarLayer = document.getElementById("eyesStarLayer");
     const headGroup = document.getElementById("headGroup");
+    const leftPawGroup = document.getElementById("leftPawGroup");
+    const rightPawGroup = document.getElementById("rightPawGroup");
 
     let autoCycleTimer = null;
     let currentCatState = "standing-proud";
@@ -2340,9 +2344,8 @@
 
         let tilesHtml = "";
         if (actionTiles && actionTiles.length > 0) {
-          currentCardActionTiles = actionTiles;
-          tilesHtml = `<div class="cockpit-options-grid">` + actionTiles.map((tile, idx) => `
-            <div class="action-tile-3d ${tile.primary ? 'primary-glow' : ''}" onclick="onActionTileClick(${idx})">
+          tilesHtml = `<div class="cockpit-options-grid">` + actionTiles.map((tile) => `
+            <div class="action-tile-3d ${tile.primary ? 'primary-glow' : ''}" data-val="${escapeHtml(tile.value)}" data-label="${escapeHtml((tile.icon ? tile.icon + ' ' : '') + tile.title)}" onclick="onTileElementClick(this)">
               <div class="tile-icon-3d">${tile.icon}</div>
               <div class="tile-text-group">
                 <div class="tile-title">${escapeHtml(tile.title)}</div>
@@ -2350,8 +2353,6 @@
               </div>
             </div>
           `).join("") + `</div>`;
-        } else {
-          currentCardActionTiles = [];
         }
 
         cardRow.innerHTML = `
@@ -2382,41 +2383,32 @@
       }, delayMs);
     }
 
-    let currentCardActionTiles = [];
-    let currentCardChips = [];
+    function onTileElementClick(el) {
+      if (!el) return;
+      const val = el.getAttribute("data-val");
+      const label = el.getAttribute("data-label");
+      handleStepInput(val, label);
+    }
 
     function renderChips(chips) {
       chipsArea.innerHTML = "";
       if (!chips || chips.length === 0) {
         chipsArea.style.display = "none";
-        currentCardChips = [];
         return;
       }
-      currentCardChips = chips;
       chipsArea.style.display = "flex";
-      chips.forEach((chip, idx) => {
+      chips.forEach((chip) => {
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = `action-chip ${chip.primary ? 'primary-glow' : ''}`;
+        const displayLabel = (chip.icon ? chip.icon + ' ' : '') + chip.label;
         btn.innerHTML = `${chip.icon ? chip.icon + ' ' : ''}<span>${escapeHtml(chip.label)}</span>`;
-        btn.onclick = () => onChipClick(idx);
+        const val = chip.value !== undefined ? chip.value : chip.label;
+        btn.setAttribute("data-val", val);
+        btn.setAttribute("data-label", displayLabel);
+        btn.onclick = () => handleStepInput(val, displayLabel);
         chipsArea.appendChild(btn);
       });
-    }
-
-    function onActionTileClick(idx) {
-      if (!currentCardActionTiles || !currentCardActionTiles[idx]) return;
-      const tile = currentCardActionTiles[idx];
-      const displayLabel = `${tile.icon ? tile.icon + ' ' : ''}${tile.title}`;
-      handleStepInput(tile.value, displayLabel);
-    }
-
-    function onChipClick(idx) {
-      if (!currentCardChips || !currentCardChips[idx]) return;
-      const chip = currentCardChips[idx];
-      const displayLabel = `${chip.icon ? chip.icon + ' ' : ''}${chip.label}`;
-      const val = chip.value !== undefined ? chip.value : chip.label;
-      handleStepInput(val, displayLabel);
     }
 
     function onChipSelected(val, optLabel) {
@@ -3064,9 +3056,9 @@
           break;
 
         case STEPS.COMPLETED:
-          if (clean.toLowerCase().includes("try") || clean.toLowerCase().includes("different")) {
+          if (clean === "re_evaluate_rates" || clean.toLowerCase().includes("try") || clean.toLowerCase().includes("different")) {
             reAskProposedRates();
-          } else if (clean.toLowerCase().includes("new")) {
+          } else if (clean === "new_case" || clean.toLowerCase().includes("new")) {
             restartSession();
           } else {
             appendBotCard({
@@ -3330,25 +3322,23 @@
       });
     }
 
-    const origOnChipSelected = onChipSelected;
-    onChipSelected = function(val) {
-      if (val === "re_evaluate_rates") {
-        appendUserMessage(t("btnTryRates"));
+    // Direct action handlers for follow-ups
+    function handleFollowUpAction(action) {
+      if (action === "re_evaluate_rates") {
+        appendUserMessage("✏️ " + t("btnTryRates"));
         reAskProposedRates();
-      } else if (val === "new_case" || val === "restart") {
-        appendUserMessage(t("btnNewCase"));
+      } else if (action === "new_case" || action === "restart") {
+        appendUserMessage("👤 " + t("btnNewCase"));
         restartSession();
-      } else {
-        origOnChipSelected(val);
       }
-    };
+    }
 
     if (window.visualViewport) {
       window.visualViewport.addEventListener("resize", () => { scrollChatToBottom(); });
     }
 
     // Version release tag for service worker & cache purging
-    const LENDY_RELEASE_BUILD = "v20261103_8";
+    const LENDY_RELEASE_BUILD = "v20261103_9";
     if (typeof window !== "undefined" && window.caches) {
       try {
         const cachedVer = localStorage.getItem("lendy_active_build");
@@ -3385,16 +3375,25 @@
       });
     }
 
-    window.addEventListener("DOMContentLoaded", () => {
+    function initLendyApp() {
       const savedTheme = localStorage.getItem("lendy_theme");
       if (savedTheme) {
         document.documentElement.setAttribute("data-theme", savedTheme);
         const match = WALLPAPER_THEMES.find(t => t.id === savedTheme);
-        if (match) document.getElementById("themeEmoji").textContent = match.emoji;
+        if (match) {
+          const themeEmojiEl = document.getElementById("themeEmoji");
+          if (themeEmojiEl) themeEmojiEl.textContent = match.emoji;
+        }
       }
       startConversation();
       startAutonomousCatLifeCycle();
-    });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initLendyApp);
+    } else {
+      initLendyApp();
+    }
   </script>
 </body>
 </html>
