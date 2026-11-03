@@ -2298,6 +2298,60 @@
       companionSpeech("Hehehe! That tickles! 🐾 Watching your loan rates closely!", 2600);
     }
 
+    document.addEventListener("mousemove", (e) => {
+      if (!robotCat) return;
+      const rect = robotCat.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const dx = (e.clientX - centerX) / window.innerWidth;
+      const dy = (e.clientY - centerY) / window.innerHeight;
+      
+      const pupilL = document.getElementById("pupilLeft");
+      const pupilR = document.getElementById("pupilRight");
+      if (pupilL && pupilR && currentCatState !== "celebrating") {
+        pupilL.setAttribute("cx", String(47 + dx * 4));
+        pupilL.setAttribute("cy", String(38 + dy * 3));
+        pupilR.setAttribute("cx", String(73 + dx * 4));
+        pupilR.setAttribute("cy", String(38 + dy * 3));
+      }
+    });
+
+    /* ==========================================================================
+       CONVERSATIONAL WORKFLOW (SOFT, CASUAL & CARD-FRAMED)
+       ========================================================================== */
+    const chatContainer = document.getElementById("chatContainer");
+    const chipsArea = document.getElementById("chipsArea");
+    const userInput = document.getElementById("userInput");
+    const sendBtn = document.getElementById("sendBtn");
+    const inputHint = document.getElementById("inputHint");
+
+    let conversationToken = 0;
+    let session = {
+      caseName: "", product: "", incomeProgram: "", propertyType: "",
+      bureau: "", baseRoi: 0, basePf: 0, ticketSize: "",
+      sancAmount: 0, sancTenure: 0, sancRoi: 0, sancPf: 0, sancEmi: 0,
+      incomeFreq: "Monthly", monthlyIncome: 0, existingEmis: 0, currentDti: 0,
+      reqRoi: 0, reqPf: 0, step: "CASE_NAME"
+    };
+
+    const STEPS = {
+      CASE_NAME: "CASE_NAME",
+      PRODUCT: "PRODUCT",
+      INCOME_PROGRAM: "INCOME_PROGRAM",
+      PROPERTY_TYPE: "PROPERTY_TYPE",
+      BUREAU: "BUREAU",
+      SANC_AMOUNT: "SANC_AMOUNT",
+      SANC_TENURE: "SANC_TENURE",
+      SANC_ROI: "SANC_ROI",
+      SANC_PF: "SANC_PF",
+      INCOME_FREQ: "INCOME_FREQ",
+      INCOME_AMOUNT: "INCOME_AMOUNT",
+      EXISTING_EMIS: "EXISTING_EMIS",
+      REQ_ROI: "REQ_ROI",
+      REQ_PF: "REQ_PF",
+      COMPLETED: "COMPLETED"
+    };
+
     function scrollChatToBottom() {
       requestAnimationFrame(() => { chatContainer.scrollTop = chatContainer.scrollHeight; });
     }
@@ -3338,7 +3392,7 @@
     }
 
     // Version release tag for service worker & cache purging
-    const LENDY_RELEASE_BUILD = "v20261103_9";
+    const LENDY_RELEASE_BUILD = "v20261103_10";
     if (typeof window !== "undefined" && window.caches) {
       try {
         const cachedVer = localStorage.getItem("lendy_active_build");
